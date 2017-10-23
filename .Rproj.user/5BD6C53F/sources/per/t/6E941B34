@@ -1,0 +1,22 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1508536768713.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3292885304",
+    "id" : "6E941B34",
+    "lastKnownWriteTime" : 1508715337,
+    "last_content_update" : 1508715337398,
+    "path" : "~/__Rmarkdown/hugo-academic/config.toml",
+    "project_path" : "config.toml",
+    "properties" : {
+        "cursorPosition" : "185,0",
+        "scrollLine" : "0"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "toml"
+}

@@ -206,6 +206,26 @@ small,
 }
 
 /*************************************************
+ *  Modals.
+ **************************************************/
+
+.modal-header .close {
+  font-size: 40px; /* Bigger cross. */
+  height: 30px; /* Remove icon's vertical spacing. */
+  overflow-y: hidden;
+  position: relative;
+  top: -5px;
+}
+
+.modal-content pre {
+  margin: 0;
+}
+
+#modal-error {
+  color: red;
+}
+
+/*************************************************
  *  Home Sections
  **************************************************/
 
@@ -651,7 +671,6 @@ article {
 }
 
 #projects.home-section .project-title {
-  display: inline-block;
   margin-bottom: 6px;
 }
 
@@ -1008,6 +1027,10 @@ nav#navbar-main li {
   padding-bottom: 10px;
 }
 
+.navbar-brand img {
+  max-height: 50px;
+}
+
 .navbar-default .navbar-toggle .icon-bar {
   background-color: #34495e !important;
 }
@@ -1074,6 +1097,10 @@ nav#navbar-main li {
     line-height: 40px;
     padding-top: 5px;
     padding-bottom: 5px;
+  }
+
+  .navbar-brand img {
+    max-height: 40px;
   }
 
   .navbar-header {

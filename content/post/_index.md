@@ -6,7 +6,8 @@ highlight = false
 
 # Optional featured image (relative to `static/img/` folder).
 [header]
-image = "headers/r_machinery.png"
+# image = "headers/r_machinery.png"
+image = ""
 caption = ""
 
 +++

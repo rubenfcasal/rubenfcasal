@@ -1,7 +1,8 @@
 +++
 date = 2016-04-18
 draft = false
-tags = ["academic", "hugo"]
+categories = ["Hugo"]
+tags = ["blogdown", "academic"]
 title = "Managing content"
 math = false
 +++

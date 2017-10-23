@@ -1,7 +1,8 @@
 +++
 date = 2016-04-19
 draft = false
-tags = ["academic", "hugo"]
+categories = ["Hugo"]
+tags = ["blogdown", "academic"]
 title = "Customizing the homepage with widgets"
 math = false
 summary = """

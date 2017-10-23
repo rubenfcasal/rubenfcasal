@@ -1,0 +1,10 @@
+{
+    "dialog-state" : {
+        "caseSensitive" : false,
+        "filePatterns" : [
+        ],
+        "path" : "~/__Rmarkdown/hugo-academic",
+        "query" : "powered by",
+        "regex" : false
+    }
+}

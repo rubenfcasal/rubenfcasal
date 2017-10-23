@@ -1,7 +1,8 @@
 +++
 date = 2016-04-17
 draft = false
-tags = []
+categories = ["Hugo"]
+tags = ["blogdown"]
 title = "Writing content with Markdown, LaTeX, and Shortcodes"
 math = true
 +++

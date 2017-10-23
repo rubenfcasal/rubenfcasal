@@ -3,10 +3,8 @@ title: Generación de informes con R
 author: Rubén Fernández Casal
 date: '2016-01-01'
 slug: generación-de-informes-con-r
-categories:
-  - R
-tags:
-  - R Markdown
+categories: ["R", "Apuntes"]
+tags: ["R Markdown", "sgapeio"]
 output:
   blogdown::html_page:
     toc: true
@@ -30,7 +28,7 @@ output:
 <h1>R Markdown</h1>
 <div id="introduccion" class="section level2">
 <h2>Introducción</h2>
-<p>Este documento se ha generado empleando Markdown y <code>R</code>. Markdown permite la creación de páginas web a partir de documentos de texto de forma muy sencilla y rápida (tiene unas reglas sintácticas muy simples). R-Markdown es recomendable para difundir análisis realizados con <code>R</code> en formato HTML, PDF y DOCX (Word), entre otros. Para más detalles ver <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>Markdown permite la creación de páginas web a partir de documentos de texto de forma muy sencilla y rápida (tiene unas reglas sintácticas muy simples). Este documento se ha generado empleando Markdown y <code>R</code>. R-Markdown es recomendable para difundir análisis realizados con <code>R</code> en formato HTML, PDF y DOCX (Word), entre otros. Para más detalles ver <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
 <p>También se dispone de información en la ayuda de <em>RStudio</em>:</p>
 <ul>
 <li><p><em>Help &gt; Markdown Quick Reference</em></p></li>
@@ -45,21 +43,21 @@ browseURL(url = render(&quot;8-Informes.Rmd&quot;))</code></pre>
 <h2>Inclusión de código R</h2>
 <p>Se puede incluir código R entre los delimitadores <code>```{r}</code> y <code>```</code>. Por defecto, se mostrará el código, se evaluará y se mostrarán los resultados justo a continuación:</p>
 <pre class="r"><code>head(mtcars[1:3])</code></pre>
-<pre><code>                   mpg cyl disp
-Mazda RX4         21.0   6  160
-Mazda RX4 Wag     21.0   6  160
-Datsun 710        22.8   4  108
-Hornet 4 Drive    21.4   6  258
-Hornet Sportabout 18.7   8  360
-Valiant           18.1   6  225</code></pre>
+<pre><code>   #                     mpg cyl disp
+   #  Mazda RX4         21.0   6  160
+   #  Mazda RX4 Wag     21.0   6  160
+   #  Datsun 710        22.8   4  108
+   #  Hornet 4 Drive    21.4   6  258
+   #  Hornet Sportabout 18.7   8  360
+   #  Valiant           18.1   6  225</code></pre>
 <pre class="r"><code>summary(mtcars[1:3])</code></pre>
-<pre><code>      mpg             cyl             disp      
- Min.   :10.40   Min.   :4.000   Min.   : 71.1  
- 1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8  
- Median :19.20   Median :6.000   Median :196.3  
- Mean   :20.09   Mean   :6.188   Mean   :230.7  
- 3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0  
- Max.   :33.90   Max.   :8.000   Max.   :472.0  </code></pre>
+<pre><code>   #        mpg             cyl             disp      
+   #   Min.   :10.40   Min.   :4.000   Min.   : 71.1  
+   #   1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8  
+   #   Median :19.20   Median :6.000   Median :196.3  
+   #   Mean   :20.09   Mean   :6.188   Mean   :230.7  
+   #   3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0  
+   #   Max.   :33.90   Max.   :8.000   Max.   :472.0</code></pre>
 <p>En <em>RStudio</em> pulsando “Ctrl + Alt + I” o en el icono correspondiente se incluye un trozo de código.</p>
 <p>Se puede incluir código en línea empleando <code>`r código`</code>, por ejemplo <code>`r 2 + 2`</code> produce 4.</p>
 </div>
