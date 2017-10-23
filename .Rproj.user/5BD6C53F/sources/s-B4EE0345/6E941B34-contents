@@ -1,4 +1,4 @@
-baseurl = "/"
+baseurl = "https://rmachinery.netlify.com/"
 languageCode = "en-us"
 title = "R Machinery"
 copyright = "&copy; 2017 Ruben Fernandez-Casal"
