@@ -1,0 +1,64 @@
+---
+title: Creación e divulgación de contidos con R Markdown
+author: Rubén Fernández Casal
+date: '2017-10-26'
+slug: creación-contenidos-rmarkdown
+categories: ["R"]
+tags: ["R Markdown", "sgapeio"]
+output:
+  html_document:
+    toc: true
+    toc_float: true
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#ejemplos">Ejemplos</a></li>
+<li><a href="#material">Material</a></li>
+<li><a href="#requisitos">Requisitos</a></li>
+</ul>
+</div>
+
+<p>En el próximo Congreso de la <a href="http://www.sgapeio.es/">Sgapeio</a> voy a participar en la impartición de un <a href="http://sgapeio2017.udc.es/index.php/gl/cursos">curso</a> sobre R Markdown.</p>
+<p>En la segunda parte del curso “Creación e divulgación de contidos con R Markdown” trataremos los siguientes temas:</p>
+<ul>
+<li><p>Conversión entre formatos con <a href="http://pandoc.org/">pandoc</a>.</p></li>
+<li><p>Creación de libros e documentos có paquete bookdown.</p>
+<ul>
+<li><a href="https://bookdown.org/yihui/bookdown"><code>bookdown</code></a> para crear libros (en múltiples formatos, incluyendo html) a partir de documentos R Markdown.</li>
+</ul></li>
+<li><p>Creación de sitios web có paquete blogdown.</p>
+<ul>
+<li><p><a href="http://rmarkdown.rstudio.com/lesson-13.html"><code>rmarkdown</code></a> para crear archivos html (y sitios web simples) a partir de documentos R Markdown.</p></li>
+<li><p><a href="https://bookdown.org/yihui/blogdown"><code>blogdown</code></a> para crear sitios web (estáticos) de uso general (webs personales, blogs, …) con R Markdown.</p></li>
+</ul></li>
+</ul>
+<p>Y si tenemos tiempo, creación de sitios web para paquetes de R con <a href="https://hadley.github.io/pkgdown/articles/pkgdown.html"><code>pkgdown</code></a>.</p>
+<div id="ejemplos" class="section level2">
+<h2>Ejemplos</h2>
+<p>Emplearemos como ejemplos algunos repositorios de mi cuenta <a href="http://github.com/rubenfcasal">rubenfcasal</a> de GitHub:</p>
+<ul>
+<li><p><a href="http://github.com/rubenfcasal/simbook">rubenfcasal/simbook</a>: una versión de parte de mis apuntes de simulación en forma de libro, accesible online en formato html <a href="https://rubenfcasal.github.io/simbook">aqui</a>.</p></li>
+<li><p><a href="https://github.com/rubenfcasal/rubenfcasal">rubenfcasal/rubenfcasal</a>: contenido de mi página personal y blog (sobre R) a partir del que se genera mi web <a href="https://rubenfcasal.github.io">R Machinery</a>.</p></li>
+<li><p><a href="https://github.com/rubenfcasal/npsp">rubenfcasal/npsp</a>: repositorio del paquete npsp: Nonparametric Spatial Statistics, a partir del que se genera la correspondiente <a href="https://rubenfcasal.github.io/npsp">web</a>.</p></li>
+</ul>
+</div>
+<div id="material" class="section level2">
+<h2>Material</h2>
+<p>El material de la segunda parte del curso se puede obtener a partir de la información disponible en la <a href="https://rubenfcasal.github.io/tags/sgapeio">web</a> y adicionalmente en esta <a href="https://www.dropbox.com/sh/3ki5pophl7thfne/AABuU86zPF_TaJjDyV5A2j7La?dl=0">carpeta</a> de DropBox (donde se descargaron también todos los archivos necesarios).</p>
+</div>
+<div id="requisitos" class="section level2">
+<h2>Requisitos</h2>
+<ol style="list-style-type: decimal">
+<li>Disponer de una versión reciente de RStudio (como mínimo la 1.0.0), aunque se recomienda la <a href="https://www.rstudio.com/products/rstudio/download/">última versión</a>.</li>
+<li><p>Instalar los paquetes de R:</p>
+<pre class="r"><code># stable versions on CRAN
+install.packages(c(&#39;devtools&#39;,  &#39;bookdown&#39;,  &#39;blogdown&#39;), dependencies = TRUE)
+# or development version on GitHub, e.g.:
+# devtools::install_github(&#39;rstudio/bookdown&#39;)</code></pre></li>
+<li><p>Para compilar los libros en pdf <code>bookdown</code> emplea XeLaTeX. En windows es recomendable instalar <a href="https://miktex.org/download">MiKTeX</a>, o actualizarlo (ejecutando MiKTeX Update) si ya está instalado. En Mac OS X se puede instalar <a href="http://www.tug.org/mactex/">MacTeX</a> y en Linux <a href="http://www.tug.org/texlive">TeXLive</a>.</p></li>
+</ol>
+</div>
