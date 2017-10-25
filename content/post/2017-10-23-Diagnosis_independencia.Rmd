@@ -3,7 +3,7 @@ title: "Diagnosis de la independencia"
 author: Rubén Fernández Casal
 date: '2017-10-23'
 slug: diagnosis-de-la-independencia
-categories: ["R", "Apuntes"]
+categories: ["R", "Apuntes", "Estadística"]
 tags: ["Geoestadística", "regresion"]
 output:
   blogdown::html_page:
@@ -14,7 +14,7 @@ output:
 
 ```{r setup, include=FALSE}
 # install.packages(c('tseries', 'forecast'))
-knitr::opts_chunk$set(fig.width = 7, fig.height = 5, fig.align = 'center')
+knitr::opts_chunk$set(comment = "   # ", fig.width = 7, fig.height = 5, fig.align = 'center')
 # knitr::opts_chunk$set(echo = FALSE, fig.width = 8, fig.align = 'center')
 ```
 
@@ -82,7 +82,8 @@ mu <- rep(0, n)   # Media
 # Matriz de covarianzas
 t.dist <- as.matrix(dist(t))
 t.cov <- exp(-t.dist)
-str(t.cov)
+# str(t.cov)
+# num [1:100, 1:100] 1 0.99 0.98 0.97 0.96 ...
 t.cov[1:5, 1:5] # Covarianzas de las 5 primeras observaciones
 
 # Simulación de las observaciones

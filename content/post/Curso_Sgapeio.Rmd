@@ -1,0 +1,92 @@
+---
+title: Creación e divulgación de contidos con R Markdown
+author: Rubén Fernández Casal
+date: '2017-10-26'
+slug: creación-contenidos-rmarkdown
+categories: ["R"]
+tags: ["R Markdown", "sgapeio"]
+output:
+  html_document:
+    toc: true
+    toc_float: true
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = "   # ")
+```
+
+En el próximo Congreso de la [Sgapeio](http://www.sgapeio.es/) 
+voy a participar en la impartición de un [curso](http://sgapeio2017.udc.es/index.php/gl/cursos) 
+sobre R Markdown.
+
+En la segunda parte del curso "Creación e divulgación de contidos con R Markdown"
+trataremos los siguientes temas:
+
+* Conversión entre formatos con [pandoc](http://pandoc.org/).
+
+* Creación de libros e documentos có paquete bookdown.
+
+    + [`bookdown`](https://bookdown.org/yihui/bookdown)
+      para crear libros (en múltiples formatos, incluyendo html) a partir
+      de documentos R Markdown.
+      
+* Creación de sitios web có paquete blogdown.
+
+    + [`rmarkdown`](http://rmarkdown.rstudio.com/lesson-13.html) 
+      para crear archivos html (y sitios web simples) a
+      partir de documentos R Markdown.
+
+    + [`blogdown`](https://bookdown.org/yihui/blogdown)
+      para crear sitios web (estáticos) de uso general 
+      (webs personales, blogs, ...) con R Markdown.
+
+Y si tenemos tiempo, creación de sitios web para paquetes de R
+con [`pkgdown`](https://hadley.github.io/pkgdown/articles/pkgdown.html).
+
+
+## Ejemplos
+
+Emplearemos como ejemplos algunos repositorios de mi 
+cuenta [rubenfcasal](http://github.com/rubenfcasal) de GitHub:
+
+-   [rubenfcasal/simbook](http://github.com/rubenfcasal/simbook): 
+    una versión de parte de mis apuntes de simulación en forma de libro,
+    accesible online en formato html [aqui](https://rubenfcasal.github.io/simbook). 
+
+-   [rubenfcasal/rubenfcasal](https://github.com/rubenfcasal/rubenfcasal): 
+    contenido de mi página personal y blog (sobre R) 
+    a partir del que se genera mi web [R Machinery](https://rubenfcasal.github.io). 
+
+-   [rubenfcasal/npsp](https://github.com/rubenfcasal/npsp): 
+    repositorio del paquete npsp: Nonparametric Spatial Statistics,
+    a partir del que se genera la correspondiente [web](https://rubenfcasal.github.io/npsp). 
+
+
+## Material
+
+El material de la segunda parte del curso se puede obtener a partir de la
+información disponible en la [web](https://rubenfcasal.github.io/tags/sgapeio)
+y adicionalmente en esta 
+[carpeta](https://www.dropbox.com/sh/3ki5pophl7thfne/AABuU86zPF_TaJjDyV5A2j7La?dl=0) de DropBox 
+(donde se descargaron también todos los archivos necesarios).
+
+## Requisitos
+
+1. Disponer de una versión reciente de RStudio (como mínimo la 1.0.0),
+   aunque se recomienda la [última versión](https://www.rstudio.com/products/rstudio/download/).
+1. Instalar los paquetes de R:
+
+    ```{r eval=FALSE}
+    # stable versions on CRAN
+    install.packages(c('devtools',  'bookdown',  'blogdown'), dependencies = TRUE)
+    # or development version on GitHub, e.g.:
+    # devtools::install_github('rstudio/bookdown')
+    ```
+
+1. Para compilar los libros en pdf `bookdown` emplea XeLaTeX. En windows es recomendable instalar [MiKTeX](https://miktex.org/download), o actualizarlo (ejecutando MiKTeX Update) si ya está instalado. En Mac OS X se puede instalar [MacTeX](http://www.tug.org/mactex/) y en Linux [TeXLive](http://www.tug.org/texlive).
+
+
+
+

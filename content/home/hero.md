@@ -33,7 +33,9 @@ Podrás encontrar (***herramientas y maquinaria***):
 
 ### [R](/categories/r) 
 
-* Estadística computacional, Simulación, ...
+* [Estadística](/categories/estadística) computacional, 
+[Regresión](/tags/regresion), 
+[R Markdown](/tags/r-markdown), ...
 
 
 ### Estadística espacial y espacio-temporal
@@ -44,10 +46,13 @@ Podrás encontrar (***herramientas y maquinaria***):
 
 ### Software
 
-* Paquetes de R, Herramientas, ...
+* [Paquetes](/tags/paquetes) de R, 
+Herramientas, ...
 
 
 ### Material
 
-* Libros, Presentaciones, [Apuntes](/categories/apuntes), ...
+* [Libros](/categories/libros), 
+[Presentaciones](/tags/presentaciones), 
+[Apuntes](/categories/apuntes), ...
 
