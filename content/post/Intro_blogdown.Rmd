@@ -75,11 +75,11 @@ desarrollo, ver documentación).
 A partir de la versión 1.1 de RStudio (Octubre de 2017) se puede crear 
 directamente empleando el menú *File/New Project...*:
 
-![](img/rstudio_blogdown.png){width="4in"}
+![](/img/rstudio_blogdown.png){width="4in"}
 
 y estableciendo las opciones:
 
-![](img/rstudio_blogdown2.png){width="4in"}
+![](/img/rstudio_blogdown2.png){width="4in"}
 
 Para crear un nuevo sitio web también se puede emplear la función `new_site()`
 bajo un directorio vacío (o un proyecto RStudio vacío):
@@ -123,11 +123,11 @@ cada vez que se realice algún cambio***).
 Para escribir nuevos mensajes, se puede usar el complemento de
 RStudio "New Post" (en el desplegable “Addins”):
 
-![](img/image1.png){width="6in"}
+![](/img/image1.png){width="6in"}
 
 y cubrir los distintos campos:
 
-![](img/image2.png){width="4in"}
+![](/img/image2.png){width="4in"}
 
 Cuidado con los nombres de los archivos (evitar espacios, acentos, …).
 
