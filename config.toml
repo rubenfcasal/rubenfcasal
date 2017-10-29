@@ -46,7 +46,7 @@ defaultContentLanguageInSubdir = false
 
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
-  email = "ruben.fcasal@udc.es"
+  email = "rubenfcasal@gmail.com"
   address = "Departamento de Matemáticas. Facultad de Informática. Edificio Área Científica. Campus de Elviña, s/n. 15071 - A Coruña (Spain)"
   office_hours = "Email for appointment"
   phone = "+34.981167000 Ext. 6025, +34.88101.6025"
