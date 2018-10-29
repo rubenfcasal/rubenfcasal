@@ -49,6 +49,9 @@ y miembro del grupo [Modes](http://dm.udc.es/modes/).
 
 * 1996-1998. Profesor asociado en la [Universidade de Santiago de Compostela](https://www.usc.gal).
 
+Tesis doctoral: [Geoestadística espacio-temporal: 
+modelos flexibles de variogramas anisotrópicos no separables](/Geoestadistica_espacio-temporal.pdf).
+
 Más información en mi [página institucional](http://dm.udc.es/staff/ruben_fernandez/) (en inglés):
 
 * [Docencia](http://dm.udc.es/staff/ruben_fernandez/teaching.php)

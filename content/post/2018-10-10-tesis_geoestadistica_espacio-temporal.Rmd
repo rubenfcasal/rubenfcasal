@@ -1,0 +1,24 @@
+---
+title: "Tesis geoestadística espacio-temporal"
+author: Rubén Fernández Casal
+date: '2018-10-10'
+slug: tesis_geoestadistica_espacio-temporal
+categories:
+  - Estadística
+  - Libros
+tags:
+  - Geoestadística
+  - Apuntes
+header:
+  caption: ''
+  image: ''
+summary: "Mi tesis doctoral en formato [pdf](/Geoestadistica_espacio-temporal.pdf)."  
+---
+
+Mi tesis doctoral "Geoestadística espacio-temporal: 
+modelos flexibles de variogramas anisotrópicos no separables" puede descargarse en formato pdf [aquí](/Geoestadistica_espacio-temporal.pdf).
+
+Esta memoria, del año 2003, se centra principalmente en el modelado flexible de la dependencia espacio-temporal. 
+La monografía esta organizada en dos partes: la primera parte (capítulos del 2 al 5) consiste en una introducción a la geoestadística, donde se realiza una revisión de las distintas ideas y herramientas desarrolladas para el caso general de procesos espaciales, tratando con mayor detalle las distintas propuestas relacionadas con el modelado no paramétrico de la dependencia espacial: la segunda parte (capítulos del 6 al 9) se centra en el caso espacio-temporal.
+
+Originalmente se incluían en formato electrónico librerías FORTRAN y algunos programas. En un futuro estas herramientas estarán disponibles en el paquete [npsp](https://rubenfcasal.github.io/npsp).
