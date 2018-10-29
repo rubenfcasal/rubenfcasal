@@ -1,7 +1,7 @@
 baseurl = "https://rubenfcasal.github.io/"
 languageCode = "en-us"
 title = "R Machinery"
-copyright = "&copy; 2017 Ruben Fernandez-Casal"
+copyright = "&copy; 2017-2018 Ruben Fernandez-Casal"
 theme = "hugo-academic"
 enableEmoji = true
 publishDir = "../rubenfcasal.github.io"
@@ -49,7 +49,7 @@ defaultContentLanguageInSubdir = false
   email = "rubenfcasal@gmail.com"
   address = "Departamento de Matemáticas. Facultad de Informática. Campus de Elviña, s/n. 15071 - A Coruña (Spain)"
   office_hours = "Email ruben.fcasal@udc.es for appointment"
-  phone = "+34.981167000 Ext. 6025, +34.88101.6025"
+  phone = "+34.981167000 Ext. 1389, +34.88101.1389"
   skype = ""
   telegram = ""
 
