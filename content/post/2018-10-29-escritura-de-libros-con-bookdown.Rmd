@@ -1,0 +1,23 @@
+---
+title: Libro sobre `bookdown`
+author: Rubén Fernández Casal
+date: '2018-10-29'
+slug: escritura-de-libros-con-bookdown
+categories:
+  - Apuntes
+  - Libros
+  - R
+tags:
+  - R Markdown
+  - Paquetes
+header:
+  caption: ''
+  image: ''
+summary: "Libro de introducción a la escritura de libros con el paquete `bookdown`, disponible [aquí](https://rubenfcasal.github.io/bookdown_intro)."  
+---
+
+Tomás Cotos y yo preparamos una pequeña guía sobre sobre como emplear el paquete bookdown de R para la escritura de libros en formato RMarkdown (que presentamos en las [V Jornadas de Usuarios de R](https://www.r-users.gal), incluyendo algunos detalles de configuración para la escritura en otros idiomas distintos del inglés (castellano, galego,...). Este libro está hecho empleando ese mismo paquete y está disponible en el repositorio Github: [rubenfcasal/bookdown_intro](https://github.com/rubenfcasal/bookdown_intro). Se puede ver online aquí: https://rubenfcasal.github.io/bookdown_intro, en donde también se puede descargar en formato pdf.
+
+Os animamos a crear contenidos siguiendo esta guía, aunque para los que quieran iniciarse en RMarkdown se recomendaría comenzar por el Apéndice A.
+
+Cualquier sugerencia será bien recibida...
