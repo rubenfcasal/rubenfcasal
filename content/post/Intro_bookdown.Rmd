@@ -5,6 +5,8 @@ date: '2017-10-25'
 slug: intro-bookdown
 categories: ["R"]
 tags: ["R Markdown", "blookdown", "sgapeio"]
+summary: "Introducción a la escritura de libros con el paquete `bookdown`.
+Una versión más reciente de este post está disponible en formato [libro](https://rubenfcasal.github.io/bookdown_intro)."
 output:
   html_document:
     toc: true
@@ -12,6 +14,9 @@ output:
   blogdown::html_page:
     toc: true
 ---
+
+***Actualización 14-10-18***: Una versión más reciente de este post está disponible aquí: 
+<https://rubenfcasal.github.io/bookdown_intro>.
 
 ## Introducción
 

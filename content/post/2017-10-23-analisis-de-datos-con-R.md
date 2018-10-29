@@ -5,6 +5,7 @@ date: '2017-10-23'
 slug: analisis-de-datos-con-R
 categories: ["R", "Apuntes"]
 tags: ["Presentaciones"]
+summary: "Pesentación sobre el análisis de datos con R en formato [pdf](/post/presentaciones/AnalisisDatosR.pdf)."
 ---
 
 Una presentación sobre el análisis de datos con R 

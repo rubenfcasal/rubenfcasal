@@ -5,10 +5,10 @@ date: '2017-10-23'
 slug: introducción-a-la-geoestadística-con-geor
 categories: ["Apuntes", "R"]
 tags: ["Geoestadística", "regresion", "Paquetes"]
-abstract: "El paquete `geoR` proporciona herramientas para el
+summary: "El paquete `geoR` proporciona herramientas para el
   análisis de datos geoestadísticos en `R`
   (otra alternativa puede ser emplear el paquete `gstat`, por ejemplo...).
-  A continuación se ilustran algunas de las capacidades de este paquete."
+  En este post se ilustran algunas de las capacidades de este paquete."
 output:
   blogdown::html_page:
     toc: true  
@@ -350,7 +350,7 @@ Ejemplo de estimación por máxima verosimilitud restringida (opción de
 `likfit`):
 
 ```{r }
-vario.reml <- likfit(s100, ini = c(1, 0.5), method = "RML")
+vario.reml <- likfit(s100, ini = c(1, 0.5), lik.method = "RML")
 summary(vario.reml)
 ```
 
@@ -406,7 +406,8 @@ par(oldpar)
 ```
 
 Para estudiar si hay una dependencia espacial "significativa" se puede
-emplear también la rutina `sm.variogram` del paquete `sm`. Esta rutina
+emplear también la rutina `sm.variogram` del paquete `sm`. 
+Estableciendo `model = "independent"` 
 devuelve un p-valor para contrastar la hipótesis nula de independencia
 (i.e. se acepta que hay una dependencia espacial si $p \leq \alpha = 0.05$) 
 y un gráfico en el que se muestra el estimador empírico robusto, un estimador
@@ -415,9 +416,12 @@ proceso es independiente (i.e. consideraríamos que hay dependencia
 espacial si el variograma suavizado no está contenido en esa región).
 
 ```{r }
-# library(sm)
-# sm.variogram(s100$coords, s100$data)
+library(sm)
+sm.variogram(s100$coords, s100$data, model = "independent")
 ```
+
+**Nota**: Se puede realizar contrastes adicionales estableciendo el parámetro `model`
+a `"isotropic"` o `"stationary"`.
 
 <br>
 
@@ -501,8 +505,10 @@ Para obtener una rejilla discreta de predicción puede ser de utilidad la
 función `expand.grid`:
 
 ```{r }
-pred.grid <- expand.grid(x = seq(0, 1, l = 51), y =  seq(0, 1, l = 51)) #rejilla regular 51x51 en cuadrado unidad
-# pred.grid <- expand.grid(seq(0, 1, l = 51), seq(0, 1, l = 51)) #rejilla regular 51x51 en cuadrado unidad
+# Rejilla regular 51x51 en cuadrado unidad
+xx <- seq(0, 1, l = 51)
+yy <- seq(0, 1, l = 51)
+pred.grid <- expand.grid(x = xx, y = yy) 
 plot(s100$coords, pch = 20)
 points(pred.grid, pch = 3, cex = 0.2)
 ```
@@ -545,17 +551,26 @@ Otras opciones:
 
 ```{r }
 contour(ko.wls,filled = TRUE)
-persp(ko.wls, theta=-60, phi=30, col=topo.colors(10))
 
 fcol <- topo.colors(10)[cut(matrix(ko.wls$pred,nrow=51,ncol=51)[-1,-1],10,include.lowest=TRUE)]
 persp(ko.wls, theta=-60, phi=40, col=fcol)
+
+if(!require(plot3D)) 
+  stop('Required pakage `plot3D` not installed.') # install.packages('plot3D')
+
+persp3D(xx, yy, matrix(ko.wls$predict, nrow = length(xx)), theta=-60, phi=40)
+
+if(!require(npsp)) 
+  stop('Required pakage `npsp` not installed.') # install.packages('npsp')
+
+spersp(xx, yy, ko.wls$predict, theta=-60, phi=40)
 ```
 
 <br>
 
 ---
 
-Copyright 2009-2017 Rubén Fernández Casal
+Copyright 2009-2018 Rubén Fernández Casal
 
 Se autoriza la realización y distribución de copias literales de este
 manual, siempre y cuando las advertencias del copyright y de este

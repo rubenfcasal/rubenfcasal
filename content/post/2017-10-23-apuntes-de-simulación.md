@@ -5,6 +5,7 @@ date: '2017-10-23'
 slug: apuntes-de-simulación
 categories: ["Libros", "Apuntes", "R"]
 tags: ["Simulación", "sgapeio"]
+summary: "Apuntes de simulación en formato [libro](https://rubenfcasal.github.io/simbook)."
 ---
 
 Con motivo del próximo [curso](http://sgapeio2017.udc.es/index.php/gl/cursos) 

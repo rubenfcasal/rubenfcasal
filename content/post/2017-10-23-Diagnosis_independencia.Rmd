@@ -5,6 +5,7 @@ date: '2017-10-23'
 slug: diagnosis-de-la-independencia
 categories: ["R", "Apuntes", "Estadística"]
 tags: ["Geoestadística", "regresion"]
+summary: "Apuntes sobre dependencia con R."
 output:
   blogdown::html_page:
     toc: true  

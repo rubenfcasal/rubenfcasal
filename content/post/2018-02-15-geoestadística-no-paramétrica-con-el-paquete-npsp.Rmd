@@ -1,14 +1,14 @@
 ---
-title: Geoestadística no paramétrica con el paquete *npsp*
+title: Geoestadística no paramétrica con el paquete `npsp`
 author: Rubén Fernández Casal
 date: '2018-02-15'
 slug: geoestadistica-no-parametrica-con-el-paquete-npsp
 
 categories: ["Apuntes", "R"]
 tags: ["Geoestadística", "regresion", "Paquetes"]
-abstract: "El paquete `npsp` proporciona herramientas para el
-  análisis no paramétrico de datos geoestadísticos en `R`.
-  A continuación se ilustran algunas de las capacidades de este paquete."
+summary: "El paquete [npsp](https://rubenfcasal.github.io/npsp) proporciona herramientas para el
+análisis no paramétrico de datos geoestadísticos en R.
+En este post se ilustran algunas de las capacidades de este paquete."
 output:
   blogdown::html_page:
     toc: true  
