@@ -27,7 +27,7 @@ weight = 3
 
 ## Website  about R (by [Rubén Fernández-Casal](/en/#about))
 
-You can (mainly) find (tools and machinery) about R in [Spanish](/)...
+You will find here tools (and machinery) about R in [Spanish](/)...
 
 The web of the [***npsp***](https://rubenfcasal.github.io/npsp) 
 package is (mainly) in English.

@@ -25,9 +25,7 @@ weight = 3
 #   label = '<i class="fa fa-download"></i> Install Now'
 +++
 
-## Sitio web (de [Rubén Fernández-Casal](/#about)) 
-## sobre R 
-
+## Sitio web (de [Rubén Fernández-Casal](/#about)) sobre [R](/categories/r)
 
 Podrás encontrar (***herramientas y maquinaria***):
 

@@ -5,12 +5,12 @@
 date = "2016-04-20T00:00:00"
 draft = false
 
-title = "Recent Posts"
+title = "Posts Recientes"
 subtitle = ""
 widget = "posts"
 
 # Order that this section will appear in.
-weight = 40
+weight = 4
 
 # Filter posts by tag.
 #  By default, show all recent posts.
