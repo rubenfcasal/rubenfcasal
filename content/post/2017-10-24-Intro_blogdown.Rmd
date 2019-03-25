@@ -1,0 +1,234 @@
+---
+title: Creación de sitios web con `blogdown`
+author: Rubén Fernández Casal
+date: '2017-10-24'
+slug: creación-de-sitios-web-con-blogdown
+categories: ["R"]
+tags: ["R Markdown", "blogdown", "sgapeio"]
+summary: "Introducción a la creación de sitios web con el paquete `blogdown`."
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = "   # ")
+```
+
+***Actualización 24-03-19***: Documentación más reciente sobre `blogdown` en el libro [blogdown: Creating Websites with R Markdown](https://bookdown.org/yihui/blogdown/) (y también en el [Capítulo 10](https://bookdown.org/yihui/rmarkdown/websites.html) del 
+libro [R Markdown: The Definitive Guide](https://bookdown.org/yihui/rmarkdown/)).
+
+Basado en [este](https://blog.rstudio.com/2017/09/11/announcing-blogdown) artículo de Yihui Xie publicado en el Blog de RStudio.
+
+## Introducción
+
+En CRAN está disponible un nuevo paquete de R, `blogdown`, que
+permite crear sitios web (estáticos) de uso general (webs personales,
+blogs, …) con R Markdown. Se puede instalar con:
+
+```{r, eval=FALSE}
+install.packages("blogdown")
+```
+
+Para instalar la versión de desarrollo (alojado en GitHub en el
+repositorio [*rstudio /
+blogdown*](https://github.com/rstudio/blogdown))
+usar:
+
+```{r, eval=FALSE}
+devtools::install_github("rstudio/blogdown")
+```
+
+`blogdown` permite integrar R Markdown con generadores de sitios web
+estáticos (se pueden crear sitios web desde R; el sitio web estará
+contenido en una carpeta que se puede previsualizar localmente o subir a
+cualquier servidor web). Por ejemplo, se puede incluir código R para
+generar tablas y gráficos automáticamente en cualquier página web. Otras
+alternativas serían:
+
+-   `rmarkdown` para crear archivos html (y sitios web simples) a
+    partir de documentos R Markdown.
+
+-   [`bookdown`](https://github.com/rstudio/bookdown)
+    para crear libros (en múltiples formatos, incluyendo html) a partir
+    de documentos R Markdown.
+
+La principal ventaja está en la creación (y mantenimiento) de sitios web
+con estructuras arbitrarias, más complicadas que una colección de
+páginas HTML. Por ejemplo, permite crear fácilmente un sitio web de un
+proyecto, un blog o una web personal. Cada página puede tener distintos
+metadatos (como categorías y etiquetas), y se pueden generar páginas de
+listas de contenido (como listas de publicaciones o blogs).
+
+Además, al emplear las extensiones Markdown de Pandoc y herramientas
+heredadas de
+[`bookdown`](https://github.com/rstudio/bookdown),
+se pueden incluir por ejemplo notas al pie de página, tablas, cifras,
+citas, ecuaciones LaTeX, entre otros; y extensiones markdown para  libros
+(por ejemplo, leyendas de figuras y tablas, referencias cruzadas,
+teoremas, pruebas, ecuaciones numeradas y widgets HTML).
+
+Por defecto se basa en el generador de sitios estáticos
+[*Hugo*](https://gohugo.io), aunque también permite emplear
+[*Jekyll*](https://jekyllrb.com) y [*Hexo*](https://hexo.io) (en
+desarrollo, ver documentación). 
+
+
+## Creación de un sitio web
+
+A partir de la versión 1.1 de RStudio (Octubre de 2017) se puede crear 
+directamente empleando el menú *File/New Project...*:
+
+![](/img/rstudio_blogdown.png){width="4in"}
+
+y estableciendo las opciones:
+
+![](/img/rstudio_blogdown2.png){width="4in"}
+
+Para crear un nuevo sitio web también se puede emplear la función `new_site()`
+bajo un directorio vacío (o un proyecto RStudio vacío):
+
+```{r, eval=FALSE}
+blogdown::new_site()
+```
+
+Por defecto se descargará e instalará Hugo si no se ha instalado.
+También se descarga un tema de Hugo (por defecto `yihui/hugo-lithium-theme`) y mensajes de ejemplo.
+Aunque se pueden considerar [*otros temas*](https://bookdown.org/yihui/blogdown/other-themes.html),
+por ejemplo este sitio web se creo empleando `gcushen/hugo-academic`. 
+Automáticamente se generará el sitio y se abrirá en el navegador 
+(o en RStudio Viewer, aunque se recomienda abrilo en un navegador). 
+Sólo se necesita emplear esta función una vez por cada
+nuevo sitio.
+
+Otra opción sería importar y modificar un sitio web generado con blogdown. 
+Por ejemplo en [*https://github.com/rbind*](https://github.com/rbind) 
+se pueden encontrar numerosos ejemplos.
+En ese caso, para instalar *Hugo* es suficiente con ejecutar (en Windows, macOS y Linux):
+
+```{r, eval=FALSE}
+blogdown::install_hugo()
+```
+
+Para generar y mostrar un sitio web creado anteriormente, se puede ejecutar:
+
+```{r, eval=FALSE}
+blogdown::serve_site()
+```
+
+o el complemento de RStudio ("Addins") "Serve Site" 
+(OJO: no confundir con "Build Website" del panel "Build"); 
+se mostrarán los cambios en los archivos de origen y se reconstruirá el sitio web 
+(***por defecto se volverá a reconstruir automáticamente 
+cada vez que se realice algún cambio***).
+
+### Creación de contenido
+
+Para escribir nuevos mensajes, se puede usar el complemento de
+RStudio "New Post" (en el desplegable “Addins”):
+
+![](/img/image1.png){width="6in"}
+
+y cubrir los distintos campos:
+
+![](/img/image2.png){width="4in"}
+
+Cuidado con los nombres de los archivos (evitar espacios, acentos, …).
+
+## Documentación
+
+La documentación completa de este paquete es un libro escrito en
+`bookdown`, disponible de forma gratuita en
+[*https://bookdown.org/yihui/blogdown*](https://bookdown.org/yihui/blogdown/)
+(será publicado por Chapman & Hall próximamente). El libro contiene
+muchos recursos externos y ejemplos. El autor recomienda leer por lo
+menos el [Capítulo 1](https://bookdown.org/yihui/blogdown/get-started.html) 
+(se podrían saltar otros capítulos, como p.e. el
+Capítulo 2 que explica cómo funciona Hugo, salvo que se quiera
+personalizar el tema del sitio). En el [*Capítulo
+4*](https://bookdown.org/yihui/blogdown/migration.html)
+se proporciona información sobre cómo convertir sitios web de WordPress
+y Jekyll a Hugo.
+
+### Algunos ejemplos:
+
+-   [Yihui Xie](https://yihui.name)
+
+    -   [`knitr`](https://yihui.name/knitr)
+    
+    -   [`animation`](https://yihui.name/animation)
+    
+    -   [Repositorio de Yihui Xie](https://github.com/rbind/yihui).
+
+-   [RStudio blog](https://blog.rstudio.com)
+
+-   [RViews blog](https://rviews.rstudio.com)
+
+-   [*simplystatistics*](https://simplystatistics.org).
+
+-   [*Rob Hyndman*](https://robjhyndman.com)
+    (info [aquí](https://support.rbind.io/2017/05/15/converting-robjhyndman-to-blogdown)).
+
+-   [Karl Broman](http://kbroman.org/).
+    
+
+Ejemplos adicionales se tienen en
+[*https://github.com/rbind*](https://github.com/rbind).
+
+## Publicación
+
+La publicación del sitio web puede ser tan simple como subirlo a GitHub. 
+Los autores [recomiendan](https://bookdown.org/yihui/blogdown/netlify.html) 
+además emplear [*Netlify*](https://www.netlify.com), 
+para lo que se puede seguir este [enlace](https://apreshill.rbind.io/post/up-and-running-with-blogdown/#deploy-in-netlify).
+
+Para este sitio web opté por emplear *GitHub pages*, siguiendo (más o menos)
+los pasos descritos [aquí](https://bookdown.org/yihui/blogdown/github-pages.html) 
+(aunque para automatizar el proceso puede ser recomendable seguir el blog de 
+[Amber Thomas](http://amber.rbind.io/blog/2016/12/19/creatingsite/#initializing-github-pages-to-work-with-hugo-and-blogdown)) 
+
+Para ir añadiendo contenido a un sitio en GitHub, se puede seguir por ejemplo este [enlace](https://simplystatistics.org/newposts),
+emplear RStudio (e.g. [R packages](http://r-pkgs.had.co.nz/git.html) 
+by [Hadley Wickham](http://hadley.nz/#code))
+o instalar [GitHub Desktop](https://desktop.github.com)
+(lo que recomendaría en Windows...).
+
+## Lenguaje y traducción 
+
+Para cambiar el idioma predeterminado en el tema "Academic" de Hugo, 
+hay que establecer `defaultContentLanguage` al
+identificador de idioma deseado 
+(empleando un [identificador de idioma ISO](https://www.w3schools.com/tags/ref_language_codes.asp)
+en el archivo de configuración *config.toml* y seguir las instrucciones al
+final de este archivo si se quieren emplear múltiples idiomas.
+
+Para traducir la barra de navegación, se pueden editar las instancias
+`[[menu.main]]` predeterminadas en *config.toml*. Sin embargo, para un
+sitio multilingüe, necesitará duplicar todas las instancias
+`[[menu.main]]` y renombrarlas  de la forma `[[Languages.X.menu.main]]`, 
+donde X es el identificador de idioma (por ejemplo, `[[Languages.en.menu.main]]`
+para inglés). De esta forma se puede configurar 
+la barra de navegación para varios idiomas.
+
+El texto de la interfaz se almacena en archivos de
+idioma en la carpeta *themes/academic/i18n*, para modificarlos
+se recomienda copiar esta carpeta */i18n* a la raíz del proyecto
+(o solo los archivos de idioma que se quieran modificar).
+Los archivos son de la forma *i18n/X.yaml* donde X es el el identificador de idioma,
+por ejemplo *i18n/es.yaml* contiene la traducción a español.
+
+Para más detalles sobre la internacionalización de Hugo y las
+características multilingües, consultar la [*documentación asociada de
+Hugo*](https://gohugo.io/content-management/multilingual).
+
+## Ayuda 
+
+Aunque `blogdown` es relativamente nuevo:
+
+-   [Libro de blogdown](https://bookdown.org/yihui/blogdown/)
+
+-   [GitHub issues](https://github.com/rstudio/blogdown/issues)
+
+-   [StackOverflow](http://stackoverflow.com/questions/tagged/blogdown)
+
+-   [Rbind Support](https://support.rbind.io/)
