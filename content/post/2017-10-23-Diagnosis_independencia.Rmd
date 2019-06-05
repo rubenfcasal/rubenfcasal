@@ -41,17 +41,17 @@ $$s_{XY}=\frac{1}{n}\sum_{i=1}^{n}(x_{i}-\overline{x})(y_{i} - \overline{y})$$
 -   Si la covarianza es negativa indica que a valores grandes de X le corresponden valores pequeños de Y
     (i.e. al incrementar X, Y disminuye) y se dice que hay una relación lineal negativa.
     
- Cuanto mayor es el valor (absoluto) de la covarianza, mayor es el grado de relación lineal 
- entre las variables. Sin embargo, su valor depende de las escala de las variables por lo que 
- es difícil determinar cuando es grande o pequeña. Para medir el grado de relación lineal puede
- ser preferible reescalarla, i.e. emplear el coeficiente de correlación:
-$$\rho\left( X, Y \right)  =\frac{Cov\left( X, Y \right)    }
-{\sigma\left( X \right)  \sigma\left( Y \right)}$$
+Cuanto mayor es el valor (absoluto) de la covarianza, mayor es el grado de relación lineal 
+entre las variables. Sin embargo, su valor depende de las escala de las variables por lo que 
+es difícil determinar cuando es grande o pequeña. Para medir el grado de relación lineal puede
+ser preferible reescalarla, i.e. emplear el coeficiente de correlación:
+$$\rho \left( X, Y \right)  =\frac{ Cov \left( X, Y \right) }
+{ \sigma \left( X \right) \sigma \left( Y \right) }$$
 
-Su estimador es el correlograma muestral:
-    $$r_{XY}=\frac{\sum_{i=1}^{n}(x_i-\overline{x})(y_i-\overline{y})}
-    {\sqrt{ \sum_{i=1}^{n}(x_i-\overline{x})^{2}} 
-    \sqrt{\sum_{i=1}^{n}(y_i-\overline{y})^{2}}}$$
+Su estimador es el coeficiente de correlación muestral:
+$$r_{XY}=\frac{\sum_{i=1}^{n}(x_i-\overline{x})(y_i-\overline{y})}
+{\sqrt{ \sum_{i=1}^{n}(x_i-\overline{x})^{2}} 
+\sqrt{\sum_{i=1}^{n}(y_i-\overline{y})^{2}}}$$
  
 #### Matriz de covarianzas
  

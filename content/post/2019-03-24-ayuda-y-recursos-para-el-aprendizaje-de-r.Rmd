@@ -150,9 +150,23 @@ En la web se puede encontrar mucho material adicional, por ejemplo:
    
 - Listas de correo:
 
-    - Listas de distribución de r-project.org: https://stat.ethz.ch/mailman/listinfo
+    - Listas de distribución de r-project.org: 
     
-    - Archivos de R-help-es: https://stat.ethz.ch/pipermail/r-help-es
+        https://stat.ethz.ch/mailman/listinfo
+    
+    - Búsqueda en R-help: 
+    
+        http://r.789695.n4.nabble.com/R-help-f789696.html
+    
+    - Búsqueda en R-help-es: 
+    
+        https://r-help-es.r-project.narkive.com
+      
+        https://grokbase.com/g/r/r-help-es
+
+    - Archivos de R-help-es: 
+    
+        https://stat.ethz.ch/pipermail/r-help-es
 
 
 Si conoces algún otro recurso de interés no dudes en colaborar...
