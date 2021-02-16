@@ -3,8 +3,12 @@ title: "Diagnosis de la independencia"
 author: Rubén Fernández Casal
 date: '2017-10-23'
 slug: diagnosis-de-la-independencia
-categories: ["R", "Apuntes", "Estadística"]
-tags: ["Geoestadística", "regresion"]
+categories:
+  - Estadística
+tags:
+  - Apuntes
+  - Regresión
+  - Geoestadística
 summary: "Apuntes sobre dependencia con R."
 output:
   blogdown::html_page:
@@ -156,7 +160,7 @@ sean más parecidos (dependientes) que datos más alejados
 $\Rightarrow$ **dependencia temporal** (espacial, espacio-temporal).
 
 En este tema nos centraremos en el caso de dependencia temporal (unidimensional),
-más adelante trataremos el caso de dependecia espacial (bidimesional).
+más adelante trataremos el caso de dependecia espacial (bidimensional).
 
 
 #### Métodos para detectar dependencia temporal

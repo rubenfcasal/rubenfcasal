@@ -1,0 +1,268 @@
+---
+title: Instalación de R
+author: Rubén Fernández Casal
+date: '2021-02-13'
+slug: instalacion-de-r
+categories:
+  - R
+tags:
+  - Configuración
+  - Apuntes
+summary: "Pasos para la instalación de R en Windows, Ubuntu/Devian y Mac OS X."
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+En la web del proyecto R ([www.r-project.org](http://www.r-project.org)) está disponible mucha información sobre este entorno estadístico.
+
+-------------------------------------   ------------------------------------
+ [R-project](https://r-project.org)      [CRAN](https://cran.r-project.org) 
+       ![](/img/rproject.png)              ![](/img/cran.png){width="88%"}
+-------------------------------------   ------------------------------------
+
+Las descargas se realizan a través de la web del CRAN (The Comprehensive R Archive Network), con múltiples [mirrors](https://cran.r-project.org/mirrors.html):
+
+-  *Oficina de Software Libre (A Coruña)* (CIXUG): [ftp.cixug.es/CRAN](http://ftp.cixug.es/CRAN/).
+-  *Spanish National Research Network (Madrid)* (RedIRIS): [cran.es.r-project.org](http://cran.es.r-project.org/).
+
+
+# Instalación de R en Windows {#windows}
+
+Seleccionando [Download R for Windows](http://ftp.cixug.es/CRAN/bin/windows/) y posteriormente [base](http://ftp.cixug.es/CRAN/bin/windows/base/) accedemos al enlace con el instalador de R para Windows (actualmente de la versión [4.0.3](http://ftp.cixug.es/CRAN/bin/windows/base/R-4.0.3-win.exe)).
+
+![](/img/R351.png){width="60%"}
+    
+
+## Asistente de instalación
+
+Durante el proceso de instalación la recomendación (para evitar posibles problemas) es seleccionar ventanas simples SDI en lugar de múltiples ventanas MDI (hay que utilizar *Opciones de configuración*).
+
+![](/img/asistente.png){width="70%"}
+
+Una vez terminada la instalación, al abrir R aparece la ventana de la consola (simula una ventana de comandos de Unix) que permite ejecutar comandos de R.
+
+Por defecto se instalan un conjunto de paquetes base de R (que se cargan automáticamente al iniciarlo) y un conjunto de [paquetes recomendados](https://cran.r-project.org/src/contrib/4.0.3/Recommended) (que se pueden cargar empleando el comando `library()`),
+pero hay disponibles miles de paquetes que cubren literalmente todos los campos del análisis de datos. 
+Ver por ejemplo:
+
+- [CRAN: Packages](https://cran.r-project.org/web/packages/index.html)
+
+- [CRAN: Task Views](https://cran.r-project.org/web/views)
+
+
+## Instalación de paquetes
+
+Después de la instalación de R suele ser necesario instalar paquetes adicionales (puede ser recomendable *Ejecutar como administrador* R para evitar problemas de permiso de escritura en la carpeta *C:\\Program Files\\R\\R-X.Y.Z\\library*, o cambiar previamente los permisos de esta carpeta como se indica [aquí](#library)).
+
+Los paquetes que recomendaría instalar a un usuario que se está iniciando en R son [`Rcmdr`](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr) y [`rattle`](https://rattle.togaware.com) (dos entornos gráficos), junto con sus dependencias (de esta forma cubriríamos las herramientas necesarias para la mayoría de análisis con R). 
+Para ello bastaría con ejecutar en la consola de R (copiando y pegando p.e.) los comandos:
+
+```{r, eval=FALSE}
+pkgs <- c("Rcmdr", "rattle") # Añadir los que se deseen...
+install.packages(pkgs, dependencies = TRUE)
+```
+(puede que haya que seleccionar el repositorio de descarga, e.g. *Spain (Madrid)*).
+
+La forma tradicional es esta:
+
+1.  Se inicia R y se selecciona *Paquetes > Instalar paquetes*
+
+2.  Se selecciona el repositorio.
+
+3.  Se selecciona el paquete y automáticamente se instala.
+
+El problema con esta forma es que no se instalan todos los paquetes de los que dependen (el `Rcmdr` lo hace automáticamente al iniciarlo por primera vez con el comando `library(Rcmdr)`).
+
+`Rattle` depende de la libraría gráfica GTK+, al iniciarlo por primera vez con el comando `library(rattle)` nos pregunta si queremos instalarla:
+
+![](/img/image7.png){width="30%"}
+
+Pulsamos OK y reiniciamos R.
+
+En el caso de un usuario más avanzado, puede ser recomendable preparar un listado de todos los paquetes que se requieren y ejecutar un código de la forma:
+
+```{r, eval=FALSE}
+pkgs <- c("mgcv", "car", "leaps", "lmtest", "glmnet", "RcmdrMisc", 
+          "rmarkdown", "knitr", "ggplot2", "dplyr", "dbplyr", "tidyr", 
+          "stringr", "readxl", "openxlsx")
+install.packages(setdiff(pkgs, installed.packages()[,"Package"]), dependencies = TRUE)
+```
+
+El código anterior no reinstala los paquetes ya instalados, por lo que podrían aparecer problemas debidos a incompatibilidades entre versiones (aunque no suele ocurrir, salvo que nuestra instalación de R esté muy desactualizada). 
+Si es el caso, en lugar de la última línea se puede ejecutar: 
+
+```{r, eval=FALSE}
+install.packages(pkgs, dependencies = TRUE) # Instala todos...
+```
+
+Listados de paquetes recomendables:
+
+- [RStudio: Quick list of useful R packages](https://support.rstudio.com/hc/en-us/articles/201057987)
+
+- [Great R packages for data import, wrangling and visualization](https://www.computerworld.com/article/2921176)
+
+NOTA: Yo prefiero instalar nuevas versiones de R siguiendo los pasos anteriores, pero otra alternativa es emplear `installr::updateR()`.
+
+## Instalación (opcional) de un entorno de desarrollo o un editor de comandos {#ide}
+
+Aunque la consola de R dispone de un editor básico de código (script), puede ser recomendable trabajar con un editor de comandos más cómodo y flexible.
+
+Un entorno de desarrollo (integrated development environment, IDE) muy recomendable es [RStudio](http://rstudio.org), que se puede instalar siguiendo los pasos en [este post](/post/instalacion-de-rstudio).
+
+Otras alternativas son:
+
+- [Tinn-R: GUI for R Language and Environment](https://sourceforge.net/projects/tinn-r)
+
+- [NppToR: R in Notepad++](https://sourceforge.net/projects/npptor) (requiere [Notepad++](https://notepad-plus-plus.org/download))
+
+- [Emacs](https://www.gnu.org/software/emacs) con [ESS: Emacs Speaks Statistics)](https://stat.ethz.ch/ESS)
+
+- [Eclipse](http://www.eclipse.org)
+
+- [Microsoft Visual Studio](https://docs.microsoft.com/en-us/visualstudio/rtvs/?view=vs-2017)
+
+## Configuración avanzada (opcional)
+
+### Cambiar los permisos de la carpeta *library* {#library}
+
+Para evitar problemas con la instalación de paquetes en Windows (y evitar también que los paquetes se instalen en *Documentos\\R\\win-library\\X.Y*) yo acostumbro a dar permiso de *control total* a los usuarios del equipo en el subdirectorio *library* de la instalación de R.
+Para ello, pulsar con el botón derecho en esta carpeta (e.g. *C:\\Program Files\\R\\R-4.0.3\\library*), seleccionar *Propiedades > Seguridad > Editar*, seleccionar los *Usuarios* del equipo, marcar *Control total* y *Aplicar*.
+
+---------------------------  ------------------------
+ ![](/img/propiedades.png)    ![](/img/permisos.png)
+---------------------------  ------------------------
+
+ 
+### Instalación de Rtools y configuración de la ruta de búsqueda {#rtools}
+
+Para instalar paquetes a partir del código en Windows (y por tanto para desarrollar nuevos paquetes) puede ser necesario instalar [Rtools](https://cran.r-project.org/bin/windows/Rtools) (si el paquete contiene código en C, C++ o Fortran, algo bastante habitual).
+Es importante instalar la versión correspondiente a la instalación de R.
+
+Al finalizar se debe añadir el directorio de instalación a la ruta de búsqueda^[Esto se puede hacer mediante el archivo *.Renviron* como se indica en la [documentación oficial](https://cran.r-project.org/bin/windows/Rtools/#putting-rtools-on-the-path), pero solo sería válido en R.], y ya de paso recomiendo añadir también el directorio de instalación de R (de esta forma también podremos emplear R en la ventana de comandos).
+Para ello habría que ir a *Propiedades del sistema > Opciones avanzadas > Variables de entorno* y en *Variables de sistema* editar el *Path* y añadir dos nuevas entradas (o modificar versiones anteriores):
+*C:\\rtools40\\usr\\bin* y *C:\\Program Files\\R\\R-4.0.3\\bin* (o los correspondientes directorios de instalación).
+
+Si no sabes como acceder a *Propiedades del sistema* (en Windows 10 está bastante oculto) puedes consultar este [post](https://answers.microsoft.com/es-es/windows/forum/windows_10-other_settings/windows-10-variables-de-entorno-windows-10-version/703ea5fa-1db4-46da-8ff7-6261140bf58b). 
+Yo prefiero pulsar con el botón derecho en *Equipo*, seleccionar *Propiedades* y después *Configuración avanzada del sistema*.
+
+![](/img/cmd.png){width="60%"}
+
+Adicionalmente, si se instaló RStudio, como también instala [pandoc](https://pandoc.org), se puede añadir *C:\\Program Files\\RStudio\\bin\\pandoc* al *Path* (de esta forma podremos convertir fácilmente contenido escrito en otros formatos a Markdown, ver [enlace](https://rubenfcasal.github.io/bookdown_intro/pandoc.html)).
+Al finalizar, habrá que reiniciar el equipo para que los cambios surjan efecto.
+
+Si se quieren instalar paquetes de repositorios distintos de CRAN (GitHub, GitLab, Bitbucket, ...), puede ser recomendable instalar [`devtools`](https://devtools.r-lib.org),
+Para más detalles ver:
+
+- R packages by Hadley Wickham
+  ([online](http://r-pkgs.had.co.nz/),
+  [O'Reilly](http://shop.oreilly.com/product/0636920034421.do))
+  
+
+---
+
+# Instalación de R en Ubuntu/Devian {#ubuntu}
+
+Instalar dependencias:
+
+```sh
+sudo apt install libcurl4-gnutls-dev libgit2-dev libxml2-dev libssh2-1-dev libssl-dev git build-essential gfortran
+```
+
+Si aparecen problemas asegurarse de que los repositorios *universe* y *multiverse* están disponibles:
+
+```sh
+sudo add-apt-repository universe
+sudo add-apt-repository multiverse
+sudo apt update
+```
+
+Se puede instalar R desde estos repositorios, pero normalmente no será la versión más actualizada y no lo recomendaría.
+
+
+## Instalación de R desde [CRAN](https://cran.r-project.org/bin/linux/ubuntu)
+
+Añadir los repositorios a la lista de fuentes (para ver la versión de ubuntu se puede ejecutar `lsb_release -a`, el siguiente código ya la obtiene directamente), la llave apt e instalar R:
+
+```sh
+echo "deb https://cloud.r-project.org/bin/linux/ubuntu/ $(lsb_release -cs)-cran35/" | sudo tee /etc/apt/sources.list.d/cran-r.list
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
+sudo apt-get update
+sudo apt-get install r-base r-base-dev
+```
+
+## Instalación de devtools y demás paquetes
+
+Ejecutar R en modo administrador para que los paquetes que se instalen estén disponibles para todos los usuarios
+```sh
+sudo -i R
+```
+
+Ejecutar en la consola de R
+```r
+install.packages('devtools', dependencies = TRUE)
+```
+
+Si aparecen problemas mirar 
+[stackoverflow - Problems installing the devtools package](http://stackoverflow.com/a/20924082)
+
+## Ayuda html
+
+Si queremos la ayuda html (en un entorno gráfico con un navegador web instalado):
+
+```sh
+echo "options(help_type='html')" | sudo tee -a /etc/R/Rprofile.site
+```
+
+## Actualizar R
+
+```sh
+sudo apt-get update
+sudo apt-get upgrade
+```
+
+## Instalar R-Studio 
+
+Si se dispone de un entorno gráfico se pueden seguir los pasos en [este post](/post/instalacion-de-rstudio/#ubuntu) para instalar R-Studio Desktop. En caso contrario puede ser recomendable instalar R-Studio Server como se describe en [este post](/post/instalacion-de-r-para-hpc/#rstudio-server).
+
+---
+
+# Instalación en Mac OS X {#macosx}
+
+Instalar R de <http://cran.es.r‐project.org/bin/macosx> siguiendo los pasos habituales.
+
+Para instalar R-Commander (<https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/installation-notes.html>) es necesario disponer de las librerías gráficas X11, como a partir de OS X Lion ya no están instaladas por defecto en el sistema, hay que instalar las librerías Open Source XQuartz <https://www.xquartz.org>. 
+
+Finalmente, para instalar `Rcmdr` ejecutar en la consola de R: 
+```{r, eval=FALSE}
+install.packages("Rcmdr", dependencies = TRUE)
+```
+
+Para instalar `rattle` seguir estos pasos (https://zhiyzuo.github.io/installation-rattle):
+
+1.  Instalar Homebrew:
+    <https://brew.sh/>.
+   
+2.  Ejecutar el siguiente código en la consola:
+    ```{r, eval=FALSE}
+    system('brew install gtk+')
+
+    local({
+      if (Sys.info()[['sysname']] != 'Darwin') return()
+    
+      .Platform$pkgType = 'mac.binary.el-capitan'
+      unlockBinding('.Platform', baseenv())
+      assign('.Platform', .Platform, 'package:base')
+      lockBinding('.Platform', baseenv())
+    
+      options(
+        pkgType = 'both', install.packages.compile.from.source = 'always',
+        repos = 'https://macos.rbind.org'
+      )
+    })
+    
+    install.packages(c('RGtk2', 'cairoDevice', 'rattle'))
+    ```
+
+---
+

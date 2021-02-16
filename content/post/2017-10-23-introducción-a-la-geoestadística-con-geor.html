@@ -2,13 +2,17 @@
 title: Introducción a la Geoestadística con `geoR`
 author: Rubén Fernández Casal
 date: '2017-10-23'
-slug: introducción-a-la-geoestadística-con-geor
-categories: ["Apuntes", "R"]
-tags: ["Geoestadística", "regresion", "Paquetes"]
-summary: "El paquete `geoR` proporciona herramientas para el
-  análisis de datos geoestadísticos en `R`
-  (otra alternativa puede ser emplear el paquete `gstat`, por ejemplo...).
-  En este post se ilustran algunas de las capacidades de este paquete."
+slug: introduccion-a-la-geoestadistica-con-geor
+categories:
+  - Documentos
+  - Estadística
+tags:
+  - Apuntes
+  - Geoestadística
+  - Regresión
+  - Paquetes
+summary: "En este post se ilustran algunas de las capacidades del paquete `geoR` para el análisis de datos geoestadísticos en `R`
+  (otra alternativa es el paquete [`gstat`](http://r-spatial.github.io/gstat)...)."
 output:
   blogdown::html_page:
     toc: true  
@@ -18,19 +22,19 @@ output:
 <div id="TOC">
 <ul>
 <li><a href="#el-paquete-geor">El paquete <code>geoR</code></a><ul>
-<li><a href="#inicio-de-una-sesion-y-de-carga-de-datos">1. Inicio de una sesión y de carga de datos</a><ul>
+<li><a href="#inicio-de-una-sesión-y-de-carga-de-datos">1. Inicio de una sesión y de carga de datos</a><ul>
 <li><a href="#cargar-el-paquete">1.1 Cargar el paquete</a></li>
 <li><a href="#archivos-de-datos">1.2 Archivos de datos</a></li>
 </ul></li>
-<li><a href="#analisis-descriptivo-de-datos-geoestadisticos">2. Análisis descriptivo de datos geoestadísticos</a></li>
+<li><a href="#análisis-descriptivo-de-datos-geoestadísticos">2. Análisis descriptivo de datos geoestadísticos</a></li>
 <li><a href="#modelado-de-la-dependencia">3. Modelado de la dependencia</a><ul>
-<li><a href="#variogramas-empiricos">3.1 Variogramas empíricos</a></li>
+<li><a href="#variogramas-empíricos">3.1 Variogramas empíricos</a></li>
 <li><a href="#ajuste-de-un-modelo-de-variograma">3.2 Ajuste de un modelo de variograma</a></li>
 <li><a href="#inferencia-sobre-el-variograma">3.3 Inferencia sobre el variograma</a></li>
-<li><a href="#validacion-cruzada">3.4 Validación cruzada</a></li>
-<li><a href="#estimacion-del-variograma-en-procesos-no-estacionarios">3.5 Estimación del variograma en procesos no estacionarios</a></li>
+<li><a href="#validación-cruzada">3.4 Validación cruzada</a></li>
+<li><a href="#estimación-del-variograma-en-procesos-no-estacionarios">3.5 Estimación del variograma en procesos no estacionarios</a></li>
 </ul></li>
-<li><a href="#prediccion-espacial-kriging">4. Predicción espacial (kriging)</a></li>
+<li><a href="#predicción-espacial-kriging">4. Predicción espacial (kriging)</a></li>
 </ul></li>
 </ul>
 </div>
@@ -38,29 +42,36 @@ output:
 <p><br></p>
 <div id="el-paquete-geor" class="section level1">
 <h1>El paquete <code>geoR</code></h1>
-<p>El paquete <code>geoR</code> proporciona herramientas para el análisis de datos geoestadísticos en <code>R</code> (otra alternativa puede ser emplear el paquete <code>gstat</code>, por ejemplo…). A continuación se ilustran algunas de las capacidades de este paquete.</p>
+<p>El paquete <code>geoR</code> proporciona herramientas para el análisis de datos
+geoestadísticos en <code>R</code>
+(otra alternativa es el paquete <a href="http://r-spatial.github.io/gstat"><code>gstat</code></a>, por ejemplo…).
+A continuación se ilustran algunas de las capacidades de este paquete.</p>
 <p><br></p>
-<div id="inicio-de-una-sesion-y-de-carga-de-datos" class="section level2">
+<div id="inicio-de-una-sesión-y-de-carga-de-datos" class="section level2">
 <h2>1. Inicio de una sesión y de carga de datos</h2>
 <div id="cargar-el-paquete" class="section level3">
 <h3>1.1 Cargar el paquete</h3>
-<p>Después de iniciar la sesión R, cargar <code>geoR</code> con el comando <code>library</code> (o <code>require</code>). Si el paquete se carga correctamente aparece un mensaje.</p>
+<p>Después de iniciar la sesión R, cargar <code>geoR</code> con el comando <code>library</code> (o
+<code>require</code>). Si el paquete se carga correctamente aparece un mensaje.</p>
 <pre class="r"><code>library(geoR)</code></pre>
 <pre><code>   # --------------------------------------------------------------
    #  Analysis of Geostatistical Data
    #  For an Introduction to geoR go to http://www.leg.ufpr.br/geoR
-   #  geoR version 1.7-5.2.1 (built on 2016-05-02) is now loaded
+   #  geoR version 1.8-1 (built on 2020-02-08) is now loaded
    # --------------------------------------------------------------</code></pre>
 <p><br></p>
 </div>
 <div id="archivos-de-datos" class="section level3">
 <h3>1.2 Archivos de datos</h3>
-<p>Normalmente, los datos se almacenan como un objeto (una lista) de la clase <code>geodata</code>. Un objeto de esta clase contiene obligatoriamente dos elementos:</p>
+<p>Normalmente, los datos se almacenan como un objeto (una lista) de la
+clase <code>geodata</code>. Un objeto de esta clase contiene obligatoriamente dos
+elementos:</p>
 <ul>
 <li><p><code>$coords</code>: las coordenadas de las posiciones de los datos.</p></li>
 <li><p><code>$data</code>: los valores observados de la variables.</p></li>
 </ul>
-<p>Opcionalmente pueden tener otros elementos, como covariables y coordenadas de las fronteras de la zona de estudio.</p>
+<p>Opcionalmente pueden tener otros elementos, como covariables
+y coordenadas de las fronteras de la zona de estudio.</p>
 <p>Hay algunos conjuntos de datos incluidos en el paquete de distribución.</p>
 <pre class="r"><code># data()                    # lista todos los conjuntos de datos disponibles
 # data(package = &quot;geoR&quot;)    # lista los conjuntos de datos en el paquete geoR
@@ -94,7 +105,9 @@ names(ncep.df) &lt;- c(&#39;x&#39;, &#39;y&#39;, &#39;t&#39;, &#39;z&#39;)
 datgeo &lt;- as.geodata(ncep.df, coords.col = 1:2, data.col = 4)
 # plot(datgeo)
 # summary(datgeo)</code></pre>
-<p>O objetos de datos espaciales (entre ellos los compatibles del paquete <code>sp</code>), por ejemplo el siguiente código crea un objeto <code>SpatialPointsDataFrame</code> y lo convierte a <code>geodata</code>:</p>
+<p>O objetos de datos espaciales (entre ellos los compatibles del paquete <code>sp</code>),
+por ejemplo el siguiente código crea un objeto <code>SpatialPointsDataFrame</code>
+y lo convierte a <code>geodata</code>:</p>
 <pre class="r"><code>library(sp)
 load(&quot;caballa.galicia.RData&quot;)
 coordinates(caballa.galicia) &lt;- c(&quot;x&quot;,&quot;y&quot;)
@@ -104,33 +117,45 @@ datgeo &lt;- as.geodata(caballa.galicia[&quot;lcpue&quot;])
 # Problemas con coordenadas duplicadas  (ver ?duplicated)
 # plot(datgeo)
 # summary(datgeo)     </code></pre>
-<p>En la documentación de las funciones <code>as.geodata</code> y <code>read.geodata</code> hay más información sobre cómo importar/convertir datos.</p>
+<p>En la documentación de las funciones <code>as.geodata</code> y <code>read.geodata</code>
+hay más información sobre cómo importar/convertir datos.</p>
 <p><br></p>
 </div>
 </div>
-<div id="analisis-descriptivo-de-datos-geoestadisticos" class="section level2">
+<div id="análisis-descriptivo-de-datos-geoestadísticos" class="section level2">
 <h2>2. Análisis descriptivo de datos geoestadísticos</h2>
-<p>Como se mostró anteriormente, el método <code>summary</code> proporciona un breve resumen descriptivo de los datos (ver <code>?summary.geodata</code>).</p>
-<p>La función <code>plot()</code> genera por defecto gráficos de los valores en las posiciones espaciales (distinguiendo según cuartiles), los datos frente a las coordenadas y un histograma de los datos:</p>
+<p>Como se mostró anteriormente, el método <code>summary</code> proporciona un breve resumen
+descriptivo de los datos (ver <code>?summary.geodata</code>).</p>
+<p>La función <code>plot()</code> genera por defecto gráficos de los
+valores en las posiciones espaciales (distinguiendo según cuartiles),
+los datos frente a las coordenadas y un histograma de los datos:</p>
 <pre class="r"><code>plot(wolfcamp)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-6-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Los gráficos de dispersión de los datos frente a las coordenadas nos pueden ayudar a determinar si hay una tendencia. También, en lugar del histograma, nos puede interesar un gráfico de dispersión 3D</p>
+<p>Los gráficos de dispersión de los datos frente a las coordenadas nos pueden ayudar
+a determinar si hay una tendencia. También, en lugar del histograma,
+nos puede interesar un gráfico de dispersión 3D</p>
 <pre class="r"><code>plot(wolfcamp, lowess = TRUE, scatter3d = TRUE) </code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-7-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p>Si se asume que hay una tendencia puede interesar eliminarla:</p>
 <pre class="r"><code>plot(wolfcamp, trend=~coords)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-8-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>El comando <code>points(geodata)</code> (función <code>points.geodata</code>) genera un gráfico con las posiciones de los datos (y por defecto con el tamaño de los puntos proporcional al valor):</p>
+<p>El comando <code>points(geodata)</code> (función <code>points.geodata</code>) genera un gráfico con
+las posiciones de los datos (y por defecto con el tamaño de los puntos proporcional
+al valor):</p>
 <pre class="r"><code>points(wolfcamp)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-9-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Se pueden establecer los tamaños de los puntos, simbolos y colores a partir de los valores de los datos. Por ejemplo, para los puntos, empleando el argumento: <code>pt.divide = c(&quot;data.proportional&quot;, &quot;rank.proportional&quot;, &quot;quintiles&quot;,</code> <code>&quot;quartiles&quot;, &quot;deciles&quot;, &quot;equal&quot;)</code>.</p>
+<p>Se pueden establecer los tamaños de los puntos, simbolos y colores a
+partir de los valores de los datos. Por ejemplo, para los puntos, empleando el argumento:
+<code>pt.divide = c("data.proportional", "rank.proportional", "quintiles",</code>
+<code>"quartiles", "deciles", "equal")</code>.</p>
 <pre class="r"><code>points(wolfcamp, col = &quot;gray&quot;, pt.divide = &quot;equal&quot;)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-10-1.png" width="672" style="display: block; margin: auto;" /></p>
 <p><br></p>
 </div>
 <div id="modelado-de-la-dependencia" class="section level2">
 <h2>3. Modelado de la dependencia</h2>
-<p>En la primera parte de esta sección consideraremos un proceso espacial sin tendencia:</p>
+<p>En la primera parte de esta sección consideraremos un proceso espacial sin
+tendencia:</p>
 <pre class="r"><code>data(s100) # Cargar datos estacionarios
 summary(s100)</code></pre>
 <pre><code>   # Number of data points: 100 
@@ -152,8 +177,9 @@ summary(s100)</code></pre>
    # [1] &quot;cov.model&quot; &quot;nugget&quot;    &quot;cov.pars&quot;  &quot;kappa&quot;     &quot;lambda&quot;</code></pre>
 <pre class="r"><code>plot(s100)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-11-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>En el último apartado se tratará el caso general. <br></p>
-<div id="variogramas-empiricos" class="section level3">
+<p>En el último apartado se tratará el caso general.
+<br></p>
+<div id="variogramas-empíricos" class="section level3">
 <h3>3.1 Variogramas empíricos</h3>
 <p>Los variogramas empíricos se calculan utilizando la función <code>variog</code>:</p>
 <pre class="r"><code>oldpar &lt;- par(mfrow=c(1,2)) 
@@ -163,20 +189,22 @@ plot(variog(s100))</code></pre>
 <pre><code>   # variog: computing omnidirectional variogram</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-12-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>par(oldpar)</code></pre>
-<p>La recomendación es considerar solo saltos hasta la mitad de la máxima distancia (ver ‘Distance summary’ en resultados del sumario).</p>
+<p>La recomendación es considerar solo saltos hasta la mitad de la máxima
+distancia (ver ‘Distance summary’ en resultados del sumario).</p>
 <pre class="r"><code>vario &lt;- variog(s100, max.dist = 0.6)</code></pre>
 <pre><code>   # variog: computing omnidirectional variogram</code></pre>
 <pre class="r"><code>names(vario)</code></pre>
-<pre><code>   #  [1] &quot;u&quot;                &quot;v&quot;                &quot;n&quot;               
-   #  [4] &quot;sd&quot;               &quot;bins.lim&quot;         &quot;ind.bin&quot;         
-   #  [7] &quot;var.mark&quot;         &quot;beta.ols&quot;         &quot;output.type&quot;     
-   # [10] &quot;max.dist&quot;         &quot;estimator.type&quot;   &quot;n.data&quot;          
-   # [13] &quot;lambda&quot;           &quot;trend&quot;            &quot;pairs.min&quot;       
-   # [16] &quot;nugget.tolerance&quot; &quot;direction&quot;        &quot;tolerance&quot;       
-   # [19] &quot;uvec&quot;             &quot;call&quot;</code></pre>
+<pre><code>   #  [1] &quot;u&quot;                &quot;v&quot;                &quot;n&quot;                &quot;sd&quot;              
+   #  [5] &quot;bins.lim&quot;         &quot;ind.bin&quot;          &quot;var.mark&quot;         &quot;beta.ols&quot;        
+   #  [9] &quot;output.type&quot;      &quot;max.dist&quot;         &quot;estimator.type&quot;   &quot;n.data&quot;          
+   # [13] &quot;lambda&quot;           &quot;trend&quot;            &quot;pairs.min&quot;        &quot;nugget.tolerance&quot;
+   # [17] &quot;direction&quot;        &quot;tolerance&quot;        &quot;uvec&quot;             &quot;call&quot;</code></pre>
 <pre class="r"><code># str(vario)</code></pre>
-<p>NOTA: La componente <code>u</code> contiene los saltos, <code>v</code> las estimaciones del semivariograma (semivarianzas) y <code>n</code> el número de aportaciones.</p>
-<p>Los resultados pueden ser nubes de puntos (semivarianzas), valores discretizados (binned) o suavizados, dependiendo del parámetro: <code>option = c(&quot;bin&quot;, &quot;cloud&quot;, &quot;smooth&quot;)</code></p>
+<p>NOTA: La componente <code>u</code> contiene los saltos, <code>v</code> las estimaciones del
+semivariograma (semivarianzas) y <code>n</code> el número de aportaciones.</p>
+<p>Los resultados pueden ser nubes de puntos (semivarianzas), valores
+discretizados (binned) o suavizados, dependiendo del parámetro:
+<code>option = c("bin", "cloud", "smooth")</code></p>
 <pre class="r"><code># Calculo de los variogramas empíricos
 vario.b &lt;- variog(s100, max.dist = 0.6) #discretizado</code></pre>
 <pre><code>   # variog: computing omnidirectional variogram</code></pre>
@@ -195,7 +223,9 @@ title(&quot;Gráficos de cajas&quot;) # Corregir fallo del comando anterior
 plot(vario.s, main=&quot;Variograma suavizado&quot;)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-14-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>par(oldpar) # Restaurar opciones de gráficos</code></pre>
-<p>Si hay valores atípicos (o la distribución de los datos es asimétrica) puede ser preferible utilizar el estimador robusto. Se puede calcular este estimador estableciendo <code>estimator.type = &quot;modulus&quot;</code>:</p>
+<p>Si hay valores atípicos (o la distribución de los datos es asimétrica)
+puede ser preferible utilizar el estimador robusto. Se puede
+calcular este estimador estableciendo <code>estimator.type = "modulus"</code>:</p>
 <pre class="r"><code>varior.b &lt;- variog(s100, estimator.type = &quot;modulus&quot;, max.dist=0.6)</code></pre>
 <pre><code>   # variog: computing omnidirectional variogram</code></pre>
 <pre class="r"><code>varior.bc &lt;- variog(s100, estimator.type = &quot;modulus&quot;, max.dist=0.6, bin.cloud=TRUE)</code></pre>
@@ -207,11 +237,16 @@ plot(vario.bc, bin.cloud=TRUE)
 plot(varior.bc, bin.cloud=TRUE)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-15-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>par(oldpar) #Restaurar opciones de gráficos</code></pre>
-<p>En el caso de anisotropía, también se pueden obtener variogramas direccionales con la función <code>variog</code> mediante los argumentos <code>direction</code> y <code>tolerance</code>. Por ejemplo, para calcular un variograma en la dirección de 60 grados (con la tolerancia angular por defecto de 22.5 grados):</p>
+<p>En el caso de anisotropía, también se pueden obtener variogramas direccionales con la función
+<code>variog</code> mediante los argumentos <code>direction</code> y <code>tolerance</code>. Por ejemplo,
+para calcular un variograma en la dirección de 60 grados (con la
+tolerancia angular por defecto de 22.5 grados):</p>
 <pre class="r"><code>vario.60 &lt;- variog(s100, max.dist = 0.6, direction = pi/3) #variograma en la dirección de 60 grados</code></pre>
 <pre><code>   # variog: computing variogram for direction = 60 degrees (1.047 radians)
    #         tolerance angle = 22.5 degrees (0.393 radians)</code></pre>
-<p>Para estudiar si hay anisotropía, se pueden cálcular de forma rápida variogramas direccionales con la función <code>variog4</code>. Por defecto calcula cuatro variogramas direccionales, correspondientes a los ángulos 0, 45, 90 y 135 grados:</p>
+<p>Para estudiar si hay anisotropía, se pueden cálcular de forma rápida variogramas
+direccionales con la función <code>variog4</code>. Por defecto calcula cuatro variogramas
+direccionales, correspondientes a los ángulos 0, 45, 90 y 135 grados:</p>
 <pre class="r"><code>vario.4 &lt;- variog4(s100, max.dist = 0.6)</code></pre>
 <pre><code>   # variog: computing variogram for direction = 0 degrees (0 radians)
    #         tolerance angle = 22.5 degrees (0.393 radians)
@@ -232,11 +267,20 @@ plot(vario.4, lwd = 2)</code></pre>
 </div>
 <div id="ajuste-de-un-modelo-de-variograma" class="section level3">
 <h3>3.2 Ajuste de un modelo de variograma</h3>
-<p>Los estimadores empíricos no pueden ser empleados en la práctica (no verifican necesariamente las propiedades de un variograma válido), por lo que se suele recurrir en la práctica al ajuste de un modelo válido. Con el paquete <code>geoR</code> podemos realizar el ajuste:</p>
+<p>Los estimadores empíricos no pueden ser empleados en la práctica (no
+verifican necesariamente las propiedades de un variograma válido), por
+lo que se suele recurrir en la práctica al ajuste de un modelo válido.
+Con el paquete <code>geoR</code> podemos realizar el ajuste:</p>
 <ol style="list-style-type: decimal">
-<li><p>“A ojo”: representando diferentes modelos sobre un variograma empírico (usando la función <code>lines.variomodel</code> o la función <code>eyefit</code>).</p></li>
-<li><p>Por mínimos cuadrados: ajustando por mínimos cuadrados ordinarios (OSL) o ponderados (WLS) al variograma empírico (usando la función <code>variofit</code>),</p></li>
-<li><p>Por máxima verosimilitud: estimando por máxima verosimilitud (ML) o máxima verosimilitud restringida (REML) los parámetros a partir de los datos (utilizando la función <code>likfit</code>),</p></li>
+<li><p>“A ojo”: representando diferentes modelos sobre un variograma
+empírico (usando la función <code>lines.variomodel</code> o la función
+<code>eyefit</code>).</p></li>
+<li><p>Por mínimos cuadrados: ajustando por mínimos cuadrados
+ordinarios (OSL) o ponderados (WLS) al variograma empírico (usando
+la función <code>variofit</code>),</p></li>
+<li><p>Por máxima verosimilitud: estimando por máxima verosimilitud (ML) o
+máxima verosimilitud restringida (REML) los parámetros a partir de
+los datos (utilizando la función <code>likfit</code>),</p></li>
 <li><p>Métodos bayesianos (utilizando la función <code>krige.bayes</code>).</p></li>
 </ol>
 <p>Ejemplo de ajuste “a ojo”:</p>
@@ -256,10 +300,19 @@ lines.variomodel(cov.model = &quot;exp&quot;, cov.pars = c(0.9,0.3), nug = 0.1, 
 lines.variomodel(cov.model = &quot;mat&quot;, cov.pars = c(0.85,0.2), nug = 0.1, kappa = 1, max.dist = 0.6,lty = 2)
 lines.variomodel(cov.model = &quot;sph&quot;, cov.pars = c(0.8,0.8), nug = 0.1, max.dist = 0.6, lwd = 2)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-19-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>Nota: no hace falta escribir el nombre completo de los parámetros (basta con que no dé lugar a confusión).</p>
-<p>En las versiones recientes de <code>geoR</code> está disponible una función para realizar el ajuste gráficamente de forma interactiva (cuadro de diálogo en tcl/tk):</p>
+<p>Nota: no hace falta escribir el nombre completo de los parámetros
+(basta con que no dé lugar a confusión).</p>
+<p>En las versiones recientes de <code>geoR</code> está disponible una función para
+realizar el ajuste gráficamente de forma interactiva
+(cuadro de diálogo en tcl/tk):</p>
 <pre class="r"><code>eyefit(vario.b)</code></pre>
-<p>Cuando se utilizan las funciones <code>variofit</code> y <code>likfit</code> para la estimación de parámetros, el efecto pepita (nugget) puede ser estimado o establecido a un valor fijo. Lo mismo ocurre con los parámetros de suavidad, anisotropía y transformación de los datos. También se dispone de opciones para incluir una tendencia. Las tendencias pueden ser polinomios en función de las coordenadas y/o funciones lineales de otras covariables.</p>
+<p>Cuando se utilizan las funciones <code>variofit</code> y <code>likfit</code> para la
+estimación de parámetros, el efecto pepita (nugget) puede ser estimado o
+establecido a un valor fijo. Lo mismo ocurre con los parámetros de
+suavidad, anisotropía y transformación de los datos. También se dispone
+de opciones para incluir una tendencia. Las tendencias pueden ser
+polinomios en función de las coordenadas y/o funciones lineales de otras
+covariables.</p>
 <p>Ejemplos de estimación por mínimos cuadrados (llamadas a <code>variofit</code>):</p>
 <pre class="r"><code>#   Modelo exponencial con par ini umbral 1 y escala 0.5 (1/3 rango =1.5)
 
@@ -378,7 +431,8 @@ vario.ols &lt;- variofit(vario.b, ini = c(1, 0.5), weights = &quot;equal&quot;) 
    # 
    # Call:
    # likfit(geodata = s100, ini.cov.pars = c(1, 0.5))</code></pre>
-<p>Ejemplo de estimación por máxima verosimilitud restringida (opción de <code>likfit</code>):</p>
+<p>Ejemplo de estimación por máxima verosimilitud restringida (opción de
+<code>likfit</code>):</p>
 <pre class="r"><code>vario.reml &lt;- likfit(s100, ini = c(1, 0.5), lik.method = &quot;RML&quot;)</code></pre>
 <pre><code>   # ---------------------------------------------------------------
    # likfit: likelihood maximisation using the function optim.
@@ -427,8 +481,14 @@ vario.ols &lt;- variofit(vario.b, ini = c(1, 0.5), weights = &quot;equal&quot;) 
    # likfit(geodata = s100, ini.cov.pars = c(1, 0.5), lik.method = &quot;RML&quot;)</code></pre>
 <p><strong>NOTAS</strong>:</p>
 <ul>
-<li><p>Para fijar el nugget a un valor p.e. 0.15 añadir las opciones: <code>fix.nugget = TRUE, nugget = 0.15</code>.</p></li>
-<li><p>Se puede tener en cuenta anisotropía geométrica en los modelos de variograma a partir de los parámetros <code>psiA</code> (ángulo, en radianes, de la dirección de mayor dependencia espacial i.e. con el máximo rango) y <code>psiR</code> (relación, mayor o igual que 1, entre los rangos máximo y mínimo). Se pueden fijar a distintos valores o estimarlos incluyendo las opciones <code>fix.psiA = FALSE</code> y <code>fix.psiR = FALSE</code> en las llamadas a las rutinas de ajuste.)</p></li>
+<li><p>Para fijar el nugget a un valor p.e. 0.15 añadir las opciones:
+<code>fix.nugget = TRUE, nugget = 0.15</code>.</p></li>
+<li><p>Se puede tener en cuenta anisotropía geométrica en los modelos de
+variograma a partir de los parámetros <code>psiA</code> (ángulo, en radianes,
+de la dirección de mayor dependencia espacial i.e. con el
+máximo rango) y <code>psiR</code> (relación, mayor o igual que 1, entre los
+rangos máximo y mínimo). Se pueden fijar a distintos valores o
+estimarlos incluyendo las opciones <code>fix.psiA = FALSE</code> y <code>fix.psiR = FALSE</code> en las llamadas a las rutinas de ajuste.)</p></li>
 </ul>
 <p>Representación gráfica junto al estimador empírico:</p>
 <pre class="r"><code>plot(vario.b, main = &quot;Estimador empírico y modelos ajustados&quot;)
@@ -442,10 +502,16 @@ legend(0.3, 0.3, legend = c(&quot;ML&quot;, &quot;REML&quot;, &quot;OLS&quot;, &
 </div>
 <div id="inferencia-sobre-el-variograma" class="section level3">
 <h3>3.3 Inferencia sobre el variograma</h3>
-<p>Se pueden obtener dos tipos de envolventes (envelopes, i.e. valores máximos y mínimos aproximados) del variograma empírico mediante simulación:</p>
+<p>Se pueden obtener dos tipos de envolventes (envelopes, i.e. valores
+máximos y mínimos aproximados) del variograma empírico mediante
+simulación:</p>
 <ul>
-<li><p>Bajo la hipótesis de que no hay correlación espacial (obtenidos por permutaciones aleatorias de los datos sobre las posiciones espaciales), para estudiar si hay una dependencia espacial “significativa”.</p></li>
-<li><p>Bajo un modelo de variograma, para ilustrar la variabilidad del variograma empírico.</p></li>
+<li><p>Bajo la hipótesis de que no hay correlación espacial (obtenidos por
+permutaciones aleatorias de los datos sobre las posiciones
+espaciales), para estudiar si hay una dependencia
+espacial “significativa”.</p></li>
+<li><p>Bajo un modelo de variograma, para ilustrar la variabilidad del
+variograma empírico.</p></li>
 </ul>
 <pre class="r"><code>env.indep &lt;- variog.mc.env(s100, obj.var = vario.b)</code></pre>
 <pre><code>   # variog.env: generating 99 simulations by permutating data values
@@ -462,18 +528,33 @@ plot(vario.b, envelope = env.model)
 lines(vario.wls, lty = 2, lwd = 2, max.dist = 0.6)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-25-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>par(oldpar)     </code></pre>
-<p>Para estudiar si hay una dependencia espacial “significativa” se puede emplear también la rutina <code>sm.variogram</code> del paquete <code>sm</code>. Estableciendo <code>model = &quot;independent&quot;</code> devuelve un p-valor para contrastar la hipótesis nula de independencia (i.e. se acepta que hay una dependencia espacial si <span class="math inline">\(p \leq \alpha = 0.05\)</span>) y un gráfico en el que se muestra el estimador empírico robusto, un estimador suavizado y una región de confianza para el variograma suponiendo que el proceso es independiente (i.e. consideraríamos que hay dependencia espacial si el variograma suavizado no está contenido en esa región).</p>
+<p>Para estudiar si hay una dependencia espacial “significativa” se puede
+emplear también la rutina <code>sm.variogram</code> del paquete <code>sm</code>.
+Estableciendo <code>model = "independent"</code>
+devuelve un p-valor para contrastar la hipótesis nula de independencia
+(i.e. se acepta que hay una dependencia espacial si <span class="math inline">\(p \leq \alpha = 0.05\)</span>)
+y un gráfico en el que se muestra el estimador empírico robusto, un estimador
+suavizado y una región de confianza para el variograma suponiendo que el
+proceso es independiente (i.e. consideraríamos que hay dependencia
+espacial si el variograma suavizado no está contenido en esa región).</p>
 <pre class="r"><code>library(sm)</code></pre>
 <pre><code>   # Package &#39;sm&#39;, version 2.2-5.6: type help(sm) for summary information</code></pre>
 <pre class="r"><code>sm.variogram(s100$coords, s100$data, model = &quot;independent&quot;)</code></pre>
 <pre><code>   # Test of spatial independence: p =  0.024</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p><strong>Nota</strong>: Se puede realizar contrastes adicionales estableciendo el parámetro <code>model</code> a <code>&quot;isotropic&quot;</code> o <code>&quot;stationary&quot;</code>.</p>
+<p><strong>Nota</strong>: Se puede realizar contrastes adicionales estableciendo el parámetro <code>model</code>
+a <code>"isotropic"</code> o <code>"stationary"</code>.</p>
 <p><br></p>
 </div>
-<div id="validacion-cruzada" class="section level3">
+<div id="validación-cruzada" class="section level3">
 <h3>3.4 Validación cruzada</h3>
-<p>Para verificar si un modelo de variograma describe adecuadamente la dependencia espacial de los datos (p.e. comparar modelos), se emplea normalmente la técnica de validación cruzada, función <code>xvalid</code> en <code>geoR</code>. Por defecto la validación se realiza sobre los datos eliminando cada observación (y utilizando las restantes para predecir), aunque se puede utilizar un conjunto diferente de posiciones (o de datos) mediante el argumento <code>location.xvalid</code> (y <code>data.xvalid</code>).</p>
+<p>Para verificar si un modelo de variograma describe adecuadamente la
+dependencia espacial de los datos (p.e. comparar modelos), se emplea
+normalmente la técnica de validación cruzada, función <code>xvalid</code> en <code>geoR</code>.
+Por defecto la validación se realiza sobre los datos eliminando cada
+observación (y utilizando las restantes para predecir), aunque se puede
+utilizar un conjunto diferente de posiciones (o de datos) mediante el
+argumento <code>location.xvalid</code> (y <code>data.xvalid</code>).</p>
 <pre class="r"><code>xv.wls &lt;- xvalid(s100, model = vario.wls)</code></pre>
 <pre><code>   # xvalid: number of data locations       = 100
    # xvalid: number of validation locations = 100
@@ -498,18 +579,28 @@ lines(vario.wls, lty = 2, lwd = 2, max.dist = 0.6)</code></pre>
    #                   sd
    # errors     0.4813133
    # std.errors 0.9906166</code></pre>
-<p>Por defecto la función <code>plot</code> (<code>plot.xvalid</code>) muestra 10 gráficos diferentes (para más información ejecutar <code>?plot.xvalid</code>), a grosso modo los cinco primeros se corresponden con residuos simples (valores observados menos predicciones) y los segundos con residuos estandarizados (dividiendo por la raíz cuadrada de la varianza de predicción).</p>
+<p>Por defecto la función <code>plot</code> (<code>plot.xvalid</code>) muestra 10 gráficos
+diferentes (para más información ejecutar <code>?plot.xvalid</code>), a grosso modo
+los cinco primeros se corresponden con residuos simples (valores
+observados menos predicciones) y los segundos con residuos
+estandarizados (dividiendo por la raíz cuadrada de la varianza de
+predicción).</p>
 <pre class="r"><code>oldpar &lt;- par(mfrow = c(2, 5))
 plot(xv.wls, ask = FALSE)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-28-1.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>par(oldpar)
 
 # plot(xv.reml)</code></pre>
-<p><strong>NOTA</strong>: Para re-estimar los parámetros del modelo cada vez que se elimina una observación (i.e. validar el procedimiento de estimación) añadir la opción <code>reest = TRUE</code> (puede requerir mucho tiempo de computación). <br></p>
+<p><strong>NOTA</strong>: Para re-estimar los parámetros del modelo cada vez que se
+elimina una observación (i.e. validar el procedimiento de estimación)
+añadir la opción <code>reest = TRUE</code> (puede requerir mucho tiempo de
+computación).
+<br></p>
 </div>
-<div id="estimacion-del-variograma-en-procesos-no-estacionarios" class="section level3">
+<div id="estimación-del-variograma-en-procesos-no-estacionarios" class="section level3">
 <h3>3.5 Estimación del variograma en procesos no estacionarios</h3>
-<p>Cuando el proceso no es estacionario (no se puede emplear directamente los estimadores empíricos) hay que eliminar la tendencia para estimar el variograma:</p>
+<p>Cuando el proceso no es estacionario (no se puede emplear directamente los
+estimadores empíricos) hay que eliminar la tendencia para estimar el variograma:</p>
 <pre class="r"><code>oldpar &lt;- par(mfrow=c(1,2)) 
 plot(variog(wolfcamp, max.dist = 200)) # Supone que el proceso es estacionario</code></pre>
 <pre><code>   # variog: computing omnidirectional variogram</code></pre>
@@ -520,16 +611,27 @@ plot(variog(wolfcamp, max.dist = 200)) # Supone que el proceso es estacionario</
 <p><br></p>
 </div>
 </div>
-<div id="prediccion-espacial-kriging" class="section level2">
+<div id="predicción-espacial-kriging" class="section level2">
 <h2>4. Predicción espacial (kriging)</h2>
-<p>El paquete <code>geoR</code> dispone de opciones para los métodos kriging tradicionales, que dependiendo de las suposiciones acerca de la función de tendencia se clasifican en:</p>
+<p>El paquete <code>geoR</code> dispone de opciones para los métodos kriging
+tradicionales, que dependiendo de las suposiciones acerca de la función
+de tendencia se clasifican en:</p>
 <ul>
 <li><p><em>Kriging simple</em> (<strong>KS</strong>): media conocida</p></li>
-<li><p><em>Kriging ordinario</em> (<strong>KO</strong>): se supone que la media es constante y desconocida.</p></li>
-<li><p><em>Kriging universal</em> (<strong>KU</strong>): también denominado kriging con modelo de tendencia, se supone que la media es una combinación lineal (desconocida) de las coordenadas o de otras variables explicativas.</p></li>
+<li><p><em>Kriging ordinario</em> (<strong>KO</strong>): se supone que la media es constante
+y desconocida.</p></li>
+<li><p><em>Kriging universal</em> (<strong>KU</strong>): también denominado kriging con modelo de
+tendencia, se supone que la media es una combinación
+lineal (desconocida) de las coordenadas o de otras
+variables explicativas.</p></li>
 </ul>
-<p>Existen también opciones adicionales para kriging trans-normal (con transformaciones Box-Cox para aproximarse a la normalidad y transformación de nuevo de resultados a la escala original manteniendo insesgadez). También admite modelos de variograma geométricamente anisotrópicos.</p>
-<p>Para obtener una rejilla discreta de predicción puede ser de utilidad la función <code>expand.grid</code>:</p>
+<p>Existen también opciones adicionales para kriging trans-normal (con
+transformaciones Box-Cox para aproximarse a la normalidad y
+transformación de nuevo de resultados a la escala original manteniendo
+insesgadez). También admite modelos de variograma geométricamente
+anisotrópicos.</p>
+<p>Para obtener una rejilla discreta de predicción puede ser de utilidad la
+función <code>expand.grid</code>:</p>
 <pre class="r"><code># Rejilla regular 51x51 en cuadrado unidad
 xx &lt;- seq(0, 1, l = 51)
 yy &lt;- seq(0, 1, l = 51)
@@ -537,27 +639,31 @@ pred.grid &lt;- expand.grid(x = xx, y = yy)
 plot(s100$coords, pch = 20)
 points(pred.grid, pch = 3, cex = 0.2)</code></pre>
 <p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-30-1.png" width="672" style="display: block; margin: auto;" /></p>
-<p>El comando para realizar kriging ordinario con variograma <code>vario.wls</code> sería:</p>
+<p>El comando para realizar kriging ordinario con variograma <code>vario.wls</code>
+sería:</p>
 <pre class="r"><code>ko.wls &lt;- krige.conv(s100, loc = pred.grid, krige = krige.control(obj.m = vario.wls))</code></pre>
 <pre><code>   # krige.conv: model with constant mean
    # krige.conv: Kriging performed using global neighbourhood</code></pre>
-<p>El resultado es una lista incluyendo predicciones (<code>ko.wls$predict</code>) y varianzas kriging (<code>ko.wls$krige.var</code>):</p>
+<p>El resultado es una lista incluyendo predicciones (<code>ko.wls$predict</code>) y
+varianzas kriging (<code>ko.wls$krige.var</code>):</p>
 <pre class="r"><code>names(ko.wls)</code></pre>
-<pre><code>   # [1] &quot;predict&quot;      &quot;krige.var&quot;    &quot;beta.est&quot;     &quot;distribution&quot;
-   # [5] &quot;message&quot;      &quot;call&quot;</code></pre>
-<p>Para ver todas las opciones de kriging disponibles ejecutar <code>?krige.control</code>. Para kriging con vecindario local (archivos de datos grandes) se puede utilizar la función <code>ksline</code>.</p>
+<pre><code>   # [1] &quot;predict&quot;      &quot;krige.var&quot;    &quot;beta.est&quot;     &quot;distribution&quot; &quot;message&quot;     
+   # [6] &quot;call&quot;</code></pre>
+<p>Para ver todas las opciones de kriging disponibles ejecutar
+<code>?krige.control</code>. Para kriging con vecindario local (archivos de datos
+grandes) se puede utilizar la función <code>ksline</code>.</p>
 <p>Para representar las superficies se puede utilizar la función <code>image</code>:</p>
 <pre class="r"><code>oldpar &lt;- par(mfrow = c(1, 2))
 image(ko.wls) #superficie de predicción
 title(&quot;Predicciones&quot;)
 points(s100$coords, pch=20) #añadir posiciones datos
-contour(ko.wls,add=T) #añadir gráfico de contorno
-
-image(ko.wls, val = ko.wls$krige.var) #superficie de varianzas
+contour(ko.wls,add=T) #añadir gráfico de contorno</code></pre>
+<p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-33-1.png" width="672" style="display: block; margin: auto;" /></p>
+<pre class="r"><code>image(ko.wls, val = ko.wls$krige.var) #superficie de varianzas
 title(&quot;Superficie de varianzas&quot;)
 points(s100$coords, pch=20)
 contour(ko.wls,val=sqrt(ko.wls$krige.var),add=T)</code></pre>
-<p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-33-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p><img src="/post/2017-10-23-introducción-a-la-geoestadística-con-geor_files/figure-html/unnamed-chunk-33-2.png" width="672" style="display: block; margin: auto;" /></p>
 <pre class="r"><code>par(oldpar)</code></pre>
 <p>Otras opciones:</p>
 <pre class="r"><code>contour(ko.wls,filled = TRUE)</code></pre>
@@ -574,10 +680,10 @@ persp(ko.wls, theta=-60, phi=40, col=fcol)</code></pre>
   stop(&#39;Required pakage `npsp` not installed.&#39;) # install.packages(&#39;npsp&#39;)</code></pre>
 <pre><code>   # Loading required package: npsp</code></pre>
 <pre><code>   #  Package npsp: Nonparametric Spatial Statistics,
-   #  version 0.7-3 (built on 2018-10-11).
-   #  Copyright (C) R. Fernandez-Casal 2012-2018.
-   #  Type `help(npsp)` for an overview of the package and
-   #  `demo(package = &quot;npsp&quot;)` for the list of available demos.</code></pre>
+   #  version 0.8-1 (built on 2021-02-14).
+   #  Copyright (C) R. Fernandez-Casal 2012-2021.
+   #  Type `help(npsp)` for an overview of the package or
+   #  visit https://rubenfcasal.github.io/npsp.</code></pre>
 <pre><code>   # 
    # Attaching package: &#39;npsp&#39;</code></pre>
 <pre><code>   # The following object is masked from &#39;package:sm&#39;:
@@ -588,7 +694,12 @@ persp(ko.wls, theta=-60, phi=40, col=fcol)</code></pre>
 <p><br></p>
 <hr />
 <p>Copyright 2009-2018 Rubén Fernández Casal</p>
-<p>Se autoriza la realización y distribución de copias literales de este manual, siempre y cuando las advertencias del copyright y de este permiso se conserven en todas las copias.</p>
-<p>Se autoriza la realización y distribución de copias modificadas de este manual, en las mismas condiciones de las copias literales, siempre y cuando la totalidad del trabajo resultante se distribuya bajo los términos de una advertencia de permiso idéntica a esta.</p>
+<p>Se autoriza la realización y distribución de copias literales de este
+manual, siempre y cuando las advertencias del copyright y de este
+permiso se conserven en todas las copias.</p>
+<p>Se autoriza la realización y distribución de copias modificadas de este
+manual, en las mismas condiciones de las copias literales, siempre y
+cuando la totalidad del trabajo resultante se distribuya bajo los
+términos de una advertencia de permiso idéntica a esta.</p>
 </div>
 </div>

@@ -39,22 +39,18 @@ weight = 5
 
 # Biografía
 
-Soy profesor Contratado Doctor 
-del [Departamento de Matemáticas](http://dm.udc.es) 
-(Area de [Estadística e Investigación Operativa](http://dm.udc.es/matematicas/es/node/41)) 
-de la [Universidade da Coruña](http://www.udc.gal) 
-y miembro del grupo [Modes](http://dm.udc.es/modes/). 
+Soy profesor Contratado Doctor del [Departamento de Matemáticas](http://dm.udc.es) (Area de [Estadística e Investigación Operativa](http://dm.udc.es/matematicas/es/node/41)) de la [Universidade da Coruña](http://www.udc.gal) y miembro del grupo [Modes](http://dm.udc.es/modes/). 
 
 * 1998-2006. Profesor propio en la [Universidade de Vigo](https://uvigo.gal).
 
 * 1996-1998. Profesor asociado en la [Universidade de Santiago de Compostela](https://www.usc.gal).
 
 Tesis doctoral: [Geoestadística espacio-temporal: 
-modelos flexibles de variogramas anisotrópicos no separables](/Geoestadistica_espacio-temporal.pdf).
+modelos flexibles de variogramas anisotrópicos no separables](/files/Geoestadistica_espacio-temporal.pdf).
 
 Más información en mi [página institucional](http://dm.udc.es/staff/ruben_fernandez/) (en inglés):
 
-* [Docencia](http://dm.udc.es/staff/ruben_fernandez/teaching.php)
+* [Docencia](https://pdi.udc.es/es/File/Pdi/M859E)
 
 * [Publicaciones](http://dm.udc.es/staff/ruben_fernandez/publications.php) (desde 2007)
 

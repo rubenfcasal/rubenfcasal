@@ -1,9 +1,12 @@
 ---
 title: "Hello R Markdown"
 author: "Frida Gomam (modified by Ruben Fernandez-Casal)"
-date: 2015-07-23T21:13:14-05:00
-categories: ["R"]
-tags: ["R Markdown", "plot", "regresion"]
+date: 2015-07-23
+categories:
+  - Hugo
+tags:
+  - R Markdown
+  - blogdown
 summary: "Ejemplo del uso de RMarkdown con blogdown."
 output:
   blogdown::html_page:

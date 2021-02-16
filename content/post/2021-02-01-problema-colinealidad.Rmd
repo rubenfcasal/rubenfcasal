@@ -1,0 +1,159 @@
+---
+title: "El problema de la colinelidad"
+author: Rubén Fernández Casal
+date: '2021-02-01'
+slug: problema-colinealidad
+categories:
+  - Estadística
+tags:
+  - Apuntes
+  - Regresión
+summary: "En regresión múltiple, si alguna de las variables explicativas no aporta información adicional relevante sobre la respuesta puede aparecer el problema de la colinealidad."
+output:
+  blogdown::html_page:
+    toc: true  
+---
+
+
+En regresión múltiple, si alguna de las variables explicativas no aporta información adicional relevante sobre la respuesta puede aparecer el problema de la colinealidad (o concurvidad, si se consideran efectos no lineales). 
+
+En regresión lineal múltiple se supone que ninguna de las variables explicativas es combinación lineal de las demás.
+Si una de las variables explicativas (variables independientes) es combinación lineal de las otras, no se pueden determinar los parámetros de forma única (sistema singular).
+Sin llegar a esta situación extrema, cuando algunas variables explicativas estén altamente correlacionadas entre sí, tendremos una situación de alta colinealidad.
+En este caso las estimaciones de los parámetros pueden verse seriamente afectadas:
+
+-   Tendrán varianzas muy altas (serán poco eficientes).
+
+-   Habrá mucha dependencia entre ellas (al modificar ligeramente el
+    modelo, añadiendo o eliminando una variable o una observación,
+    se producirán grandes cambios en las estimaciones de los efectos).
+ 
+Consideraremos un ejemplo de regresión lineal bidimensional con datos simulados en el que las dos variables explicativas están altamente correlacionadas:
+
+```{r }
+set.seed(1)
+n <- 50
+rand.gen <- runif # rnorm
+x1 <- rand.gen(n)
+rho <- sqrt(0.99) # coeficiente de correlación
+x2 <- rho*x1 + sqrt(1 - rho^2)*rand.gen(n)
+fit.x2 <- lm(x2 ~ x1)
+# plot(x1, x2)
+# summary(fit.x2)
+
+# Rejilla x-y para predicciones:
+x1.range <- range(x1)
+x1.grid <- seq(x1.range[1], x1.range[2], length.out = 30)
+x2.range <- range(x2)
+x2.grid <- seq(x2.range[1], x2.range[2], length.out = 30)
+xy <- expand.grid(x1 = x1.grid, x2 = x2.grid)
+
+# Modelo teórico:
+model.teor <- function(x1, x2) x1
+# model.teor <- function(x1, x2) x1 - 0.5*x2
+y.grid <- matrix(mapply(model.teor, xy$x1, xy$x2), nrow = length(x1.grid))
+y.mean <- mapply(model.teor, x1, x2)
+```
+
+Tendencia teórica y valores de las variables explicativas: 
+
+```{r message=FALSE, warning=FALSE}
+library(plot3D)
+ylim <- c(-2, 3) # range(y, y.pred)
+scatter3D(z = y.mean, x = x1, y = x2, pch = 16, cex = 1, clim = ylim, zlim = ylim,
+          theta = -40, phi = 20, ticktype = "detailed", 
+          main = "Modelo teórico y valores de las variables explicativas",
+          xlab = "x1", ylab = "x2", zlab = "y", sub = sprintf("R2(x1,x2) = %.2f", summary(fit.x2)$r.squared),
+          surf = list(x = x1.grid, y = x2.grid, z = y.grid, facets = NA))
+scatter3D(z = rep(ylim[1], n), x = x1, y = x2, add = TRUE, colkey = FALSE, 
+           pch = 16, cex = 1, col = "black")
+x2.pred <- predict(fit.x2, newdata = data.frame(x1 = x1.range))
+lines3D(z = rep(ylim[1], 2), x = x1.range, y = x2.pred, add = TRUE, colkey = FALSE, col = "black") 
+```
+
+Simulación de la respuesta:
+
+```{r multicol-movie, fig.show='animate', interval=1, aniopts="loop", ffmpeg.format='gif'}
+sd.err <- 0.25
+nsim <- 10
+
+for (isim in 1:nsim) {
+  set.seed(isim)
+  y <- y.mean + rnorm(n, 0, sd.err)
+  
+  # Ajuste lineal y superficie de predicción
+  fit <- lm(y ~ x1 + x2)
+  y.pred <- matrix(predict(fit, newdata = xy), nrow = length(x1.grid)) 
+  
+  # Representar
+  fitpoints <- predict(fit) 
+  scatter3D(z = y, x = x1, y = x2, pch = 16, cex = 1.5, clim = ylim, zlim = ylim,
+            theta = -40, phi = 20, ticktype = "detailed", 
+            main = "Modelo ajustado", xlab = "x1", ylab = "x2", zlab = "y", 
+            surf = list(x = x1.grid, y = x2.grid, z = y.pred, 
+                        facets = NA, fit = fitpoints))
+}
+```
+
+Incluso puede ocurrir que el contraste de regresión sea significativo (alto coeficiente de determinación), pero los contrastes individuales sean no significativos. 
+
+Por ejemplo, en el último ajuste obtendríamos:
+
+```{r}
+summary(fit)
+```
+
+Si las variables explicativas no estuviesen correlacionadas:
+
+```{r indep-movie, fig.show='animate', interval=1, aniopts="loop", ffmpeg.format='gif'}
+x2 <- rand.gen(n)
+y.mean <- mapply(model.teor, x1, x2)
+
+for (isim in 1:nsim) {
+  # Simular respuesta
+  set.seed(isim)
+  y <- y.mean + rnorm(n, 0, sd.err)
+  
+  # Ajuste lineal y superficie de predicción
+  fit2 <- lm(y ~ x1 + x2)
+  y.pred <- matrix(predict(fit2, newdata = xy), nrow = length(x1.grid)) 
+  
+  # Representar
+  fitpoints <- predict(fit2) 
+  scatter3D(z = y, x = x1, y = x2, pch = 16, cex = 1.5, clim = ylim, zlim = ylim,
+            theta = -40, phi = 20, ticktype = "detailed", 
+            main = "Modelo ajustado", xlab = "x1", ylab = "x2", zlab = "y", 
+            surf = list(x = x1.grid, y = x2.grid, z = y.pred, 
+                        facets = NA, fit = fitpoints))
+}
+```
+
+Por ejemplo, en el último ajuste obtendríamos:
+```{r}
+summary(fit2)
+```
+
+En la práctica, para la detección de colinealidad, se puede emplear la función
+`vif()` del paquete [`car`](https://cran.r-project.org/package=car) para calcular los factores de inflación de varianza para las variables del modelo.
+Por ejemplo, en los últimos ajustes obtendríamos:
+```{r }
+library(car)
+vif(fit)
+vif(fit2) 
+```
+La idea de este estadístico es que la varianza de la estimación del efecto en 
+regresión simple (efecto global) es menor que en regresión múltiple (efecto parcial).
+El factor de inflación de la varianza mide el incremento debido a la colinealidad.
+Valores grandes, por ejemplo > 10, indican la posible presencia de colinealidad.
+
+Las tolerancias, proporciones de variabilidad no explicada por las demás covariables, se pueden calcular con `1/vif(modelo)`.
+Por ejemplo, los coeficientes de tolerancia de los últimos ajustes serían:
+```{r}
+1/vif(fit)
+1/vif(fit2) 
+```
+
+El problema de la colinealidad se agrava al aumentar el número de dimensiones (la maldición de la dimensionalidad).
+Hay que tener en cuenta también que, además de la dificultad para interpretar el efecto de los predictores, va a resultar más difícil determinar que variables son de interés para predecir la respuesta (i.e. no son ruido). Debido a la aleatoriedad, predictores que realmente no están relacionados con la respuesta pueden ser tenidos en cuenta por el modelo con mayor facilidad, especialmente si se recurre a los contrastes tradicionales para determinar si tienen un efecto significativo. 
+
+Por ejemplo en el último ajuste, bajo las hipótesis del modelo de regresión lineal múltiple, se aceptaría un efecto lineal significativo de `x2` aunque realmente no influye en la respuesta (esto puede ocurrir el 5\% de las veces, considerando una única variable).

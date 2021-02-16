@@ -1,16 +1,18 @@
 ---
-title: Escritura de libros con `bookdown`
+title: "Escritura de libros con `bookdown`"
 author: Rubén Fernández Casal
 date: '2017-10-25'
 slug: intro-bookdown
-categories: ["R"]
-tags: ["R Markdown", "blookdown", "sgapeio"]
-summary: "Introducción a la escritura de libros con el paquete `bookdown`.
-Una versión más reciente de este post está disponible en formato [libro](https://rubenfcasal.github.io/bookdown_intro)."
+categories:
+  - R
+tags:
+  - bookdown
+  - R Markdown
+  - Apuntes
+  - Paquetes
+  - sgapeio
+summary: "Introducción a la escritura de libros con el paquete `bookdown`.Una versión más reciente de este post está disponible en formato [libro](https://rubenfcasal.github.io/bookdown_intro)."
 output:
-  html_document:
-    toc: true
-    toc_float: true
   blogdown::html_page:
     toc: true
 ---

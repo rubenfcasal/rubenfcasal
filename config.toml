@@ -1,7 +1,7 @@
 baseurl = "https://rubenfcasal.github.io/"
 languageCode = "en-us"
 title = "R Machinery"
-copyright = "&copy; 2017-2018 Ruben Fernandez-Casal"
+copyright = "&copy; 2017-2021 Ruben Fernandez-Casal"
 theme = "hugo-academic"
 enableEmoji = true
 publishDir = "../rubenfcasal.github.io"

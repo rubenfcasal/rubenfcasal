@@ -2,13 +2,17 @@
 title: Introducción a la Geoestadística con `geoR`
 author: Rubén Fernández Casal
 date: '2017-10-23'
-slug: introducción-a-la-geoestadística-con-geor
-categories: ["Apuntes", "R"]
-tags: ["Geoestadística", "regresion", "Paquetes"]
-summary: "El paquete `geoR` proporciona herramientas para el
-  análisis de datos geoestadísticos en `R`
-  (otra alternativa puede ser emplear el paquete `gstat`, por ejemplo...).
-  En este post se ilustran algunas de las capacidades de este paquete."
+slug: introduccion-a-la-geoestadistica-con-geor
+categories:
+  - Documentos
+  - Estadística
+tags:
+  - Apuntes
+  - Geoestadística
+  - Regresión
+  - Paquetes
+summary: "En este post se ilustran algunas de las capacidades del paquete `geoR` para el análisis de datos geoestadísticos en `R`
+  (otra alternativa es el paquete [`gstat`](http://r-spatial.github.io/gstat)...)."
 output:
   blogdown::html_page:
     toc: true  
@@ -29,7 +33,7 @@ El paquete `geoR`
 
 El paquete `geoR` proporciona herramientas para el análisis de datos
 geoestadísticos en `R` 
-(otra alternativa puede ser emplear el paquete `gstat`, por ejemplo...). 
+(otra alternativa es el paquete [`gstat`](http://r-spatial.github.io/gstat), por ejemplo...). 
 A continuación se ilustran algunas de las capacidades de este paquete.
 
 <br>

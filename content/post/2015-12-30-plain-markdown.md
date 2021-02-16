@@ -1,7 +1,7 @@
 ---
 title: "A Plain Markdown Post"
 date: "2015-12-30"
-categories: ["R"]
+categories: ["Hugo"]
 tags: ["Markdown", "R Markdown"]
 summary: "Ejemplo del uso de Markdown plano con blogdown."
 ---

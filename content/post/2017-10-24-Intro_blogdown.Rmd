@@ -3,8 +3,13 @@ title: Creación de sitios web con `blogdown`
 author: Rubén Fernández Casal
 date: '2017-10-24'
 slug: creación-de-sitios-web-con-blogdown
-categories: ["R"]
-tags: ["R Markdown", "blogdown", "sgapeio"]
+categories:
+  - R
+tags:
+  - blogdown
+  - R Markdown
+  - Paquetes
+  - sgapeio
 summary: "Introducción a la creación de sitios web con el paquete `blogdown`."
 output:
   blogdown::html_page:

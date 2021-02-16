@@ -45,7 +45,7 @@ Rubén Fernández-Casal is an Associate Professor ([MODES research group](http:/
 * 1996-1998. Teaching Assistant at the University of Santiago de Compostela, Spain.
 
 Doctoral thesis: [Geoestadística espacio-temporal: 
-modelos flexibles de variogramas anisotrópicos no separables](/Geoestadistica_espacio-temporal.pdf).
+modelos flexibles de variogramas anisotrópicos no separables](/files/Geoestadistica_espacio-temporal.pdf).
 
 ## [Institutional web](http://dm.udc.es/staff/ruben_fernandez/)
 

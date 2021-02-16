@@ -1,0 +1,138 @@
+---
+title: Instalación y configuración de RStudio Desktop
+author: Rubén Fernández Casal
+date: '2021-02-14'
+slug: instalacion-de-rstudio
+categories:
+  - R
+tags:
+  - Configuración
+  - Apuntes
+summary: "Pasos para la instalación y configuración de RStudio en Windows y Ubuntu/Devian."
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#windows">Instalación en Windows y primeros pasos</a></li>
+<li><a href="#ubuntu">Instalación en Ubuntu/Devian</a></li>
+<li><a href="#configuración">Configuración</a><ul>
+<li><a href="#opciones-adicionales">Opciones adicionales</a></li>
+</ul></li>
+</ul>
+</div>
+
+<p>Un entorno de desarrollo (IDE, <em>Integrated Development Environment</em>) de R muy recomendable es <a href="http://rstudio.org">RStudio</a>.
+Está disponible para la mayoría de plataformas (hay una versión para servidores: RStudio Server) e integra una gran cantidad de herramientas, que permiten desde la generación de informes (este es el principal motivo por el que algunos empleamos RStudio), hasta la gestión de distintos tipos de proyectos, depuración de código, control de versiones, etc.</p>
+<p>En primer lugar es necesario tener instalado previamente R, por ejemplo como se describe en <a href="/post/instalacion-de-r">este post</a>.</p>
+<div id="windows" class="section level1">
+<h1>Instalación en Windows y primeros pasos</h1>
+<p>Basta con descargar el correspondiente archivo de instalación de <a href="http://rstudio.org/download/desktop"><em>http://rstudio.org/download/desktop</em></a> y seguir las instrucciones.</p>
+<p>Al ejecutarlo se mostrará la ventana principal:</p>
+<p><img src="/img/rstudio.png" style="width:70.0%" /></p>
+<p>Por defecto RStudio está organizado en cuatro paneles:</p>
+<ul>
+<li><p>Editor de código (normalmente .R o .Rmd).</p></li>
+<li><p>Consola de R (y terminal de comandos del sistema operativo).</p></li>
+<li><p>Explorador de entorno e historial.</p></li>
+<li><p>Explorador de archivos, visor de gráficos, ayuda y navegador web integrado.</p></li>
+</ul>
+<p>Primeros pasos:</p>
+<ul>
+<li><p>Presionar <em>Ctrl-Enter</em> (<em>Command-Enter</em> en OS X) para ejecutar la línea de código actual o el código seleccionado (también se puede emplear el botón <em>Run</em> en la barra de herramientas del Editor o el menú <em>Code</em>).</p></li>
+<li><p>Presionar <em>Tab</em> para autocompletado.</p></li>
+<li><p>Pulsar en el nombre del objeto en la pestaña <em>Environment</em>, o ejecutar <code>View(objeto)</code> en la consola, para visualizar el objeto en una nueva pestaña del editor.</p></li>
+</ul>
+<p>Información adicional:</p>
+<ul>
+<li><p><a href="https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf">RStudio cheatsheet</a></p></li>
+<li><p><a href="https://support.rstudio.com/hc/en-us/sections/200107586-Using-the-RStudio-IDE">Using the RStudio IDE</a></p></li>
+<li><p><a href="https://support.rstudio.com/hc/en-us/articles/234653607-Getting-Started-with-RStudio-Server">Getting-Started-with-RStudio-Server</a></p></li>
+<li><p><a href="https://docs.rstudio.com/ide/server-pro">RStudio Server Professional Edition Administration Guide</a></p></li>
+</ul>
+<hr />
+</div>
+<div id="ubuntu" class="section level1">
+<h1>Instalación en Ubuntu/Devian</h1>
+<p>Antes de nada, puede ser recomendable crear un directorio donde descargar el instalador:</p>
+<pre class="sh"><code>mkdir installr
+cd installr</code></pre>
+<p>Buscar la versión actualizada de RStudio en <a href="https://rstudio.com/products/rstudio/download/#download">Download RStudio</a>,
+en este caso emplearemos “<a href="https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5033-amd64.deb" class="uri">https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5033-amd64.deb</a>”</p>
+<pre class="sh"><code>sudo apt-get install gdebi-core
+wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5033-amd64.deb
+sudo gdebi -n rstudio-1.2.5033-amd64.deb
+</code></pre>
+<p>Si mo se dispone de un entorno gráfico puede ser recomendable instalar RStudio Server como se describe en <a href="#rstudio-server">este post</a>.</p>
+<hr />
+</div>
+<div id="configuración" class="section level1">
+<h1>Configuración</h1>
+<p>Se pueden cambiar las opciones de RStudio a través del menú <em>Tools &gt; Global Options</em>.
+Por ejemplo, yo acostumbro a establecer:</p>
+<ul>
+<li><p>General</p>
+<ul>
+<li><p>Save workspace to .RData on exit: Never</p></li>
+<li><p>Always save history: Desactivado</p></li>
+</ul></li>
+<li><p>Code: Saving</p>
+<ul>
+<li><p>Default text encoding: UTF-8</p>
+<p>(se puede establecer por defecto al emplear el menú <em>File &gt; Save with Encoding…</em> )</p></li>
+</ul></li>
+<li><p>Appearance</p>
+<ul>
+<li><p>Editor theme: Tomorrow Night Bright</p>
+<p>(o similar)</p></li>
+</ul></li>
+<li><p>Packages: Management</p>
+<ul>
+<li><p>CRAN mirror: Spain (A Coruña)</p>
+<p>(o otro cercano, como Spain (Madrid), Escuela Politécnica Nacional (Ecuador), …)</p></li>
+</ul></li>
+<li><p>R Markdown</p>
+<ul>
+<li><p>Show document outline by default: Activado</p></li>
+<li><p>Show output preview in: None</p>
+<p>(cuidado: requiere abrir el informe en un navegador/visor externo)</p></li>
+<li><p>Show output inline: Desactivado</p></li>
+<li><p>Show equations and image previews: In a popup</p></li>
+</ul></li>
+<li><p>Spelling</p>
+<ul>
+<li><p>Main dictionary language: Spanish</p>
+<p>(o English, dependiendo del caso…)</p></li>
+</ul></li>
+<li><p>Git/SVN</p>
+<ul>
+<li><p>Enable version control interface for RStudio projects: Desactivado</p>
+<p>(prefiero emplear <a href="https://desktop.github.com">GitHub Desktop</a>)</p></li>
+</ul></li>
+</ul>
+<p>Para más detalles ver <a href="https://support.rstudio.com/hc/en-us/articles/200549016-Customizing-RStudio">Customizing RStudio</a>.</p>
+<div id="opciones-adicionales" class="section level2">
+<h2>Opciones adicionales</h2>
+<p>Personalmente, como además suelo trabajar con dos monitores, prefiero no emplear los visores de gráficos, ayuda y navegador web integrados.
+Por ese motivo acostumbro a modificar los archivos de configuración (en el directorio <em>C:\Program Files\RStudio\R</em> en Windows y <em>/Applications/RStudio.app/Contents/Resources/R</em> en Linux), que normalmente habrá que editar como administrador.</p>
+<p>Por defecto los gráficos generados desde RStudio se mostrarán en la pestaña <em>Plots</em> panel inferior derecho y por ejemplo puede aparecer errores si el área gráfica es demasiado pequeña.
+Para utilizar el dispositivo gráfico de R habría que modificar las siguientes líneas de <em>C:\Program Files\RStudio\R\Tools.R</em>:</p>
+<pre class="r"><code># set our graphics device as the default and cause it to be created/set
+.rs.addFunction( &quot;initGraphicsDevice&quot;, function()
+{
+   # options(device=&quot;RStudioGD&quot;)
+   # grDevices::deviceIsInteractive(&quot;RStudioGD&quot;)
+  grDevices::deviceIsInteractive()
+})</code></pre>
+<p>El visor integrado de RStudio no resulta muy cómodo para navegar por la ayuda de las funciones (por ejemplo no permite hacer zoom o abrir múltiples ventanas).
+Para utilizar en su lugar el navegador del equipo habría que comentar las siguientes líneas de <em>C:\Program Files\RStudio\R\Options.R</em>:</p>
+<pre class="r"><code># # custom browseURL implementation
+# options(browser = function(url)
+# {
+#    .Call(&quot;rs_browseURL&quot;, url) ;
+# })</code></pre>
+</div>
+</div>

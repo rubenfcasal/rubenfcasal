@@ -5,8 +5,7 @@ date: '2017-10-26'
 slug: creación-contenidos-rmarkdown
 categories: ["R"]
 tags: ["R Markdown", "sgapeio"]
-summary: "Material del [curso](http://sgapeio2017.udc.es/index.php/gl/cursos) 
-de la [Sgapeio](http://www.sgapeio.es/) sobre RMarkdown."
+summary: "Material del [curso](http://sgapeio2017.udc.es/index.php/gl/cursos) de la [Sgapeio](http://www.sgapeio.es/) sobre RMarkdown."
 output:
   blogdown::html_page:
     toc: true

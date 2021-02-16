@@ -1,0 +1,295 @@
+---
+title: Generación de informes con R
+author: Rubén Fernández Casal
+date: '2017-10-22'
+slug: generación-de-informes-con-r
+categories:
+  - Documentos
+tags:
+  - R Markdown
+  - Apuntes
+  - sgapeio  
+summary: "Introducción a RMarkdown (ir a [versión actualizada](https://rubenfcasal.github.io/bookdown_intro/rmarkdown.html))."
+output:
+  blogdown::html_page:
+    toc: true
+---
+
+
+<div id="TOC">
+<ul>
+<li><a href="#r-markdown">R Markdown</a><ul>
+<li><a href="#introducción">Introducción</a></li>
+<li><a href="#inclusión-de-código-r">Inclusión de código R</a></li>
+<li><a href="#inclusión-de-gráficos">Inclusión de gráficos</a></li>
+<li><a href="#inclusión-de-tablas">Inclusión de tablas</a></li>
+<li><a href="#extracción-del-código-r">Extracción del código R</a></li>
+</ul></li>
+<li><a href="#spin">Spin</a></li>
+</ul>
+</div>
+
+<div id="r-markdown" class="section level1">
+<h1>R Markdown</h1>
+<p><strong><em>Actualización 14-10-18</em></strong>: Una versión actualizada de este post está disponible aquí:
+<a href="https://rubenfcasal.github.io/bookdown_intro/rmarkdown.html" class="uri">https://rubenfcasal.github.io/bookdown_intro/rmarkdown.html</a>.</p>
+<div id="introducción" class="section level2">
+<h2>Introducción</h2>
+<p>Markdown permite la creación de páginas web a partir de documentos de texto
+de forma muy sencilla y rápida (tiene unas reglas sintácticas muy simples).
+Este documento se ha generado empleando Markdown y <code>R</code>.
+R-Markdown es recomendable para difundir análisis realizados con <code>R</code> en formato
+HTML, PDF y DOCX (Word), entre otros.
+Para más detalles ver <a href="http://rmarkdown.rstudio.com" class="uri">http://rmarkdown.rstudio.com</a>.</p>
+<p>También se dispone de información en la ayuda de <em>RStudio</em>:</p>
+<ul>
+<li><p><em>Help &gt; Markdown Quick Reference</em></p></li>
+<li><p><em>Help &gt; Cheatsheets &gt; R Markdown Cheat Sheet</em></p></li>
+<li><p><em>Help &gt; Cheatsheets &gt; R Markdown Reference Guide</em></p></li>
+</ul>
+<p>Al renderizar un fichero rmarkdown se generará un documento que incluye el código <code>R</code>
+y los resultados incrustados en el documento.
+En <em>RStudio</em> basta con hacer clic en el botón <strong>Knit HTML</strong>.
+En <code>R</code> se puede emplear la funcion <code>render</code> del paquete <em>rmarkdown</em>
+(por ejemplo: <code>render("8-Informes.Rmd")</code>).
+También se puede abrir directamente el informe generado:</p>
+<pre><code>library(rmarkdown)
+browseURL(url = render(&quot;8-Informes.Rmd&quot;))</code></pre>
+</div>
+<div id="inclusión-de-código-r" class="section level2">
+<h2>Inclusión de código R</h2>
+<p>Se puede incluir código R entre los delimitadores <code>```{r}</code> y <code>```</code>. Por defecto, se mostrará el código, se evaluará y se mostrarán los resultados justo a continuación:</p>
+<pre class="r"><code>head(mtcars[1:3])</code></pre>
+<pre><code>   #                     mpg cyl disp
+   #  Mazda RX4         21.0   6  160
+   #  Mazda RX4 Wag     21.0   6  160
+   #  Datsun 710        22.8   4  108
+   #  Hornet 4 Drive    21.4   6  258
+   #  Hornet Sportabout 18.7   8  360
+   #  Valiant           18.1   6  225</code></pre>
+<pre class="r"><code>summary(mtcars[1:3])</code></pre>
+<pre><code>   #        mpg             cyl             disp      
+   #   Min.   :10.40   Min.   :4.000   Min.   : 71.1  
+   #   1st Qu.:15.43   1st Qu.:4.000   1st Qu.:120.8  
+   #   Median :19.20   Median :6.000   Median :196.3  
+   #   Mean   :20.09   Mean   :6.188   Mean   :230.7  
+   #   3rd Qu.:22.80   3rd Qu.:8.000   3rd Qu.:326.0  
+   #   Max.   :33.90   Max.   :8.000   Max.   :472.0</code></pre>
+<p>En <em>RStudio</em> pulsando “Ctrl + Alt + I” o en el icono correspondiente se incluye un trozo de código.</p>
+<p>Se puede incluir código en línea empleando <code>`r código`</code>,
+por ejemplo <code>`r 2 + 2`</code> produce 4.</p>
+</div>
+<div id="inclusión-de-gráficos" class="section level2">
+<h2>Inclusión de gráficos</h2>
+<p>Se pueden generar gráficos:
+<img src="/post/2017-10-22-generación-de-informes-con-r_files/figure-html/figura1-1.png" width="672" /></p>
+<p>Los trozos de código pueden tener nombre y opciones, se establecen en la cabecera de la forma
+<code>```{r nombre, op1, op2}</code>
+(en el caso anterior no se muestra el código, al haber empleado <code>```{r, echo=FALSE}</code>).
+Para un listado de las opciones disponibles ver <a href="http://yihui.name/knitr/options" class="uri">http://yihui.name/knitr/options</a>.</p>
+<p>En <em>RStudio</em> se puede pulsar en los iconos a la derecha del chunk para establecer opciones,
+ejecutar todo el código anterior o sólo el correspondiente trozo.</p>
+</div>
+<div id="inclusión-de-tablas" class="section level2">
+<h2>Inclusión de tablas</h2>
+<p>Las tablas en markdown son de la forma:</p>
+<pre><code>| First Header  | Second Header |
+| ------------- | ------------- |
+| Row1 Cell1    | Row1 Cell2    |
+| Row2 Cell1    | Row2 Cell2    |</code></pre>
+<p>Por ejemplo:</p>
+<table>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th>Descripción</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>mpg</td>
+<td>Millas / galón (EE.UU.)</td>
+</tr>
+<tr class="even">
+<td>cyl</td>
+<td>Número de cilindros</td>
+</tr>
+<tr class="odd">
+<td>disp</td>
+<td>Desplazamiento (pulgadas cúbicas)</td>
+</tr>
+<tr class="even">
+<td>hp</td>
+<td>Caballos de fuerza bruta</td>
+</tr>
+<tr class="odd">
+<td>drat</td>
+<td>Relación del eje trasero</td>
+</tr>
+<tr class="even">
+<td>wt</td>
+<td>Peso (miles de libras)</td>
+</tr>
+<tr class="odd">
+<td>qsec</td>
+<td>Tiempo de 1/4 de milla</td>
+</tr>
+<tr class="even">
+<td>vs</td>
+<td>Cilindros en V/Straight (0 = cilindros en V, 1 = cilindros en línea)</td>
+</tr>
+<tr class="odd">
+<td>am</td>
+<td>Tipo de transmisión (0 = automático, 1 = manual)</td>
+</tr>
+<tr class="even">
+<td>gear</td>
+<td>Número de marchas (hacia adelante)</td>
+</tr>
+<tr class="odd">
+<td>carb</td>
+<td>Número de carburadores</td>
+</tr>
+</tbody>
+</table>
+<p>Para convertir resultados de R en tablas de una forma simple se puede emplear la función <code>ktable</code> del paquete <em>knitr</em>:</p>
+<pre class="r"><code>knitr::kable(
+  head(mtcars), 
+  caption = &quot;Una kable knitr&quot;
+)</code></pre>
+<table>
+<caption><span id="tab:kable">Table 1: </span>Una kable knitr</caption>
+<thead>
+<tr class="header">
+<th align="left"></th>
+<th align="right">mpg</th>
+<th align="right">cyl</th>
+<th align="right">disp</th>
+<th align="right">hp</th>
+<th align="right">drat</th>
+<th align="right">wt</th>
+<th align="right">qsec</th>
+<th align="right">vs</th>
+<th align="right">am</th>
+<th align="right">gear</th>
+<th align="right">carb</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Mazda RX4</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.620</td>
+<td align="right">16.46</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+<tr class="even">
+<td align="left">Mazda RX4 Wag</td>
+<td align="right">21.0</td>
+<td align="right">6</td>
+<td align="right">160</td>
+<td align="right">110</td>
+<td align="right">3.90</td>
+<td align="right">2.875</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">4</td>
+</tr>
+<tr class="odd">
+<td align="left">Datsun 710</td>
+<td align="right">22.8</td>
+<td align="right">4</td>
+<td align="right">108</td>
+<td align="right">93</td>
+<td align="right">3.85</td>
+<td align="right">2.320</td>
+<td align="right">18.61</td>
+<td align="right">1</td>
+<td align="right">1</td>
+<td align="right">4</td>
+<td align="right">1</td>
+</tr>
+<tr class="even">
+<td align="left">Hornet 4 Drive</td>
+<td align="right">21.4</td>
+<td align="right">6</td>
+<td align="right">258</td>
+<td align="right">110</td>
+<td align="right">3.08</td>
+<td align="right">3.215</td>
+<td align="right">19.44</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+<tr class="odd">
+<td align="left">Hornet Sportabout</td>
+<td align="right">18.7</td>
+<td align="right">8</td>
+<td align="right">360</td>
+<td align="right">175</td>
+<td align="right">3.15</td>
+<td align="right">3.440</td>
+<td align="right">17.02</td>
+<td align="right">0</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">2</td>
+</tr>
+<tr class="even">
+<td align="left">Valiant</td>
+<td align="right">18.1</td>
+<td align="right">6</td>
+<td align="right">225</td>
+<td align="right">105</td>
+<td align="right">2.76</td>
+<td align="right">3.460</td>
+<td align="right">20.22</td>
+<td align="right">1</td>
+<td align="right">0</td>
+<td align="right">3</td>
+<td align="right">1</td>
+</tr>
+</tbody>
+</table>
+<p>Otros paquetes proporcionan opciones adicionales: <em>xtable</em>, <em>stargazer</em>, <em>pander</em>, <em>tables</em> y <em>ascii</em>.</p>
+</div>
+<div id="extracción-del-código-r" class="section level2">
+<h2>Extracción del código R</h2>
+<p>Para generar un fichero con el código R se puede emplear la función <code>purl</code> del paquete <em>knitr</em>. Por ejemplo:</p>
+<pre><code>purl(&quot;8-Informes.Rmd&quot;)</code></pre>
+<p>Si se quiere además el texto rmarkdown como comentarios tipo <em>spin</em>, se puede emplear:</p>
+<pre><code>purl(&quot;8-Informes.Rmd&quot;, documentation = 2)</code></pre>
+</div>
+</div>
+<div id="spin" class="section level1">
+<h1>Spin</h1>
+<p>Una forma rápida de crear este tipo de informes a partir de un fichero de código R es emplear la funcion
+<code>spin</code> del paquete <em>knitr</em> (ver p.e. <a href="http://yihui.name/knitr/demo/stitch" class="uri">http://yihui.name/knitr/demo/stitch</a>).</p>
+<p>Para ello se debe comentar todo lo que no sea código R de una forma especial:</p>
+<ul>
+<li><p>El texto rmarkdown se comenta con <code>#'</code>. Por ejemplo:</p>
+<pre><code>#&#39; # Este es un título de primer nivel
+#&#39; ## Este es un título de segundo nivel</code></pre></li>
+<li><p>Las opciones de un trozo de código se comentan con <code>#+</code>. Por ejemplo:</p>
+<pre><code>#+ setup, include=FALSE
+opts_chunk$set(comment=NA, prompt=TRUE, dev=&#39;svg&#39;, fig.height=6, fig.width=6)</code></pre></li>
+</ul>
+<p>Para generar el informe se puede emplear la funcion <code>spin</code> del paquete <em>knitr</em>. Por ejemplo: <code>spin("Ridge_Lasso.R"))</code>.
+También se podría abrir directamente el informe generado:</p>
+<pre><code>browseURL(url = knitr::spin(&quot;Ridge_Lasso.R&quot;))</code></pre>
+<p>Pero puede ser recomendable renderizarlo con rmarkdown:</p>
+<pre><code>library(rmarkdown)
+browseURL(url = render(knitr::spin(&quot;Ridge_Lasso.R&quot;, knit = FALSE)))</code></pre>
+<p>En <em>RStudio</em> basta con pulsar “Ctrl + Shift + K” o seleccionar <em>File &gt; Knit Document</em> (en las últimas versiones también <em>File &gt; Compile Notebook</em> o hacer clic en el icono correspondiente).</p>
+</div>

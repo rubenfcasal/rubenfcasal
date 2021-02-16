@@ -3,8 +3,14 @@ title: Apuntes de simulación
 author: Rubén Fernández Casal
 date: '2017-10-23'
 slug: apuntes-de-simulación
-categories: ["Libros", "Apuntes", "R"]
-tags: ["Simulación", "sgapeio"]
+categories:
+  - Documentos
+  - Estadística
+tags:
+  - Libros
+  - Apuntes
+  - Simulación
+  - sgapeio
 summary: "Apuntes de simulación en formato [libro](https://rubenfcasal.github.io/simbook)."
 ---
 

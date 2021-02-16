@@ -3,12 +3,15 @@ title: Geoestadística no paramétrica con el paquete `npsp`
 author: Rubén Fernández Casal
 date: '2018-02-15'
 slug: geoestadistica-no-parametrica-con-el-paquete-npsp
-
-categories: ["Apuntes", "R"]
-tags: ["Geoestadística", "regresion", "Paquetes"]
-summary: "El paquete [npsp](https://rubenfcasal.github.io/npsp) proporciona herramientas para el
-análisis no paramétrico de datos geoestadísticos en R.
-En este post se ilustran algunas de las capacidades de este paquete."
+categories:
+  - Documentos
+  - Estadística
+tags:
+  - Apuntes
+  - Geoestadística
+  - Regresión
+  - Paquetes
+summary: "El paquete [npsp](https://rubenfcasal.github.io/npsp) proporciona herramientas para el análisis no paramétrico de datos geoestadísticos en R. En este post se ilustran algunas de las capacidades de este paquete."
 output:
   blogdown::html_page:
     toc: true  
@@ -652,8 +655,8 @@ con el ajuste automático con las correspondientes a la estimación
 con el variograma residual.
 
 ```{r kriging}
-krig.grid0 <- kriging.np(geom0, ngrid = c(96, 96)) # 9216 predicciones
-krig.grid <- kriging.np(geom, ngrid = c(96, 96))
+krig.grid0 <- np.kriging(geom0, ngrid = c(96, 96)) # 9216 predicciones
+krig.grid <- np.kriging(geom, ngrid = c(96, 96))
 cpu.time(total = FALSE)
 ```
 
