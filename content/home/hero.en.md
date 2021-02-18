@@ -25,7 +25,7 @@ weight = 3
 #   label = '<i class="fa fa-download"></i> Install Now'
 +++
 
-## Website  about R (by [Rubén Fernández-Casal](/en/#about))
+## Website  about R by [Rubén Fernández-Casal](/en/#about)
 
 You will find here tools (and machinery) about R in [Spanish](/)...
 
@@ -33,4 +33,16 @@ The web of the [***npsp***](https://rubenfcasal.github.io/npsp)
 package is (mainly) in English.
 
 You can also visit my [institutional web](http://dm.udc.es/staff/ruben_fernandez/) 
-(also in English).
+(in English).
+
+### R packages
+
+- Fernandez-Casal R (2019). [npsp: Nonparametric Spatial Statistics](https://rubenfcasal.github.io/npsp). R package version 0.7-5.
+  
+- Fernandez-Casal R, Lafuente-Rego B, Lombardia MJ, Tarrio-Saavedra J, Costa-Bouzas J (2021). [scimetr: Analysis of Scientific Publication Data with R](https://rubenfcasal.github.io/scimetr). R package version 0.3.0.
+
+- Casas I, Fernández-Casal R (2020). [tvReg: Time-Varying Coefficients Linear Regression for Single and Multi-Equations](https://CRAN.R-project.org/package=tvReg). R package version 0.5.3, ([preprint](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3363526)). 
+
+- Flores M, Fernández-Casal R, Naya S, Tarrío-Saavedra J, Bossano R (2018). [ILS: Interlaboratory Study](https://cran.r-project.org/package=ILS). R package version 0.2, ([paper](https://doi.org/10.1016/j.chemolab.2018.07.013)).
+
+- Flores M, Fernández-Casal R, Naya S, Tarrío-Saavedra J (2020). [qcr: Quality Control Review](https://cran.r-project.org/package=qcr). R Package Version 1.2, ([paper](https://doi.org/10.3390/math8010058)).

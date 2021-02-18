@@ -49,7 +49,7 @@ modelos flexibles de variogramas anisotrópicos no separables](/files/Geoestadis
 
 ## [Institutional web](http://dm.udc.es/staff/ruben_fernandez/)
 
-* [Teaching](http://dm.udc.es/staff/ruben_fernandez/teaching.php)
+* [Teaching](https://pdi.udc.es/es/File/Pdi/M859E)
 
 * [Publications](http://dm.udc.es/staff/ruben_fernandez/publications.php) (since 2007)
 

@@ -15,7 +15,8 @@ output:
 ---
 
 Un entorno de desarrollo (IDE, *Integrated Development Environment*) de R muy recomendable es [RStudio](http://rstudio.org).
-Está disponible para la mayoría de plataformas (hay una versión para servidores: RStudio Server) e integra una gran cantidad de herramientas, que permiten desde la generación de informes (este es el principal motivo por el que algunos empleamos RStudio), hasta la gestión de distintos tipos de proyectos, depuración de código, control de versiones, etc.
+Está disponible para la mayoría de plataformas (hay una versión para servidores: [RStudio Server](https://rstudio.com/products/rstudio/#rstudio-server), ver [post](/post/instalacion-de-r-para-hpc/#rstudio-server)) e integra una gran cantidad de herramientas, que permiten desde la generación de informes (este es el principal motivo por el que algunos empleamos RStudio), hasta la gestión de distintos tipos de proyectos, depuración de código, control de versiones, etc
+(ver [RStudio IDE Features](https://rstudio.com/products/rstudio/features)).
 
 En primer lugar es necesario tener instalado previamente R, por ejemplo como se describe en [este post](/post/instalacion-de-r).
 
@@ -70,17 +71,17 @@ mkdir installr
 cd installr
 ```
 
-Buscar la versión actualizada de RStudio en [Download RStudio](https://rstudio.com/products/rstudio/download/#download),
-en este caso emplearemos "https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5033-amd64.deb"
+Buscar la versión actualizada de RStudio en [Download RStudio](https://rstudio.com/products/rstudio/download/#download) correspondiente a la versión de ubuntu, en este caso emplearemos "https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb",
+para Ubuntu 18/Debian 10.
 
 ```sh
 sudo apt-get install gdebi-core
-wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.2.5033-amd64.deb
-sudo gdebi -n rstudio-1.2.5033-amd64.deb
+wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb
+sudo gdebi -n rstudio-1.4.1103-amd64.deb
 
 ```
 
-Si mo se dispone de un entorno gráfico puede ser recomendable instalar RStudio Server como se describe en [este post](#rstudio-server).
+Si no se dispone de un entorno gráfico puede ser recomendable instalar RStudio Server como se describe en [este post](/post/instalacion-de-r-para-hpc/#rstudio-server).
 
 ---
 

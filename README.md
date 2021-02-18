@@ -9,6 +9,7 @@ NOTA: Esta web se generó empleando la versión 0.49.2 de Hugo, se debería pode
 ```
 install.packages(blogdown)
 blogdown::install_hugo("0.49.2")
+# blogdown::install_hugo("0.54.0") # Actualizar .Rprofile
 ```
 
 Para previsualizar ejecutar:
