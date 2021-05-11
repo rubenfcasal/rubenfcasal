@@ -29,7 +29,7 @@ weight = 3
 
 ### [R](/categories/r): [Configuración](/tags/configuración), [R Markdown](/tags/r-markdown), [Paquetes](/tags/paquetes) de R,...
 
-- Fernandez-Casal R (2019). [npsp: Nonparametric Spatial Statistics](https://rubenfcasal.github.io/npsp). R package version 0.7-5.
+- Fernandez-Casal R (2021). [npsp: Nonparametric Spatial Statistics](https://rubenfcasal.github.io/npsp). R package version 0.7-8.
   
 - Fernandez-Casal R, Lafuente-Rego B, Lombardia MJ, Tarrio-Saavedra J, Costa-Bouzas J (2021). [scimetr: Analysis of Scientific Publication Data with R](https://rubenfcasal.github.io/scimetr). R package version 0.3.0.
 

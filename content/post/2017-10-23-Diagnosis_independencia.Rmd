@@ -508,3 +508,5 @@ plot(forecast(fit, h = 24, level = 95), shaded = FALSE)
 -   Cryer, J.D. y Chan, K.S. (2008). *Time Series Analysis. With Applications in R*. Springer.
 
 -   Shumway, R.H. y Stoffer, D.S. (2006). *Time Series Analysis and Its Applications. With R Examples*. Springer.
+
+-   Hyndman, R.J. y Athanasopoulos, G. (2018). *Forecasting: principles and practice*. OTexts. Disponible online: [2nd edition (forecast)](https://otexts.com/fpp2), [3rd edition (fable)](https://otexts.com/fpp3).
