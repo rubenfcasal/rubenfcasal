@@ -1,7 +1,7 @@
 ---
 title: Instalación de R
 author: Rubén Fernández Casal
-date: '2021-02-13'
+date: '2022-02-16'
 slug: instalacion-de-r
 categories:
   - R
@@ -13,6 +13,8 @@ output:
   blogdown::html_page:
     toc: true
 ---
+
+***Actualizado el 16/02/2022***
 
 En la web del proyecto R ([www.r-project.org](http://www.r-project.org)) está disponible mucha información sobre este entorno estadístico.
 
@@ -29,7 +31,7 @@ Las descargas se realizan a través de la web del CRAN (The Comprehensive R Arch
 
 # Instalación de R en Windows {#windows}
 
-Seleccionando [Download R for Windows](http://ftp.cixug.es/CRAN/bin/windows/) y posteriormente [base](http://ftp.cixug.es/CRAN/bin/windows/base/) accedemos al enlace con el instalador de R para Windows (actualmente de la versión [4.0.3](http://ftp.cixug.es/CRAN/bin/windows/base/R-4.0.3-win.exe)).
+Seleccionando [Download R for Windows](http://ftp.cixug.es/CRAN/bin/windows/) y posteriormente [base](http://ftp.cixug.es/CRAN/bin/windows/base/) accedemos al enlace con el instalador de R para Windows (actualmente de la versión [4.1.2](http://ftp.cixug.es/CRAN/bin/windows/base/R-4.1.2-win.exe)).
 
 ![](/img/R351.png){width="60%"}
     
@@ -42,7 +44,7 @@ Durante el proceso de instalación la recomendación (para evitar posibles probl
 
 Una vez terminada la instalación, al abrir R aparece la ventana de la consola (simula una ventana de comandos de Unix) que permite ejecutar comandos de R.
 
-Por defecto se instalan un conjunto de paquetes base de R (que se cargan automáticamente al iniciarlo) y un conjunto de [paquetes recomendados](https://cran.r-project.org/src/contrib/4.0.3/Recommended) (que se pueden cargar empleando el comando `library()`),
+Por defecto se instalan un conjunto de paquetes base de R (que se cargan automáticamente al iniciarlo) y un conjunto de [paquetes recomendados](https://cran.r-project.org/src/contrib/4.1.2/Recommended) (que se pueden cargar empleando el comando `library()`),
 pero hay disponibles miles de paquetes que cubren literalmente todos los campos del análisis de datos. 
 Ver por ejemplo:
 
@@ -127,7 +129,7 @@ Otras alternativas son:
 ### Cambiar los permisos de la carpeta *library* {#library}
 
 Para evitar problemas con la instalación de paquetes en Windows (y evitar también que los paquetes se instalen en *Documentos\\R\\win-library\\X.Y*) yo acostumbro a dar permiso de *control total* a los usuarios del equipo en el subdirectorio *library* de la instalación de R.
-Para ello, pulsar con el botón derecho en esta carpeta (e.g. *C:\\Program Files\\R\\R-4.0.3\\library*), seleccionar *Propiedades > Seguridad > Editar*, seleccionar los *Usuarios* del equipo, marcar *Control total* y *Aplicar*.
+Para ello, pulsar con el botón derecho en esta carpeta (e.g. *C:\\Program Files\\R\\R-4.1.2\\library*), seleccionar *Propiedades > Seguridad > Editar*, seleccionar los *Usuarios* del equipo, marcar *Control total* y *Aplicar*.
 
 ---------------------------  ------------------------
  ![](/img/propiedades.png)    ![](/img/permisos.png)
@@ -141,7 +143,7 @@ Es importante instalar la versión correspondiente a la instalación de R.
 
 Al finalizar se debe añadir el directorio de instalación a la ruta de búsqueda^[Esto se puede hacer mediante el archivo *.Renviron* como se indica en la [documentación oficial](https://cran.r-project.org/bin/windows/Rtools/#putting-rtools-on-the-path), pero solo sería válido en R.], y ya de paso recomiendo añadir también el directorio de instalación de R (de esta forma también podremos emplear R en la ventana de comandos).
 Para ello habría que ir a *Propiedades del sistema > Opciones avanzadas > Variables de entorno* y en *Variables de sistema* editar el *Path* y añadir dos nuevas entradas (o modificar versiones anteriores):
-*C:\\rtools40\\usr\\bin* y *C:\\Program Files\\R\\R-4.0.3\\bin* (o los correspondientes directorios de instalación).
+*C:\\rtools40\\usr\\bin* y *C:\\Program Files\\R\\R-4.1.2\\bin* (o los correspondientes directorios de instalación).
 
 Si no sabes como acceder a *Propiedades del sistema* (en Windows 10 está bastante oculto) puedes consultar este [post](https://answers.microsoft.com/es-es/windows/forum/windows_10-other_settings/windows-10-variables-de-entorno-windows-10-version/703ea5fa-1db4-46da-8ff7-6261140bf58b). 
 Yo prefiero pulsar con el botón derecho en *Equipo*, seleccionar *Propiedades* y después *Configuración avanzada del sistema*.
@@ -163,10 +165,12 @@ Para más detalles ver:
 
 # Instalación de R en Ubuntu/Devian {#ubuntu}
 
+[Testado con Ubuntu 20.04.3 LTS y R 4.1.2]
+
 Instalar dependencias:
 
 ```sh
-sudo apt install libcurl4-gnutls-dev libgit2-dev libxml2-dev libssh2-1-dev libssl-dev git build-essential gfortran
+sudo apt install libcurl4-gnutls-dev libgit2-dev libxml2-dev libssl-dev 
 ```
 
 Si aparecen problemas asegurarse de que los repositorios *universe* y *multiverse* están disponibles:
@@ -182,13 +186,24 @@ Se puede instalar R desde estos repositorios, pero normalmente no será la versi
 
 ## Instalación de R desde [CRAN](https://cran.r-project.org/bin/linux/ubuntu)
 
-Añadir los repositorios a la lista de fuentes (para ver la versión de ubuntu se puede ejecutar `lsb_release -a`, el siguiente código ya la obtiene directamente), la llave apt e instalar R:
+Añadir la llave de firma GPG, añadir el repositorio CRAN a la lista de fuentes (para ver la versión de ubuntu se puede ejecutar `lsb_release -a`, el siguiente código ya la obtiene directamente) e instalar R:
 
 ```sh
-echo "deb https://cloud.r-project.org/bin/linux/ubuntu/ $(lsb_release -cs)-cran35/" | sudo tee /etc/apt/sources.list.d/cran-r.list
-sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 51716619E084DAB9
-sudo apt-get update
-sudo apt-get install r-base r-base-dev
+# Cambiar a root (alternativamente añadir `sudo` al principio de los comandos)
+sudo -i
+# update indices
+apt update -qq
+# install two helper packages we need
+apt install --no-install-recommends software-properties-common dirmngr
+# add the signing key (by Michael Rutter) for these repos
+# To verify key, run gpg --show-keys /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc 
+# Fingerprint: 298A3A825C0D65DFD57CBB651716619E084DAB9
+wget -qO- https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc | sudo tee -a /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+# add the R 4.0 repo from CRAN -- adjust 'focal' to 'groovy' or 'bionic' as needed
+add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+apt-get update
+apt-get install r-base r-base-dev
+logout
 ```
 
 ## Instalación de devtools y demás paquetes
