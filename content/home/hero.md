@@ -33,21 +33,23 @@ weight = 3
   
 - Fernandez-Casal R, Lafuente-Rego B, Lombardia MJ, Tarrio-Saavedra J, Costa-Bouzas J (2021). [scimetr: Analysis of Scientific Publication Data with R](https://rubenfcasal.github.io/scimetr). R package version 0.3.0.
 
-- Casas I, Fernández-Casal R (2020). [tvReg: Time-Varying Coefficients Linear Regression for Single and Multi-Equations](https://CRAN.R-project.org/package=tvReg). R package version 0.5.3, ([preprint](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3363526)). 
+- Casas I, Fernández-Casal R (2020). [tvReg: Time-Varying Coefficients Linear Regression for Single and Multi-Equations](https://icasas.github.io/tvReg). R package version 0.5.6, ([preprint](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3363526)). 
 
 - Flores M, Fernández-Casal R, Naya S, Tarrío-Saavedra J, Bossano R (2018). [ILS: Interlaboratory Study](https://cran.r-project.org/package=ILS). R package version 0.2, ([artículo](https://doi.org/10.1016/j.chemolab.2018.07.013)).
 
-- Flores M, Fernández-Casal R, Naya S, Tarrío-Saavedra J (2020). [qcr: Quality Control Review](https://cran.r-project.org/package=qcr). R Package Version 1.2, ([artículo](https://doi.org/10.3390/math8010058)).
+- Flores M, Fernández-Casal R, Naya S, Tarrío-Saavedra J (2020). [qcr: Quality Control Review](https://mflores72000.github.io/qcr). R Package Version 1.3, ([artículo 1](https://doi.org/10.32614/RJ-2021-034), [artículo 2](https://doi.org/10.3390/math8010058)).
 
 ### [Documentos](/categories/documentos): [Libros](/tags/libros), [Presentaciones](/tags/presentaciones), [Apuntes](/tags/apuntes), ...
 
 - Fernández-Casal R., Roca-Pardiñas J. y Costa J. (2019). *[Introducción al Análisis de Datos con R](https://rubenfcasal.github.io/intror)*, ([github](https://github.com/rubenfcasal/intror)).
 
-- Fernández-Casal R. y Cao R. (2021). *[Simulación Estadística](https://rubenfcasal.github.io/simbook)*, ([github](https://github.com/rubenfcasal/simbook)).
+- Fernández-Casal R. y Cao R. (2022). *[Simulación Estadística](https://rubenfcasal.github.io/simbook)*, ([github](https://github.com/rubenfcasal/simbook)).
 
-- Cao R. y Fernández-Casal R. (2020). *[Técnicas de Remuestreo](https://rubenfcasal.github.io/book_remuestreo)*,  ([github](https://github.com/rubenfcasal/book_remuestreo)).
+- Cao R. y Fernández-Casal R. (2021). *[Técnicas de Remuestreo](https://rubenfcasal.github.io/book_remuestreo)*,  ([github](https://github.com/rubenfcasal/book_remuestreo)).
 
-- Fernández-Casal R. y Costa J. (2020). *[Aprendizaje Estadístico](https://rubenfcasal.github.io/aprendizaje_estadistico)*,  ([github](https://github.com/rubenfcasal/aprendizaje_estadistico)).
+- Fernández-Casal R., Costa J. y Oviedo M. (2021). *[Aprendizaje Estadístico](https://rubenfcasal.github.io/aprendizaje_estadistico)*,  ([github](https://github.com/rubenfcasal/aprendizaje_estadistico)).
+
+- Fernández-Casal R. y Cotos-Yáñez T.R. (2021). *[Estadística Espacial con R](https://rubenfcasal.github.io/estadistica_espacial)*,  ([github](https://github.com/rubenfcasal/estadistica_espacial)).
 
 - López-Taboada G. y Fernández-Casal R. (2020). *[Prácticas de Tecnologías de Gestión y Manipulación de Datos](https://gltaboada.github.io/tgdbook)*,  ([github](https://github.com/gltaboada/tgdbook)).
 

@@ -37,12 +37,12 @@ You can also visit my [institutional web](http://dm.udc.es/staff/ruben_fernandez
 
 ### R packages
 
-- Fernandez-Casal R (2019). [npsp: Nonparametric Spatial Statistics](https://rubenfcasal.github.io/npsp). R package version 0.7-5.
+- Fernandez-Casal R (2021). [npsp: Nonparametric Spatial Statistics](https://rubenfcasal.github.io/npsp). R package version 0.7-8.
   
 - Fernandez-Casal R, Lafuente-Rego B, Lombardia MJ, Tarrio-Saavedra J, Costa-Bouzas J (2021). [scimetr: Analysis of Scientific Publication Data with R](https://rubenfcasal.github.io/scimetr). R package version 0.3.0.
 
-- Casas I, Fernández-Casal R (2020). [tvReg: Time-Varying Coefficients Linear Regression for Single and Multi-Equations](https://CRAN.R-project.org/package=tvReg). R package version 0.5.3, ([preprint](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3363526)). 
+- Casas I, Fernández-Casal R (2020). [tvReg: Time-Varying Coefficients Linear Regression for Single and Multi-Equations](https://icasas.github.io/tvReg). R package version 0.5.6, ([preprint](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3363526)). 
 
 - Flores M, Fernández-Casal R, Naya S, Tarrío-Saavedra J, Bossano R (2018). [ILS: Interlaboratory Study](https://cran.r-project.org/package=ILS). R package version 0.2, ([paper](https://doi.org/10.1016/j.chemolab.2018.07.013)).
 
-- Flores M, Fernández-Casal R, Naya S, Tarrío-Saavedra J (2020). [qcr: Quality Control Review](https://cran.r-project.org/package=qcr). R Package Version 1.2, ([paper](https://doi.org/10.3390/math8010058)).
+- Flores M, Fernández-Casal R, Naya S, Tarrío-Saavedra J (2020). [qcr: Quality Control Review](https://mflores72000.github.io/qcr). R Package Version 1.3, ([paper 1](https://doi.org/10.32614/RJ-2021-034), ([paper 2](https://doi.org/10.3390/math8010058)).
