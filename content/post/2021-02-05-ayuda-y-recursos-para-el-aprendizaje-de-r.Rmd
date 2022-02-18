@@ -13,12 +13,12 @@ output:
     toc: true
 ---
 
-A continuación se muestran algunos recursos que considero que pueden ser útiles para el aprendizaje de R y la obtención de ayuda... (página en preparación...)
+A continuación se muestran algunos recursos que considero que pueden ser útiles para el aprendizaje de R y la obtención de ayuda... (página en preparación..., actualizado el `r Sys.Date()`).
 
 
 ## Ayuda online
 
-- Ayuda en línea sobre funciones o paquetes: [RDocumentation](https://www.rdocumentation.org/)
+- Ayuda en línea sobre funciones o paquetes: [rdrr.io](https://rdrr.io/),  [RDocumentation](https://www.rdocumentation.org/)
 
 - Buscador [RSeek](http://rseek.org/)
 
@@ -110,11 +110,13 @@ Algunos libros en este formato en castellano son:
 
 - Fernández-Casal R., Roca-Pardiñas J. y Costa J. (2019). *Introducción al Análisis de Datos con R*. <https://rubenfcasal.github.io/intror> ([github](https://github.com/rubenfcasal/intror)).
 
+- Fernández-Casal R. y Cotos-Yáñez T.R. (2021). *Estadística Espacial con R*. <https://rubenfcasal.github.io/estadistica_espacial> ([github](https://github.com/rubenfcasal/estadistica_espacial)). 
+
 - Fernández-Casal R. y Cao R. (2020). *Simulación Estadística*. <https://rubenfcasal.github.io/simbook> ([github](https://github.com/rubenfcasal/simbook)).
 
-- Cao R. y Fernández-Casal R. (2020). *Técnicas de Remuestreo* <https://rubenfcasal.github.io/book_remuestreo> ([github](https://github.com/rubenfcasal/book_remuestreo)).
+- Cao R. y Fernández-Casal R. (2021). *Técnicas de Remuestreo* <https://rubenfcasal.github.io/book_remuestreo> ([github](https://github.com/rubenfcasal/book_remuestreo)).
 
-- Fernández-Casal R. y Costa J. (2020). *Aprendizaje Estadístico*. <https://rubenfcasal.github.io/aprendizaje_estadistico> ([github](https://github.com/rubenfcasal/aprendizaje_estadistico)).
+- Fernández-Casal R., Costa J. y Oviedo de la Fuente M. (2021). *Aprendizaje Estadístico*. <https://rubenfcasal.github.io/aprendizaje_estadistico> ([github](https://github.com/rubenfcasal/aprendizaje_estadistico)).
 
 - López-Taboada G. y Fernández-Casal R. (2020). *Prácticas de Tecnologías de Gestión y Manipulación de Datos*. <https://gltaboada.github.io/tgdbook> ([github](https://github.com/gltaboada/tgdbook)).
 
