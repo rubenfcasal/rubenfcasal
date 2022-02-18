@@ -110,7 +110,7 @@ Por ejemplo, yo acostumbro a establecer:
     
 * Packages: Management 
     
-    - CRAN mirror: Spain (A Coruña)
+    - CRAN mirror: Spain (A Coruña) - Oficina de software libre (CIXUG)
 
         (o otro cercano, como Spain (Madrid), Escuela Politécnica Nacional  (Ecuador), ...)
     
@@ -164,10 +164,10 @@ El visor integrado de RStudio no resulta muy cómodo para navegar por la ayuda d
 Para utilizar en su lugar el navegador del equipo habría que comentar las siguientes líneas de *C:\\Program Files\\RStudio\\R\\Options.R*:
 
 ```{r, eval=FALSE}
-# # custom browseURL implementation
-# options(browser = function(url)
+# # custom browseURL implementation.
+# .rs.setOption("browser", function(url)
 # {
-#    .Call("rs_browseURL", url) ;
+   # .Call("rs_browseURL", url, PACKAGE = "(embedding)")
 # })
 ```
 
