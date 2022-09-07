@@ -29,11 +29,13 @@ weight = 3
 
 ### [R](/categories/r): [Configuración](/tags/configuración), [R Markdown](/tags/r-markdown), [Paquetes](/tags/paquetes) de R,...
 
-- Fernandez-Casal R (2021). [npsp: Nonparametric Spatial Statistics](https://rubenfcasal.github.io/npsp). R package version 0.7-8.
-  
-- Fernandez-Casal R, Lafuente-Rego B, Lombardia MJ, Tarrio-Saavedra J, Costa-Bouzas J (2021). [scimetr: Analysis of Scientific Publication Data with R](https://rubenfcasal.github.io/scimetr). R package version 0.3.0.
+- Fernández-Casal R (2021). [npsp: Nonparametric Spatial Statistics](https://rubenfcasal.github.io/npsp). R package version 0.7-8.
 
-- Casas I, Fernández-Casal R (2020). [tvReg: Time-Varying Coefficients Linear Regression for Single and Multi-Equations](https://icasas.github.io/tvReg). R package version 0.5.6, ([preprint](https://papers.ssrn.com/sol3/papers.cfm?abstract_id=3363526)). 
+- Fernández-Casal R (2022). [simres: Simulation and resampling techniques](https://rubenfcasal.github.io/simres). R package version 0.1-3.
+  
+- Fernández-Casal R, Lafuente-Rego B, Lombardia MJ, Tarrio-Saavedra J, Costa-Bouzas J (2021). [scimetr: Analysis of Scientific Publication Data with R](https://rubenfcasal.github.io/scimetr). R package version 0.3.0.
+
+- Casas I, Fernández-Casal R (2020). [tvReg: Time-Varying Coefficients Linear Regression for Single and Multi-Equations](https://icasas.github.io/tvReg). R package version 0.5.6, ([artículo](https://journal.r-project.org/articles/RJ-2022-002)). 
 
 - Flores M, Fernández-Casal R, Naya S, Tarrío-Saavedra J, Bossano R (2018). [ILS: Interlaboratory Study](https://cran.r-project.org/package=ILS). R package version 0.2, ([artículo](https://doi.org/10.1016/j.chemolab.2018.07.013)).
 
@@ -41,19 +43,19 @@ weight = 3
 
 ### [Documentos](/categories/documentos): [Libros](/tags/libros), [Presentaciones](/tags/presentaciones), [Apuntes](/tags/apuntes), ...
 
-- Fernández-Casal R., Roca-Pardiñas J. y Costa J. (2019). *[Introducción al Análisis de Datos con R](https://rubenfcasal.github.io/intror)*, ([github](https://github.com/rubenfcasal/intror)).
+- Fernández-Casal R., Roca-Pardiñas J., Costa J. y Oviedo-de la Fuente M. (2022). *[Introducción al Análisis de Datos con R](https://rubenfcasal.github.io/intror)* ([github](https://github.com/rubenfcasal/intror)).
 
-- Fernández-Casal R. y Cao R. (2022). *[Simulación Estadística](https://rubenfcasal.github.io/simbook)*, ([github](https://github.com/rubenfcasal/simbook)).
+- Fernández-Casal R. y Cao R. (2022). *[Simulación Estadística](https://rubenfcasal.github.io/simbook)*  ([github](https://github.com/rubenfcasal/simbook)), [segunda edición](https://rubenfcasal.github.io/simbook2) (en proceso de elaboración).
 
-- Cao R. y Fernández-Casal R. (2021). *[Técnicas de Remuestreo](https://rubenfcasal.github.io/book_remuestreo)*,  ([github](https://github.com/rubenfcasal/book_remuestreo)).
+- Cao R. y Fernández-Casal R. (2021). *[Técnicas de Remuestreo](https://rubenfcasal.github.io/book_remuestreo)*   ([github](https://github.com/rubenfcasal/book_remuestreo)).
 
-- Fernández-Casal R., Costa J. y Oviedo M. (2021). *[Aprendizaje Estadístico](https://rubenfcasal.github.io/aprendizaje_estadistico)*,  ([github](https://github.com/rubenfcasal/aprendizaje_estadistico)).
+- Fernández-Casal R., Costa J. y Oviedo M. (2021). *[Aprendizaje Estadístico](https://rubenfcasal.github.io/aprendizaje_estadistico)*   ([github](https://github.com/rubenfcasal/aprendizaje_estadistico)).
 
-- Fernández-Casal R. y Cotos-Yáñez T.R. (2021). *[Estadística Espacial con R](https://rubenfcasal.github.io/estadistica_espacial)*,  ([github](https://github.com/rubenfcasal/estadistica_espacial)).
+- Fernández-Casal R. y Cotos-Yáñez T.R. (2021). *[Estadística Espacial con R](https://rubenfcasal.github.io/estadistica_espacial)*   ([github](https://github.com/rubenfcasal/estadistica_espacial)).
 
-- López-Taboada G. y Fernández-Casal R. (2020). *[Prácticas de Tecnologías de Gestión y Manipulación de Datos](https://gltaboada.github.io/tgdbook)*,  ([github](https://github.com/gltaboada/tgdbook)).
+- López-Taboada G. y Fernández-Casal R. (2020). *[Prácticas de Tecnologías de Gestión y Manipulación de Datos](https://gltaboada.github.io/tgdbook)* ([github](https://github.com/gltaboada/tgdbook)).
 
-- Fernández-Casal R. y Cotos-Yáñez T.R. (2018). *[Escritura de libros con bookdown](https://rubenfcasal.github.io/bookdown_intro)*,  ([github](https://github.com/rubenfcasal/bookdown_intro)). Incluye un apéndice con una [Introducción a RMarkdown](https://rubenfcasal.github.io/bookdown_intro/rmarkdown.html). 
+- Fernández-Casal R. y Cotos-Yáñez T.R. (2018). *[Escritura de libros con bookdown](https://rubenfcasal.github.io/bookdown_intro)*   ([github](https://github.com/rubenfcasal/bookdown_intro)). Incluye un apéndice con una [Introducción a RMarkdown](https://rubenfcasal.github.io/bookdown_intro/rmarkdown.html). 
 
 ### [Estadística](/categories/estadística) computacional: [Regresión](/tags/regresión), [Geoestadística](/tags/geoestadística) espacio-temporal, ...
 
