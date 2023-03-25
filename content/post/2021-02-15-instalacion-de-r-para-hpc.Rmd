@@ -25,9 +25,9 @@ En la [última sección](#compilaR) se muestran algunas referencias para esta ap
 
 Un enfoque más simple consiste en instalar R desde CRAN (siguiendo los pasos descritos en [este post](/post/instalacion-de-r/#ubuntu)), que por defecto utilizará una implementación BLAS/LAPACK estable y compatible con distintas plataformas pero que no está optimizadas para el rendimiento, y posteriormente reemplazar las librerías estándar de referencia (típicamente enlazando con las proporcionadas por [OpenBLAS](https://www.openblas.net), [ATLAS](http://math-atlas.sourceforge.net) o [Intel MKL](https://software.intel.com/en-us/mkl)), como se describe en las secciones siguientes.
 
-Otra alternativa sería instalar [Microsoft R Open](https://mran.revolutionanalytics.com/open) con [MKL](https://mran.revolutionanalytics.com/documents/rro/multithread), como se describe en [esta sección](#ropen).
+Otra alternativa sería instalar [Microsoft R Open](https://mran.revolutionanalytics.com/open) con [MKL](https://mran.revolutionanalytics.com/documents/rro/multithread), aunque Microsoft retiró R Open el 1 de julio de 2022 y la última versión disponible es la 4.0.2 (Microsoft R Application Network y CRAN Time Machine se retirarán el 1 de julio de 2023, ya que SQL Server y Azure SQL pasaron a emplear la versión oficial de R).
 
-Antes de nada, puede ser recomendable crear un directorio donde descargar archivos (si se instala RStudio, Microsoft R Open, Intel MKL o se compila R desde el código fuente):
+Antes de nada, puede ser recomendable crear un directorio donde descargar archivos (si se instala RStudio, Intel MKL o se compila R desde el código fuente):
 
 ```sh
 mkdir installr
@@ -43,6 +43,9 @@ Fuentes:
 
 # Instalación de R 
 
+Como ya se comentó, el primer paso sería la instalación de R siguiendo los pasos descritos en [este post](/post/instalacion-de-r/#ubuntu).
+
+<!-- 
 Como ya se comentó, el primer paso sería la instalación de R, bien la versión oficial de [CRAN](https://cran.r-project.org) siguiendo los pasos descritos en [este post](/post/instalacion-de-r/#ubuntu), o la versión de Microsoft como se describe a continuación.
 
 Posteriormente se puede cambiar la versión de R que se empleará por defecto modificando el `path`.
@@ -61,8 +64,10 @@ donde `X.Y.Z` es la versión de R (actualmente la 4.0.2), por ejemplo en el fich
 
 ```sh
 echo 'export RSTUDIO_WHICH_R=/opt/microsoft/ropen/4.0.2/lib64/R'  | tee -a ~/.profile
-```
-
+``` -->
+ 
+ 
+ 
 # Configurar R para HPC en Ubuntu/Debian
 
 Después de instalar R el siguiente paso es reemplazar las librerías estándar BLAS/LAPACK por las proporcionadas por [OpenBLAS](https://www.openblas.net), [ATLAS](http://math-atlas.sourceforge.net) o [Intel MKL](https://software.intel.com/en-us/mkl).
