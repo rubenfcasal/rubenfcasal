@@ -14,16 +14,15 @@ output:
     toc: true
 ---
 
-Un entorno de desarrollo (IDE, *Integrated Development Environment*) de R muy recomendable es [RStudio](http://rstudio.org).
-Está disponible para la mayoría de plataformas (hay una versión para servidores: [RStudio Server](https://rstudio.com/products/rstudio/#rstudio-server), ver [post](/post/instalacion-de-r-para-hpc/#rstudio-server)) e integra una gran cantidad de herramientas, que permiten desde la generación de informes (este es el principal motivo por el que algunos empleamos RStudio), hasta la gestión de distintos tipos de proyectos, depuración de código, control de versiones, etc
-(ver [RStudio IDE Features](https://rstudio.com/products/rstudio/features)).
+Un entorno de desarrollo (IDE, *Integrated Development Environment*) de R muy recomendable es [RStudio](https://posit.co/products/open-source/rstudio).
+Está disponible para la mayoría de plataformas (hay una versión para servidores: [RStudio Server](https://posit.co/download/rstudio-server), ver [post](/post/instalacion-de-r-para-hpc/#rstudio-server)) e integra una gran cantidad de herramientas, que permiten desde la generación de informes (este es el principal motivo por el que algunos empleamos RStudio), hasta la gestión de distintos tipos de proyectos, depuración de código, control de versiones, etc.
 
 En primer lugar es necesario tener instalado previamente R, por ejemplo como se describe en [este post](/post/instalacion-de-r).
 
 
 # Instalación en Windows y primeros pasos {#windows}
 
-Basta con descargar el correspondiente archivo de instalación de [*http://rstudio.org/download/desktop*](http://rstudio.org/download/desktop) y seguir las instrucciones.
+Basta con descargar el correspondiente archivo de instalación de [*https://posit.co/download/rstudio-desktop*](https://posit.co/download/rstudio-desktop) y seguir las instrucciones.
 
 Al ejecutarlo se mostrará la ventana principal:
 
@@ -52,13 +51,12 @@ Primeros pasos:
 
 Información adicional:
 
-- [RStudio cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
+- [RStudio cheatsheet](https://posit.co/wp-content/uploads/2022/10/rstudio-ide-1.pdf)
 
-- [Using the RStudio IDE](https://support.rstudio.com/hc/en-us/sections/200107586-Using-the-RStudio-IDE)
+- [Using the RStudio IDE](https://support.posit.co/hc/en-us/sections/200107586-Using-the-RStudio-IDE)
 
-- [Getting-Started-with-RStudio-Server](https://support.rstudio.com/hc/en-us/articles/234653607-Getting-Started-with-RStudio-Server)
+<!-- https://support.posit.co/hc/en-us/articles/234653607-Getting-Started-with-RStudio-Workbench-RStudio-Server -->
 
-- [RStudio Server Professional Edition Administration Guide](https://docs.rstudio.com/ide/server-pro)
 
 ---
 
@@ -71,14 +69,13 @@ mkdir installr
 cd installr
 ```
 
-Buscar la versión actualizada de RStudio en [Download RStudio](https://rstudio.com/products/rstudio/download/#download) correspondiente a la versión de ubuntu, en este caso emplearemos "https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb",
-para Ubuntu 18/Debian 10.
+Buscar la versión actualizada de RStudio en [Download RStudio](https://posit.co/download/rstudio-desktop) correspondiente a la versión de Ubuntu, en este caso emplearemos "https://download1.rstudio.org/electron/bionic/amd64/rstudio-2022.12.0-353-amd64.deb",
+para Ubuntu 18+/Debian 10.
 
 ```sh
 sudo apt-get install gdebi-core
-wget https://download1.rstudio.org/desktop/bionic/amd64/rstudio-1.4.1103-amd64.deb
-sudo gdebi -n rstudio-1.4.1103-amd64.deb
-
+wget https://download1.rstudio.org/electron/bionic/amd64/rstudio-2022.12.0-353-amd64.deb
+sudo gdebi -n rstudio-2022.12.0-353-amd64.deb
 ```
 
 Si no se dispone de un entorno gráfico puede ser recomendable instalar RStudio Server como se describe en [este post](/post/instalacion-de-r-para-hpc/#rstudio-server).
@@ -100,7 +97,7 @@ Por ejemplo, yo acostumbro a establecer:
     
     - Default text encoding: UTF-8 
     
-        (se puede establecer por defecto al emplear el menú *File > Save with Encoding...* )
+        (en las nuevas versiones de RStudio ya será la opción por defecto; en versiones anteriores también se puede establecer al emplear el menú *File > Save with Encoding...*)
     
 * Appearance 
     
@@ -112,7 +109,7 @@ Por ejemplo, yo acostumbro a establecer:
     
     - CRAN mirror: Spain (A Coruña) - Oficina de software libre (CIXUG)
 
-        (o otro cercano, como Spain (Madrid), Escuela Politécnica Nacional  (Ecuador), ...)
+        (o otro cercano, como Spain (Madrid), Escuela Politécnica Nacional (Ecuador), ...)
     
 * R Markdown
     
