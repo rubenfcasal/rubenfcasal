@@ -10,6 +10,10 @@ Enable/disable and configure widgets to customize your homepage.
 """
 +++
 
+{{% alert note %}}
+This post corresponds to an older versión of Hugo, visit the [website](https://gohugo.io) for updated information.
+{{% /alert %}}
+
 Homepage widgets display as sections on the homepage. They can be enabled/disabled and configured as desired. Academic has the following widgets available to use:
 
 - About/biography
