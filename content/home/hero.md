@@ -45,7 +45,7 @@ weight = 3
 
 - Fernández-Casal R., Roca-Pardiñas J., Costa J. y Oviedo-de la Fuente M. (2022). *[Introducción al Análisis de Datos con R](https://rubenfcasal.github.io/intror)* ([github](https://github.com/rubenfcasal/intror)).
 
-- Fernández-Casal R. y Cao R. (2022). *[Simulación Estadística](https://rubenfcasal.github.io/simbook)*  ([github](https://github.com/rubenfcasal/simbook)), [segunda edición](https://rubenfcasal.github.io/simbook2) (en proceso de elaboración).
+- Fernández-Casal R., Cao R. y Costa J. (2023). *[Técnicas de Simulación y Remuestreo](https://rubenfcasal.github.io/simbook)*  ([github](https://github.com/rubenfcasal/simbook)). La anterior edición (Fernández-Casal R. y Cao R., 2022, *Simulación Estadística*) está disponible en la rama *[primera_edicion](https://github.com/rubenfcasal/simbook/tree/primera_edicion)*.
 
 - Cao R. y Fernández-Casal R. (2021). *[Técnicas de Remuestreo](https://rubenfcasal.github.io/book_remuestreo)*   ([github](https://github.com/rubenfcasal/book_remuestreo)).
 
@@ -59,6 +59,6 @@ weight = 3
 
 ### [Estadística](/categories/estadística) computacional: [Regresión](/tags/regresión), [Geoestadística](/tags/geoestadística) espacio-temporal, ...
 
-- [Introducción a la Geoestadística con *geoR*](/post/introduccion-a-la-geoestadistica-con-geor), [Geoestadística no paramétrica con el paquete *npsp*](/post/geoestadistica-no-parametrica-con-el-paquete-npsp).
+- [Geoestadística no paramétrica con el paquete *npsp*](/post/geoestadistica-no-parametrica-con-el-paquete-npsp). [Introducción a la Geoestadística con *geoR*](/post/introduccion-a-la-geoestadistica-con-geor).
 
-- [El problema de la colinelidad](/post/problema-colinealidad), [Diagnosis de la independencia](/post/diagnosis-de-la-independencia).
+- [El problema de la colinelidad](/post/problema-colinealidad). [Diagnosis de la independencia](/post/diagnosis-de-la-independencia).

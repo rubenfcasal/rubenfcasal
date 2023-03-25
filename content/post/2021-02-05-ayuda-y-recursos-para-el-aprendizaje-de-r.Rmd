@@ -1,7 +1,7 @@
 ---
-title: Ayuda y recursos para el aprendizaje de R
+title: Ayuda y recursos para el aprendizaje de R (actualizado)
 author: Rubén Fernández Casal
-date: '2021-02-05'
+date: '2023-03-23'
 slug: ayuda-y-recursos-para-el-aprendizaje-de-r
 categories:
   - R
@@ -13,7 +13,7 @@ output:
     toc: true
 ---
 
-A continuación se muestran algunos recursos que considero que pueden ser útiles para el aprendizaje de R y la obtención de ayuda... (página en preparación..., actualizado el `r Sys.Date()`).
+A continuación se muestran algunos recursos que considero que pueden ser útiles para el aprendizaje de R y la obtención de ayuda... (página en preparación...).
 
 
 ## Ayuda online
@@ -61,6 +61,12 @@ Algunos cursos gratuitos:
 
 - Udacity: [Data Analysis with R](https://eu.udacity.com/course/data-analysis-with-r--ud651)
 
+<!-- -->
+
+- [Cognitive class](https://cognitiveclass.ai/courses?topic%5B%5D=r-programming):
+
+    - [R for Data Science](https://cognitiveclass.ai/courses/r-101)
+
 
 Incluso se pueden hacer cursos desde el propio R con el paquete [swirl](https://swirlstats.com).
 Un listado de los cursos disponibles se puede consultar aquí:
@@ -72,59 +78,74 @@ Ver: [Cursos MOOC relacionados con R](http://r-es.org/2016/02/12/cursos-masivos-
 
 ## Libros
 
-### Iniciación
+A continuación se muestra una selección de libros (muchos en abierto) que considero que pueden resultar de utilidad.
+Para referencias adicionales recomiendo ver el libro:
 
-- 2011 - The Art of R Programming. A Tour of Statistical Software Design - Matloff
-  ([No Starch Press](https://www.nostarch.com/artofr.htm))
+- Baruffa, O. (2022). *[Big Book of R](https://www.bigbookofr.com)*: Your last-ever bookmark (hopefully...).
 
-- R for Data Science
-  ([online](http://r4ds.had.co.nz), [online-castellano](https://es.r4ds.hadley.nz), 
-  [O'Reilly](http://shop.oreilly.com/product/0636920034407.do))
-    
 
-- Hands-On Programming with R: Write Your Own Functions and Simulations, 
-  by Garrett Grolemund 
-  ([O'Reilly](http://shop.oreilly.com/product/0636920028574.do))
+### Iniciación a la programación en R
 
-### Avanzados
+- Matloff, N. (2011). *The art of R programming: A tour of statistical software design*, [No Starch Press](https://www.nostarch.com/artofr.htm).
 
-- 2008 - Software for Data Analysis: Programming with R - Chambers
-  ([Springer](http://www.springer.com/la/book/9780387759357))
+- Wickham, H., y Grolemund, G. (2016). *[R for data science: import, tidy, transform, visualize, and model data](http://r4ds.had.co.nz)*, [online-castellano](https://es.r4ds.hadley.nz), [O'Reilly](http://shop.oreilly.com/product/0636920034407.do).
 
-- Advanced R by Hadley Wickham
-  (online: [1ª ed](http://adv-r.had.co.nz/), 
-  [2ª ed](https://adv-r.hadley.nz/), 
-  [Chapman & Hall](https://www.amazon.com/dp/1466586966))
+- Grolemund, G. (2014). *[Hands-on programming with R: Write your own functions and simulations](https://rstudio-education.github.io/hopr)*, [O'Reilly](http://shop.oreilly.com/product/0636920028574.do).
 
-- R packages by Hadley Wickham
-  ([online](http://r-pkgs.had.co.nz/),
-  [O'Reilly](http://shop.oreilly.com/product/0636920034421.do))
+
+### Programación avanzada en R
+
+- Chambers, J.M. (2008). *Software for data analysis: programming with R*, [Springer](http://www.springer.com/la/book/9780387759357).
+
+- Wickham, H. (2019). *[Advanced R, 2ª edición](https://adv-r.hadley.nz/)*, [Chapman & Hall](https://www.amazon.com/dp/0815384572), [1ª edición.](http://adv-r.had.co.nz/).
+
+- Wickham, H. (2015). *[R packages: organize, test, document, and share your code](http://r-pkgs.had.co.nz/)* (actualmente 2ª edición en desarrollo con H. Bryan), [O'Reilly, 1ª edición](http://shop.oreilly.com/product/0636920034421.do).
+
 
 ### Bookdown
 
 El paquete [Bookdown](https://bookdown.org) de R permite escribir libros empleando 
 [R Markdown](http://rmarkdown.rstudio.com) y compartirlos. 
-En https://bookdown.org está disponible una selección de libros escritos con este paquete 
-(un listado más completo está disponible [aquí](https://bookdown.org/home/archive/)).
-Algunos libros en este formato en castellano son:
+En https://bookdown.org está disponible una selección de libros escritos con este paquete.
+En el [listado completo]((https://bookdown.org/home/archive/)) se incluyen muchos más (algunos en castellano).
 
-- Fernández-Casal R., Roca-Pardiñas J. y Costa J. (2019). *Introducción al Análisis de Datos con R*. <https://rubenfcasal.github.io/intror> ([github](https://github.com/rubenfcasal/intror)).
+Además de los anteriormente citados, podríamos destacar:
 
-- Fernández-Casal R. y Cotos-Yáñez T.R. (2021). *Estadística Espacial con R*. <https://rubenfcasal.github.io/estadistica_espacial> ([github](https://github.com/rubenfcasal/estadistica_espacial)). 
+- Regresión y aprendizaje estadístico:
 
-- Fernández-Casal R. y Cao R. (2020). *Simulación Estadística*. <https://rubenfcasal.github.io/simbook> ([github](https://github.com/rubenfcasal/simbook)).
+    - Kuhn, M., y Silge, J. (2022). *[Tidy Modeling with R](https://www.tmwr.org)*, [O'Reilly](https://www.oreilly.com/library/view/tidy-modeling-with/9781492096474).
 
-- Cao R. y Fernández-Casal R. (2021). *Técnicas de Remuestreo* <https://rubenfcasal.github.io/book_remuestreo> ([github](https://github.com/rubenfcasal/book_remuestreo)).
+- Datos temporales y espaciales:
 
-- Fernández-Casal R., Costa J. y Oviedo de la Fuente M. (2021). *Aprendizaje Estadístico*. <https://rubenfcasal.github.io/aprendizaje_estadistico> ([github](https://github.com/rubenfcasal/aprendizaje_estadistico)).
+    - Hyndman, R.J., y Athanasopoulos, G. (2021). *[Forecasting: principles and practice](https://otexts.com/fpp3)*. [OTexts](https://www.amazon.es/dp/0987507133).
 
-- López-Taboada G. y Fernández-Casal R. (2020). *Prácticas de Tecnologías de Gestión y Manipulación de Datos*. <https://gltaboada.github.io/tgdbook> ([github](https://github.com/gltaboada/tgdbook)).
+    - Lovelace, R., Nowosad, J., y Muenchow, J. (2019). *[Geocomputation with R](https://geocompr.robinlovelace.net)*. [CRC](https://www.routledge.com/9781138304512).
+    
+    - Moraga, P. (2019). *[Geospatial health data: Modeling and visualization with R-INLA and shiny](https://www.paulamoraga.com/book-geospatial)*, [CRC](https://www.routledge.com/9780367357955).
+        
+    - Pebesma, E., y Bivand, R. (2021). *[Spatial Data Science](https://keen-swartz-3146c4.netlify.app)*.
 
-- Fernández-Casal R. y Cotos-Yáñez T.R. (2018). *Escritura de libros con bookdown*. <https://rubenfcasal.github.io/bookdown_intro> ([github](https://github.com/rubenfcasal/bookdown_intro)). Incluye un apéndice con una [introducción a Rmarkdown](https://rubenfcasal.github.io/bookdown_intro/rmarkdown.html). 
 
-- Gil Bellosta C.J. (2018). [R para profesionales de los datos: una introducción](https://www.datanalytics.com/libro_r/index.html).
+Entre los disponibles en castellano:
 
-- Quintela del Rio A. (2019). [Estadística Básica Edulcorada](https://bookdown.org/aquintela/EBE).
+- Fernández-Casal R., Roca-Pardiñas J., Costa J., y Oviedo de la Fuente, M. (2022). *[Introducción al Análisis de Datos con R](https://rubenfcasal.github.io/intror)*. [github](https://github.com/rubenfcasal/intror).
+
+- Fernández-Casal R. y Cotos-Yáñez T.R. (2021). *[Estadística Espacial con R](https://rubenfcasal.github.io/estadistica_espacial)*. [github](https://github.com/rubenfcasal/estadistica_espacial). 
+
+- Fernández-Casal R., Cao R. y Costa J. (2023). *[Técnicas de Simulación y Remuestreo](https://rubenfcasal.github.io/simbook)*  ([github](https://github.com/rubenfcasal/simbook)). La anterior edición (Fernández-Casal R. y Cao R., 2022, *Simulación Estadística*) está disponible en la rama *[primera_edicion](https://github.com/rubenfcasal/simbook/tree/primera_edicion)*.
+
+- Cao R. y Fernández-Casal R. (2021). *[Técnicas de Remuestreo](https://rubenfcasal.github.io/book_remuestreo)*. [github](https://github.com/rubenfcasal/book_remuestreo).
+
+- Fernández-Casal R., Costa J. y Oviedo de la Fuente, M. (2021). *[Aprendizaje Estadístico](https://rubenfcasal.github.io/aprendizaje_estadistico)*. [github](https://github.com/rubenfcasal/aprendizaje_estadistico).
+
+- López-Taboada G. y Fernández-Casal R. (2020). *[Prácticas de Tecnologías de Gestión y Manipulación de Datos](https://gltaboada.github.io/tgdbook)*. [github](https://github.com/gltaboada/tgdbook).
+
+- Fernández-Casal R. y Cotos-Yáñez T.R. (2018). *[Escritura de libros con bookdown](https://rubenfcasal.github.io/bookdown_intro)*,   [github](https://github.com/rubenfcasal/bookdown_intro). Incluye un apéndice con una [Introducción a RMarkdown](https://rubenfcasal.github.io/bookdown_intro/rmarkdown.html). 
+    
+- Gil Bellosta C.J. (2018). *[R para profesionales de los datos: una introducción](https://www.datanalytics.com/libro_r/index.html)*.
+
+- Quintela del Rio A. (2019). *[Estadística Básica Edulcorada](https://bookdown.org/aquintela/EBE)*.
+
 
 ## Material online
 
