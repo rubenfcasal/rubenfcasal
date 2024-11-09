@@ -1,10 +1,10 @@
 baseurl = "https://rubenfcasal.github.io/"
 languageCode = "en-us"
 title = "R Machinery"
-copyright = "&copy; 2017-2023 Ruben Fernandez-Casal"
+copyright = "&copy; 2017-2024 Ruben Fernandez-Casal"
 theme = "hugo-academic"
 enableEmoji = true
-publishDir = "../rubenfcasal.github.io"
+publishDir = "public"
 # publishDir = "docs"
 footnotereturnlinkcontents = "<sup>^</sup>"
 ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
