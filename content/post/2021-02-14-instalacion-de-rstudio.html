@@ -1,7 +1,7 @@
 ---
-title: Instalación y configuración de RStudio Desktop
+title: Instalación y configuración de RStudio Desktop (actualizado)
 author: Rubén Fernández Casal
-date: '2021-02-14'
+date: '2024-11-08'
 slug: instalacion-de-rstudio
 categories:
   - R
@@ -14,15 +14,14 @@ output:
     toc: true
 ---
 
-<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
 
 <div id="TOC">
 <ul>
-<li><a href="#windows">Instalación en Windows y primeros pasos</a></li>
-<li><a href="#ubuntu">Instalación en Ubuntu/Devian</a></li>
-<li><a href="#configuración">Configuración</a>
+<li><a href="#windows" id="toc-windows">Instalación en Windows y primeros pasos</a></li>
+<li><a href="#ubuntu" id="toc-ubuntu">Instalación en Ubuntu/Devian</a></li>
+<li><a href="#configuración" id="toc-configuración">Configuración</a>
 <ul>
-<li><a href="#opciones-adicionales">Opciones adicionales</a></li>
+<li><a href="#opciones-adicionales" id="toc-opciones-adicionales">Opciones adicionales</a></li>
 </ul></li>
 </ul>
 </div>
@@ -52,6 +51,7 @@ Está disponible para la mayoría de plataformas (hay una versión para servidor
 <ul>
 <li><p><a href="https://posit.co/wp-content/uploads/2022/10/rstudio-ide-1.pdf">RStudio cheatsheet</a></p></li>
 <li><p><a href="https://support.posit.co/hc/en-us/sections/200107586-Using-the-RStudio-IDE">Using the RStudio IDE</a></p></li>
+<li><p><a href="https://appsilon.com/rstudio-shortcuts-and-tips/">RStudio Shortcuts and Tips</a></p></li>
 </ul>
 <!-- https://support.posit.co/hc/en-us/articles/234653607-Getting-Started-with-RStudio-Workbench-RStudio-Server -->
 <hr />
@@ -79,10 +79,11 @@ Por ejemplo, yo acostumbro a establecer:</p>
 <li><p>Save workspace to .RData on exit: Never</p></li>
 <li><p>Always save history: Desactivado</p></li>
 </ul></li>
-<li><p>Code: Saving</p>
+<li><p>Code:</p>
 <ul>
-<li><p>Default text encoding: UTF-8</p>
+<li><p>Saving &gt; Default text encoding: UTF-8</p>
 <p>(en las nuevas versiones de RStudio ya será la opción por defecto; en versiones anteriores también se puede establecer al emplear el menú <em>File &gt; Save with Encoding…</em>)</p></li>
+<li><p>Completion &gt; Show code completions: Manually (Tab)</p></li>
 </ul></li>
 <li><p>Appearance</p>
 <ul>
@@ -117,9 +118,10 @@ Por ejemplo, yo acostumbro a establecer:</p>
 <div id="opciones-adicionales" class="section level2">
 <h2>Opciones adicionales</h2>
 <p>Personalmente, como además suelo trabajar con dos monitores, prefiero no emplear los visores de gráficos, ayuda y navegador web integrados.
-Por ese motivo acostumbro a modificar los archivos de configuración (en el directorio <em>C:\Program Files\RStudio\R</em> en Windows y <em>/Applications/RStudio.app/Contents/Resources/R</em> en Linux), que normalmente habrá que editar como administrador.</p>
+Por ese motivo acostumbro a modificar los archivos de configuración (en el directorio <em>C:\Program Files\RStudio\resources\app\R</em> en Windows y
+<em>/Applications/RStudio.app/Contents/Resources/R</em> en Linux), que normalmente habrá que editar como administrador.</p>
 <p>Por defecto los gráficos generados desde RStudio se mostrarán en la pestaña <em>Plots</em> panel inferior derecho y por ejemplo puede aparecer errores si el área gráfica es demasiado pequeña.
-Para utilizar el dispositivo gráfico de R habría que modificar las siguientes líneas de <em>C:\Program Files\RStudio\R\Tools.R</em>:</p>
+Para utilizar el dispositivo gráfico de R habría que modificar las siguientes líneas de <em>Tools.R</em>:</p>
 <pre class="r"><code># set our graphics device as the default and cause it to be created/set
 .rs.addFunction( &quot;initGraphicsDevice&quot;, function()
 {
@@ -128,7 +130,7 @@ Para utilizar el dispositivo gráfico de R habría que modificar las siguientes 
   grDevices::deviceIsInteractive()
 })</code></pre>
 <p>El visor integrado de RStudio no resulta muy cómodo para navegar por la ayuda de las funciones (por ejemplo no permite hacer zoom o abrir múltiples ventanas).
-Para utilizar en su lugar el navegador del equipo habría que comentar las siguientes líneas de <em>C:\Program Files\RStudio\R\Options.R</em>:</p>
+Para utilizar en su lugar el navegador del equipo habría que comentar las siguientes líneas de <em>Options.R</em>:</p>
 <pre class="r"><code># # custom browseURL implementation.
 # .rs.setOption(&quot;browser&quot;, function(url)
 # {

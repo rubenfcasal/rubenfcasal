@@ -1,7 +1,7 @@
 ---
-title: Instalación y configuración de RStudio Desktop
+title: Instalación y configuración de RStudio Desktop (actualizado)
 author: Rubén Fernández Casal
-date: '2021-02-14'
+date: '2024-11-08'
 slug: instalacion-de-rstudio
 categories:
   - R
@@ -55,6 +55,8 @@ Información adicional:
 
 - [Using the RStudio IDE](https://support.posit.co/hc/en-us/sections/200107586-Using-the-RStudio-IDE)
 
+- [RStudio Shortcuts and Tips](https://appsilon.com/rstudio-shortcuts-and-tips/)
+
 <!-- https://support.posit.co/hc/en-us/articles/234653607-Getting-Started-with-RStudio-Workbench-RStudio-Server -->
 
 
@@ -93,11 +95,13 @@ Por ejemplo, yo acostumbro a establecer:
     
     - Always save history: Desactivado
     
-* Code: Saving
+* Code: 
     
-    - Default text encoding: UTF-8 
+    - Saving > Default text encoding: UTF-8 
     
         (en las nuevas versiones de RStudio ya será la opción por defecto; en versiones anteriores también se puede establecer al emplear el menú *File > Save with Encoding...*)
+        
+    - Completion > Show code completions: Manually (Tab)
     
 * Appearance 
     
@@ -142,10 +146,11 @@ Para más detalles ver [Customizing RStudio](https://support.rstudio.com/hc/en-u
 ## Opciones adicionales
 
 Personalmente, como además suelo trabajar con dos monitores, prefiero no emplear los visores de gráficos, ayuda y navegador web integrados. 
-Por ese motivo acostumbro a modificar los archivos de configuración (en el directorio *C:\\Program Files\\RStudio\\R* en Windows y  */Applications/RStudio.app/Contents/Resources/R* en Linux), que normalmente habrá que editar como administrador.
+Por ese motivo acostumbro a modificar los archivos de configuración (en el directorio *C:\\Program Files\\RStudio\\resources\\app\\R* en Windows y 
+*/Applications/RStudio.app/Contents/Resources/R* en Linux), que normalmente habrá que editar como administrador.
 
 Por defecto los gráficos generados desde RStudio se mostrarán en la pestaña *Plots* panel inferior derecho y por ejemplo puede aparecer errores si el área gráfica es demasiado pequeña.
-Para utilizar el dispositivo gráfico de R habría que modificar las siguientes líneas de *C:\\Program Files\\RStudio\\R\\Tools.R*:
+Para utilizar el dispositivo gráfico de R habría que modificar las siguientes líneas de *Tools.R*:
 
 ```{r, eval=FALSE}
 # set our graphics device as the default and cause it to be created/set
@@ -158,7 +163,7 @@ Para utilizar el dispositivo gráfico de R habría que modificar las siguientes 
 ```
 
 El visor integrado de RStudio no resulta muy cómodo para navegar por la ayuda de las funciones (por ejemplo no permite hacer zoom o abrir múltiples ventanas).
-Para utilizar en su lugar el navegador del equipo habría que comentar las siguientes líneas de *C:\\Program Files\\RStudio\\R\\Options.R*:
+Para utilizar en su lugar el navegador del equipo habría que comentar las siguientes líneas de *Options.R*:
 
 ```{r, eval=FALSE}
 # # custom browseURL implementation.

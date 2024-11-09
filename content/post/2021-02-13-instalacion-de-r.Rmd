@@ -1,7 +1,7 @@
 ---
 title: Instalación de R (actualizado)
 author: Rubén Fernández Casal
-date: '2023-03-20'
+date: '2024-11-09'
 slug: instalacion-de-r
 categories:
   - R
@@ -13,6 +13,14 @@ output:
   blogdown::html_page:
     toc: true
 ---
+
+```{r echo=FALSE}
+rver <- "4.4.2"
+rtoolsver <- "44"
+```
+
+[Actualizado a R `r rver`]
+
 
 En la web del proyecto R ([www.r-project.org](http://www.r-project.org)) está disponible mucha información sobre este entorno estadístico.
 
@@ -29,7 +37,7 @@ Las descargas se realizan a través de la web del CRAN (The Comprehensive R Arch
 
 # Instalación de R en Windows {#windows}
 
-Seleccionando [Download R for Windows](http://ftp.cixug.es/CRAN/bin/windows/) y posteriormente [base](http://ftp.cixug.es/CRAN/bin/windows/base/) accedemos al enlace con el instalador de R para Windows (actualmente de la versión [4.2.3](http://ftp.cixug.es/CRAN/bin/windows/base/R-4.2.3-win.exe)).
+Seleccionando [Download R for Windows](http://ftp.cixug.es/CRAN/bin/windows/) y posteriormente [base](http://ftp.cixug.es/CRAN/bin/windows/base/) accedemos al enlace con el instalador de R para Windows.
 
 ![](/img/R351.png){width="60%"}
     
@@ -42,7 +50,7 @@ Durante el proceso de instalación la recomendación (para evitar posibles probl
 
 Una vez terminada la instalación, al abrir R aparece la ventana de la consola (simula una ventana de comandos de Unix) que permite ejecutar comandos de R.
 
-Por defecto se instalan un conjunto de paquetes base de R (que se cargan automáticamente al iniciarlo) y un conjunto de [paquetes recomendados](https://cran.r-project.org/src/contrib/4.1.2/Recommended) (que se pueden cargar empleando el comando `library()`),
+Por defecto se instalan un conjunto de paquetes base de R (que se cargan automáticamente al iniciarlo) y un conjunto de [paquetes recomendados](https://cran.r-project.org/src/contrib/`r rver`/Recommended) (que se pueden cargar empleando el comando `library()`),
 pero hay disponibles miles de paquetes que cubren literalmente todos los campos del análisis de datos. 
 Ver por ejemplo:
 
@@ -55,8 +63,8 @@ Ver por ejemplo:
 
 Después de la instalación de R suele ser necesario instalar paquetes adicionales (puede ser recomendable *Ejecutar como administrador* R para evitar problemas de permiso de escritura en la carpeta *C:\\Program Files\\R\\R-X.Y.Z\\library*, o cambiar previamente los permisos de esta carpeta como se indica [aquí](#library)).
 
-El paquete que recomendaría instalar a un usuario que se está iniciando en R es^[Anteriormente también recomendaba instalar [`rattle`](https://rattle.togaware.com), pero depende del paquete `RGtk2` para poder emplear la librería gráfica GTK+ y 
-actualmente no está disponible en CRAN, aunque se podría instalar siguiendo [estos pasos](https://rattle.togaware.com/).] [`Rcmdr`](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr) (un entorno gráfico), junto con sus dependencias (de esta forma cubriríamos las herramientas necesarias para los análisis más habituales con R). 
+El paquete que recomendaría instalar a un usuario que se está iniciando en R es^[Anteriormente también recomendaba instalar [`rattle`](https://togaware.com/projects/rattle/), pero depende del paquete `RGtk2` (ya que implementa un entorno gráfico basado en GTK+) y 
+actualmente no está disponible en CRAN, aunque se podría usar empleando una [imagen Docker](https://hub.docker.com/r/kayon/rattle/).] [`Rcmdr`](https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr) (un entorno gráfico), junto con sus dependencias (de esta forma cubriríamos las herramientas necesarias para los análisis más habituales con R). 
 
 Para ello bastaría con ejecutar en la consola de R (copiando y pegando p.e.) el comando:
 
@@ -107,6 +115,8 @@ Un entorno de desarrollo (integrated development environment, IDE) muy recomenda
 
 Otras alternativas son:
 
+- [Positron: A next-generation data science IDE built by Posit](https://positron.posit.co) (versión beta para pruebas)
+
 - [Tinn-R: GUI for R Language and Environment](https://sourceforge.net/projects/tinn-r)
 
 - [NppToR: R in Notepad++](https://sourceforge.net/projects/npptor) (requiere [Notepad++](https://notepad-plus-plus.org/download))
@@ -122,7 +132,7 @@ Otras alternativas son:
 ### Cambiar los permisos de la carpeta *library* {#library}
 
 Para evitar problemas con la instalación de paquetes en Windows (y evitar también que los paquetes se instalen en *Documentos\\R\\win-library\\X.Y*) yo acostumbro a dar permiso de *control total* a los usuarios del equipo en el subdirectorio *library* de la instalación de R.
-Para ello, pulsar con el botón derecho en esta carpeta (e.g. *C:\\Program Files\\R\\R-4.2.3\\library*), seleccionar *Propiedades > Seguridad > Editar*, seleccionar los *Usuarios* del equipo, marcar *Control total* y *Aplicar*.
+Para ello, pulsar con el botón derecho en esta carpeta (e.g. *C:\\Program Files\\R\\R-`r rver`\\library*), seleccionar *Propiedades > Seguridad > Editar*, seleccionar los *Usuarios* del equipo, marcar *Control total* y *Aplicar*.
 
 ---------------------------  ------------------------
  ![](/img/propiedades.png)    ![](/img/permisos.png)
@@ -136,10 +146,10 @@ Es importante instalar la versión correspondiente a la instalación de R.
 
 Al finalizar se puede añadir el directorio de instalación a la ruta de búsqueda (aunque solo sería necesario si se va a trabajar desde la ventana de comandos), y ya de paso recomiendo añadir también el directorio de instalación de R.
 Para ello habría que ir a *Propiedades del sistema > Opciones avanzadas > Variables de entorno* y en *Variables de sistema* editar el *Path* y añadir dos nuevas entradas (o modificar versiones anteriores):
-*C:\\rtools42\\usr\\bin* y *C:\\Program Files\\R\\R-4.2.3\\bin* (o los correspondientes directorios de instalación).
+*C:\\rtools`r rtoolsver`\\usr\\bin* y *C:\\Program Files\\R\\R-`r rver`\\bin* (o los correspondientes directorios de instalación).
 
-Si no sabes como acceder a *Propiedades del sistema* (en Windows 10 está bastante oculto) puedes consultar este [post](https://answers.microsoft.com/es-es/windows/forum/windows_10-other_settings/windows-10-variables-de-entorno-windows-10-version/703ea5fa-1db4-46da-8ff7-6261140bf58b). 
-Yo prefiero pulsar con el botón derecho en *Equipo*, seleccionar *Propiedades* y después *Configuración avanzada del sistema*.
+Si no sabes como acceder a *Propiedades del sistema* (en Windows 10 y 11 está bastante oculto) puedes buscar *Configuración avanzada del sistema* en el botón de Inicio. 
+Otra opción es pulsar con el botón derecho en *Este equipo*, seleccionar *Propiedades* y después *Configuración avanzada del sistema*.
 
 ![](/img/cmd.png){width="60%"}
 
@@ -156,7 +166,7 @@ Para más detalles ver:
   [O'Reilly](http://shop.oreilly.com/product/0636920034421.do))
   
 Para generar animaciones en rmarkdown recomiendo emplear [ffmpeg](https://www.ffmpeg.org) e instalar la versión compilada para Windows de BtbN: [ffmpeg-master-latest-win64-lgpl-shared.zip](https://github.com/BtbN/FFmpeg-Builds/releases/download/latest/ffmpeg-master-latest-win64-lgpl-shared.zip).
-Que solo habría que descomprimir y añadir al path el subdirectorio *bin* (yo acostumbro a descomprimirlo en el subdirectorio *ffmpeg* de *rtools* y añado una entrada de la forma *C:\rtools42\ffmpeg\bin*).
+Que solo habría que descomprimir y añadir al path el subdirectorio *bin* (yo acostumbro a descomprimirlo en el subdirectorio *ffmpeg* de *C:\\util* y añado una entrada de la forma *C:\\util\\ffmpeg\\bin*).
 Una vez instalado podemos generar una animación, que combine automáticamente las imágenes generadas en un bloque (chunk) de código, estableciendo las opciones:  `fig.show="animate"` y `ffmpeg.format="gif"` (adicionalmente podemos establecer otras opciones como `aniopts="loop"` o `interval=0.5`; para más detalles ver [chunk options](https://yihui.org/knitr/options/#animation)).
 
 <!-- 
@@ -169,7 +179,7 @@ Compresión ficheros .RData
 
 # Instalación de R en Ubuntu/Devian {#ubuntu}
 
-[Testado con Ubuntu 20.04.3 LTS y R 4.1.2]
+[Testado con Ubuntu 20.04.3 LTS y R 4.1.2, sin actualizar]
 
 Instalar dependencias:
 
@@ -250,14 +260,13 @@ Si se dispone de un entorno gráfico se pueden seguir los pasos en [este post](/
 
 Instalar R de <http://cran.es.r‐project.org/bin/macosx> siguiendo los pasos habituales.
 
-Para instalar R-Commander (<https://socialsciences.mcmaster.ca/jfox/Misc/Rcmdr/installation-notes.html>) es necesario disponer de las librerías gráficas X11, como a partir de OS X Lion ya no están instaladas por defecto en el sistema, hay que instalar las librerías Open Source XQuartz <https://www.xquartz.org>. 
+Para instalar R-Commander (<https://www.john-fox.ca/RCommander/installation-notes.html>) es necesario disponer de las librerías gráficas X11, como a partir de OS X Lion ya no están instaladas por defecto en el sistema, hay que instalar las librerías Open Source XQuartz <https://www.xquartz.org>. 
 
 Finalmente, para instalar `Rcmdr` ejecutar en la consola de R: 
 ```{r, eval=FALSE}
 install.packages("Rcmdr", dependencies = TRUE)
 ```
 
-Si se quiere instalar `rattle` seguir [estos pasos](https://rattle.togaware.com/). 
 
 
 

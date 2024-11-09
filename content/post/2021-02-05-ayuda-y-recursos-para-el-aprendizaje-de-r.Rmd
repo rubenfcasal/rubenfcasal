@@ -204,15 +204,15 @@ En la web se puede encontrar mucho material adicional, por ejemplo:
     
         https://stat.ethz.ch/mailman/listinfo
     
-    - Búsqueda en R-help: 
+    <!-- - Búsqueda en R-help:
     
-        http://r.789695.n4.nabble.com/R-help-f789696.html
+        http://r.789695.n4.nabble.com/R-help-f789696.html -->    
     
     - Búsqueda en R-help-es: 
     
         https://r-help-es.r-project.narkive.com
       
-        https://grokbase.com/g/r/r-help-es
+        <!-- https://grokbase.com/g/r/r-help-es -->
 
     - Archivos de R-help-es: 
     
